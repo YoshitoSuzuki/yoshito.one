@@ -61,8 +61,15 @@ a:active {
   margin-bottom: 20px;
 }
 
+.pass {
+  padding: 0 3px;
+  border: solid 1px #000000;
+}
+
 .button {
   font-family: "Noto Serif JP", serif;
+  padding: 0 3px;
+  border: solid 1px #000000;
 }
 
 .passForm #content {
