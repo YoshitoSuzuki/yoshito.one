@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>yoshito.me</title>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name='robots' content='noindex'>
+  </head>
+  <body>
+    <h1>yoshito.me</h1>
+
+
+
+
+
+    <div class="passForm">
+      <h2>コンテンツにアクセスするにはパスワードを入力してください</h2>
+      <form id="passwordForm">
+          <label class="form test" for="password">パスワード:</label>
+          <input class="form pass" type="password" id="password" name="password" required>
+          <input class="form button" type="button" value="送信" onclick="submitForm()">
+      </form>
+      <div id="content" style="display:none;">
+          <!-- ここにGoogleスプレッドシートからのデータが表示されます -->
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <footer><p><small>&copy; 2024 yoshito.me</small></p></footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
