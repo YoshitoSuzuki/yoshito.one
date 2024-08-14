@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+body{
+  width: 100%;
+}
+
+h1{
+  font-family: sans-serif;
+  text-align: center;
+  padding-top: 24vw;
+  padding-bottom: 24vw;
+  }
+
+/* リンクのデフォルトの色 */
+a {
+  color: black;
+  text-decoration: none; /* 下線を消す */
+}
+
+/* 訪問済みリンクの色 */
+a:visited {
+  color: black;
+}
+
+/* ホバー時のリンクの色 */
+a:hover {
+  color: black;
+}
+
+/* アクティブ状態のリンクの色 */
+a:active {
+  color: black;
+}
+
+
+/* 以下パスワードフォーム */
+
+
+/* google fonts  -  Noto Serif JP */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap');
+
+.passForm {
+  text-align: center;
+  margin: 50px;
+}
+
+.form {
+  display: inline-block;
+}
+
+.passForm h2 {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 500;
+  padding-bottom: 30px;
+}
+
+.passForm form {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.button {
+  font-family: "Noto Serif JP", serif;
+}
+
+.passForm #content {
+  margin-top: 50px;
+}
+
+
+
+
+
+
+
+footer{
+  background: #FFF;
+  text-align: center;
+  padding: 26px; 0;
+  border-top: 1px solid #000;
+}
+footer p{
+  color: #777;
+  font-size: 0.875rem;
+}
