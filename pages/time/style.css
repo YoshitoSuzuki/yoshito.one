@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+body {
+  font-family: Arial, sans-serif;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  height: 96vh;
+  background-color: #f0f0f0;
+}
+
+
+
+
+.clockSec{
+  width: 100%;
+  padding-top: 150px;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  position: absolute;
+  right: 0px;
+}
+
+.clock {
+  text-align: center;
+  font-size: 2em;
+  line-height: 1.5em;
+  position: absolute;
+  right: 400px;
+}
+
+/* スクロールされたとき */
+.scrolled {
+  width: 100%;
+  text-align: initial;
+  position: fixed;
+  padding: 0.5rem 0;
+  top: 0;
+  left: 0;
+}
+.scrolleddate {
+  left: 7%;
+}
+.scrolledtime {
+  text-align: center;
+}
+
+
+
+.earthquakeMonitorSec {
+  /* text-align: center; */
+  position: absolute;
+  /* padding: 7px 5px; */
+  right: 0;
+}
+
+
+
+@media screen and (max-width: 1140px) {
+/* ここに横幅が1140px以下の時に発動するスタイルを記述 */
+  .clockSec{
+    position: static;
+  }
+  .clock {
+    position: static;
+  }
+  .earthquakeMonitorSec {
+    padding: 30px 5px;
+    position: static;
+  }
+  .earthquakeMonitorSec iframe {
+    width: 100%;
+  }
+}
+
+
+
+@media screen and (max-width: 580px) {
+
+
+
+  /* スクロールされたとき */
+  .scrolled {
+    width: 100%;
+    text-align: initial;
+    position: fixed;
+    padding: 0.5rem 0;
+    top: 0;
+    left: 0;
+  }
+  .scrolleddate {
+    text-align: center;
+  }
+  .scrolledtime {
+    text-align: center;
+    top: 2rem;
+  }
+
+
+
+}
+
+@media screen and (max-width: 520px) {
+
+  .clockSec {
+    padding-top: 50px;
+  }
+  .clock {
+    line-height: 3rem;
+  }
+
+  #reiwaDate {
+    color: #f0f0f0;
+  }
+  #utctime {
+    color: #f0f0f0;
+  }
+
+
+}
