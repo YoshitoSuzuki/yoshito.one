@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
+      <link rel="stylesheet" href="style.css">
+      <meta name='robots' content='noindex'>
+      <title>現在時刻</title>
+  </head>
+  <body>
 
+
+    
+    <section class="clockSec">
+      <div class="clock">
+<!--         <p id="date"></p> -->
+        <p id="reiwaDate"></p>
+        <p id="formattedDate"></p>
+        <p id="time"></p>
+        <p id="clock12">00:00:00 AM</p>
+        <p id="utctime"></p>
+      </div>
+    </section>
+
+
+
+    <section class="earthquakeMonitorSec">
+      <h1>強震モニター</h1>
+      <iframe src="https://eqdata.sakura.ne.jp/kyoshin/2sec_t.html" width="390px" height="710px"></iframe>
+    </section>
+
+
+
+    <script src="script.js"></script>
+    <script src="natureRemo.js"></script>
+    <script src="clock.js"></script>
+  </body>
+</html>
