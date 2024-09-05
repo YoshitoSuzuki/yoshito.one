@@ -12,50 +12,65 @@ body {
 
 .topSec {
   width: 100%;  /* 画面の幅いっぱいに広げる */
-  height: 100vh; /* 画面の高さいっぱいに広げる */
+  /* height: 100vh; /* 画面の高さいっぱいに広げる */ */
   display: flex; /* 中央揃えをする場合はフレックスボックスを使う */
   /* justify-content: center;
   align-items: center;  */
-  background-image: url(imgOfBananasBaks.PNG);
-  background-color: #6c3524;
+  background-image: url(bananaBack.png);
   background-size: cover; /* 画面全体に背景画像を拡大または縮小してカバーする */
   background-position: center center; /* 画像を画面の中央に配置 */
   background-repeat: no-repeat; /* 背景画像を繰り返さない */
 }
 .mainText {
-  width: 80%;
-}
-.logo {
-  padding: 15px 40px;
+  width: 100%;
+  text-align: center;
+  padding: 15vh 0;
 }
 .mainText h1 {
-  color: #ffe9ab;
-  font-size: 4rem;
+  color: #FFF;
+  font-size: 15vw;
 }
 .mainText h2 {
-  color: #ffe9ab;
-  font-size: 1.2rem;
+  color: #FFF;
+  font-size: 4vw;
+}
+
+
+.nowBananaContena {
+  background-color: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nowBanana {
-  width: 100%;
-  padding: 130px 100px 0 100px;
-  line-height: 1rem;
+  /* width: 100%;
+  padding: 6rem 0;
+  line-height: 1rem; */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px 20px 20px;
+
 }
 .nowBanana p {
-  font-size: 40px;
-  color: #ffe9ab;
+  font-size: 1.2em;
+  color: #222;
 }
 
 .container {
   width: 100%;
-  padding: 10px 0;
-  margin: 10vw auto;
+  /* padding: 10px 0; */
+  /* margin: 10vw auto; */
   text-align: center;
+  padding: 15px 0;
 }
 .container h3 {
   font-size: 7vw;
-  color: #ffbb00;
+  font-weight: bold;
 }
 
 
@@ -64,11 +79,7 @@ body {
 
 
 
-.qrAndTimer {
-  display: flex;
-  justify-content: space-around; /* アイテムの間隔を調整 */
-  align-items: center; /* 縦方向の整列を中央にする */
-}
+
 
 .timer {
   text-align: center;
@@ -79,12 +90,12 @@ body {
   border-radius: 5px; /* 角を少し丸くする */
 }
 .timer h2 {
-  font-size: 2.8rem;
+  font-size: 1.8rem;
   color: #DDD;
 }
 .timer p {
   color: white;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 
@@ -106,12 +117,14 @@ body {
 
 
 
-
+.bananaSchedule {
+  padding-top: 30px;
+}
 
 .bananacontena {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .bananacontena h1 {
