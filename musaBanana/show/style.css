@@ -5,6 +5,7 @@ body {
   margin: 0; /* 余白を削除 */
   padding: 0;
   overflow-x: hidden; /* 横スクロールを無効化 */
+  overflow: hidden;
   /* font-family: Arial, sans-serif; */
 }
 
