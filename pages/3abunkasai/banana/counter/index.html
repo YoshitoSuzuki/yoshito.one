@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バナナ本数送信サイト</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .container { width: 300px; margin: 100px auto; text-align: center; }
+    button { margin: 10px; padding: 10px 20px; }
+    .test {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>バナナ本数: <span id="bananaCount">0</span></h1>
+    <input type="number" id="bananaInput" value="0">
+    <br>
+    <button onclick="updateCount(-2)">2個売れた</button>
+    <button onclick="updateCount(-1)">1個売れた</button>
+    <button onclick="updateCount(1)">+1</button>
+    <button onclick="updateCount(2)">+2</button>
+    <br>
+    <button onclick="sendBananaCount()">本数を送信</button>
+  </div>
+  <div class="test">
+    <div class="day1">
+      <button onclick="setNewBananaLots(1)">1日目 10:20~11:55</button>
+      <button onclick="setNewBananaLots(2)">1日目 11:50~13:30</button>
+      <button onclick="setNewBananaLots(3)">1日目 13:25~15:00</button>
+    </div>
+    <div class="day2">
+      <button onclick="setNewBananaLots(4)">2日目 9:20~10:53</button>
+      <button onclick="setNewBananaLots(5)">2日目 10:50~12:26</button>
+      <button onclick="setNewBananaLots(6)">2日目 12:23~14:00</button>
+      <button onclick="setNewBananaLots(7)">2日目 13:56~15:30</button>
+    </div>
+  </div>
 
+  <script src="script.js"></script>
+</body>
+</html>
