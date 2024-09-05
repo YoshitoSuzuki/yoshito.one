@@ -1,0 +1,57 @@
+@charset "UTF-8";
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0; /* 余白を削除 */
+  padding: 0;
+  overflow-x: hidden; /* 横スクロールを無効化 */
+  /* font-family: Arial, sans-serif; */
+}
+
+/* --------------------------------------------------- */
+
+.topSec {
+  width: 100%;  /* 画面の幅いっぱいに広げる */
+  /* height: 100vh; /* 画面の高さいっぱいに広げる */ */
+  display: flex; /* 中央揃えをする場合はフレックスボックスを使う */
+  /* justify-content: center;
+  align-items: center;  */
+  background-image: url(bananaBack.png);
+  background-size: cover; /* 画面全体に背景画像を拡大または縮小してカバーする */
+  background-position: center center; /* 画像を画面の中央に配置 */
+  background-repeat: no-repeat; /* 背景画像を繰り返さない */
+}
+.mainText {
+  width: 100%;
+  text-align: center;
+  padding: 15vh 0;
+}
+.mainText h1 {
+  color: #FFF;
+  font-size: 15vw;
+}
+.mainText h2 {
+  color: #FFF;
+  font-size: 4vw;
+}
+
+.nowBanana {
+  width: 100%;
+  padding: 6rem 0;
+  line-height: 1rem;
+}
+.nowBanana p {
+  font-size: 5vw;
+  color: #FFF;
+}
+
+.container {
+  width: 100%;
+  padding: 10px 0;
+  margin: 10vw auto;
+  text-align: center;
+}
+.container h3 {
+  font-size: 7vw;
+  color: #FFF;
+}
