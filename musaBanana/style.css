@@ -35,25 +35,67 @@ body {
   font-size: 4vw;
 }
 
+
+.nowBananaContena {
+  background-color: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+}
+
 .nowBanana {
-  width: 100%;
+  /* width: 100%;
   padding: 6rem 0;
-  line-height: 1rem;
+  line-height: 1rem; */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px 20px 20px;
+
 }
 .nowBanana p {
-  font-size: 5vw;
-  color: #FFF;
+  font-size: 1.2em;
+  color: #222;
 }
 
 .container {
   width: 100%;
-  padding: 10px 0;
-  margin: 10vw auto;
+  /* padding: 10px 0; */
+  /* margin: 10vw auto; */
   text-align: center;
+  padding: 15px 0;
 }
 .container h3 {
   font-size: 7vw;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+.timer {
+  text-align: center;
+  padding-bottom: 100px;
   color: #FFF;
+  background-color: rgba(0, 0, 0, 0.6); /* 半透明の黒背景 */
+  padding: 10px;
+  border-radius: 5px; /* 角を少し丸くする */
+}
+.timer h2 {
+  font-size: 1.8rem;
+  color: #DDD;
+}
+.timer p {
+  color: white;
+  font-size: 30px;
 }
 
 
@@ -65,10 +107,24 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+.bananaSchedule {
+  padding-top: 30px;
+}
+
 .bananacontena {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .bananacontena h1 {
