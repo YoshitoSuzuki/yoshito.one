@@ -2,14 +2,54 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>バナナ本数送信サイト</title>
   <style>
     body { font-family: Arial, sans-serif; }
     .container { width: 300px; margin: 100px auto; text-align: center; }
-    button { margin: 10px; padding: 10px 20px; }
+    /* button { margin: 10px; padding: 10px 20px; } */
     .test {
       text-align: center;
+    }
+    .clock {
+      text-align: center;
+    }
+    .clock p {
+      font-size: 30px;
+    }
+    input {
+      padding: 12px 15px; /* 余白を追加してタップしやすくする */
+      font-size: 18px; /* 文字サイズを大きくして視認性を高める */
+      border-radius: 8px; /* 角を丸くする */
+      border: 1px solid #ccc; /* 枠線の色をグレーにする */
+      width: 100%; /* 親要素の幅いっぱいに広げる */
+      max-width: 300px; /* 最大幅を設定 */
+      box-sizing: border-box; /* paddingを含んだ幅とする */
+      margin: 10px auto; /* 上下の余白を設定し、中央に配置 */
+      display: block; /* ブロック要素として表示 */
+    }
+    button {
+      padding: 15px 30px; /* ボタンの内側の余白を大きくして、タップしやすいサイズに */
+      font-size: 18px; /* 文字サイズを大きくして、視認性を向上 */
+      border-radius: 8px; /* 丸みを帯びた角を追加 */
+      background-color: #007BFF; /* 見やすい背景色 */
+      color: white; /* 文字の色を白に設定 */
+      border: none; /* 枠線を削除 */
+      cursor: pointer; /* カーソルをポインターに変更 */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 少し影をつけて立体感を追加 */
+      transition: background-color 0.3s ease; /* 背景色の変更を滑らかに */
+      width: 100%; /* ボタンを親要素の幅に合わせる */
+      max-width: 300px; /* ボタンの最大幅を設定 */
+      margin: 10px auto; /* ボタンを中央に配置 */
+      display: block; /* ボタンをブロック要素に設定 */
+    }
+    .disabled {
+      background-color: #cccccc; /* ボタンが無効になったときの背景色 */
+      cursor: not-allowed; /* ボタンが無効な時のカーソル */
+    }
+    .notes {
+      padding: 50px 30px;
     }
   </style>
 </head>
@@ -17,26 +57,41 @@
   <div class="container">
     <h1>バナナ本数: <span id="bananaCount">0</span></h1>
     <input type="number" id="bananaInput" value="0">
+    <button onclick="sendBananaCount()">手入力で送信</button>
+    <br><br><br><br>
+    <button id="actionButton" onclick="updateCount(-2)">2個売れた</button>
     <br>
-    <button onclick="updateCount(-2)">2個売れた</button>
-    <button onclick="updateCount(-1)">1個売れた</button>
-    <button onclick="updateCount(1)">+1</button>
-    <button onclick="updateCount(2)">+2</button>
+    <button id="actionButton1" onclick="updateCount(-1)">1個売れた</button>
+    <br><br><br><br>
+    <button id="actionButton2" onclick="updateCount(1)">+1</button>
     <br>
-    <button onclick="sendBananaCount()">本数を送信</button>
+    <button id="actionButton3" onclick="updateCount(2)">+2</button>
+  </div>
+  <div class="clock">
+    <p id="time"></p>
   </div>
   <div class="test">
     <div class="day1">
-      <button onclick="setNewBananaLots(1)">1日目 10:20~11:55</button>
-      <button onclick="setNewBananaLots(2)">1日目 11:50~13:30</button>
-      <button onclick="setNewBananaLots(3)">1日目 13:25~15:00</button>
+      <button onclick="setNewBananaLots(1)">1日目 10:20~11:55(150)</button>
+      <button onclick="setNewBananaLots(2)">1日目 11:50~13:30(200)</button>
+      <button onclick="setNewBananaLots(3)">1日目 13:25~15:00(50)</button>
     </div>
     <div class="day2">
-      <button onclick="setNewBananaLots(4)">2日目 9:20~10:53</button>
-      <button onclick="setNewBananaLots(5)">2日目 10:50~12:26</button>
-      <button onclick="setNewBananaLots(6)">2日目 12:23~14:00</button>
-      <button onclick="setNewBananaLots(7)">2日目 13:56~15:30</button>
+      <button onclick="setNewBananaLots(4)">2日目 9:20~10:53(70)</button>
+      <button onclick="setNewBananaLots(5)">2日目 10:50~12:26(130)</button>
+      <button onclick="setNewBananaLots(6)">2日目 12:23~14:00(150)</button>
+      <button onclick="setNewBananaLots(7)">2日目 13:56~15:30(50)</button>
     </div>
+  </div>
+  <div class="notes">
+    <p>
+      販売を開始する前に、必ず現在時刻が表示されている下にある7つのボタンのうち、これから働く時間帯のボタンを1度押してください。<br>
+      <br>
+      不具合の発生を防ぐため、上の4つのボタンは一度押すと4秒間押せなくなります。<br>
+      ボタンを連打するのはやめてください。<br>
+      <br>
+      数字を手動で入力できる欄がありますが、使用する場合は数字を入力した後に下の "手入力で送信" ボタンを押してください。
+    </p>
   </div>
 
   <script src="script.js"></script>
