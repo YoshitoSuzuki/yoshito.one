@@ -64,6 +64,47 @@ body {
 
 
 
+.qrAndTimer {
+  display: flex;
+  justify-content: space-around; /* アイテムの間隔を調整 */
+  align-items: center; /* 縦方向の整列を中央にする */
+}
+
+.timer {
+  text-align: center;
+  padding-bottom: 100px;
+  color: #FFF;
+  background-color: rgba(0, 0, 0, 0.6); /* 半透明の黒背景 */
+  padding: 10px;
+  border-radius: 5px; /* 角を少し丸くする */
+}
+.timer h2 {
+  font-size: 2.8rem;
+  color: #DDD;
+}
+.timer p {
+  color: white;
+  font-size: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
