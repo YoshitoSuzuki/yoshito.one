@@ -32,6 +32,12 @@ function updateCount(change) {
   button2.classList.add('disabled');
   button3.disabled = true;
   button3.classList.add('disabled');
+  button4.disabled = true;
+  button4.classList.add('disabled');
+  button5.disabled = true;
+  button5.classList.add('disabled');
+  button6.disabled = true;
+  button6.classList.add('disabled');
 
   // 非同期関数の実行（例: 3秒間の遅延）
   longRunningFunction().then(() => {
@@ -44,6 +50,12 @@ function updateCount(change) {
       button2.classList.remove('disabled');
       button3.disabled = false;
       button3.classList.remove('disabled');
+      button4.disabled = false;
+      button4.classList.remove('disabled');
+      button5.disabled = false;
+      button5.classList.remove('disabled');
+      button6.disabled = false;
+      button6.classList.remove('disabled');
   });
 
 
