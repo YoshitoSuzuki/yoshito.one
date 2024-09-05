@@ -16,6 +16,37 @@ function fetchBananaCount() {
 
 // カウントを更新する関数
 function updateCount(change) {
+
+
+  const button = document.getElementById('actionButton');
+  const button1 = document.getElementById('actionButton1');
+  const button2 = document.getElementById('actionButton2');
+  const button3 = document.getElementById('actionButton3');
+
+  // ボタンを無効化
+  button.disabled = true;
+  button.classList.add('disabled');
+  button1.disabled = true;
+  button1.classList.add('disabled');
+  button2.disabled = true;
+  button2.classList.add('disabled');
+  button3.disabled = true;
+  button3.classList.add('disabled');
+
+  // 非同期関数の実行（例: 3秒間の遅延）
+  longRunningFunction().then(() => {
+      // 関数実行後にボタンを再度有効化
+      button.disabled = false;
+      button.classList.remove('disabled');
+      button1.disabled = false;
+      button1.classList.remove('disabled');
+      button2.disabled = false;
+      button2.classList.remove('disabled');
+      button3.disabled = false;
+      button3.classList.remove('disabled');
+  });
+
+
   currentCount += change;
   document.getElementById('bananaInput').value = currentCount;
   sendBananaCount();
@@ -61,7 +92,49 @@ function setInInput(){
 window.onload = fetchBananaCount;
 window.onload = setInInput();
 
-setInterval(fetchBananaCount, 5000);
+setInterval(fetchBananaCount, 2000);
+
+// -------------------------------------------------------
+
+function longRunningFunction() {
+        return new Promise(resolve => {
+            // ここで長時間かかる処理をシミュレート（3秒間の遅延）
+            setTimeout(() => {
+                console.log("Function has completed.");
+                resolve();
+            }, 4000);
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -120,4 +193,38 @@ function setNewBananaLots(number){
   .catch(error => console.error('エラー:', error));
 
   fetchBananaCount();
+  setInInput();
 }
+
+
+// -------------------------------------
+
+
+
+
+
+
+
+
+
+function updateTime() {
+  const now = new Date();
+  const date = now.toLocaleDateString('ja-JP', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    weekday: 'long'
+    }
+  );
+  const time = now.toLocaleTimeString('ja-JP', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+    }
+  );
+  document.getElementById('time').textContent = time;
+
+}
+
+setInterval(updateTime, 1000);
+updateTime();
