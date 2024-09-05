@@ -22,6 +22,12 @@ function updateCount(change) {
   const button1 = document.getElementById('actionButton1');
   const button2 = document.getElementById('actionButton2');
   const button3 = document.getElementById('actionButton3');
+  const button4 = document.getElementById('actionButton4');
+  const button5 = document.getElementById('actionButton5');
+  const button6 = document.getElementById('actionButton6');
+  const button7 = document.getElementById('actionButton7');
+  const button8 = document.getElementById('actionButton8');
+  const button9 = document.getElementById('actionButton9');
 
   // ボタンを無効化
   button.disabled = true;
