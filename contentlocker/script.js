@@ -13,3 +13,12 @@ function submitForm() {
             }
         });
 }
+document.addEventListener("DOMContentLoaded", function () {
+    // 入力欄でEnterキーが押されたらボタンをクリックする
+    document.getElementById("password").addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+            submitForm(); // ボタンがクリックされた時と同じ処理を実行
+        }
+    });
+});
