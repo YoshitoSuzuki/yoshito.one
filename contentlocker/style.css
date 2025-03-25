@@ -11,23 +11,19 @@ h1{
   padding-bottom: 24vw;
   }
 
-/* リンクのデフォルトの色 */
 a {
   color: black;
-  text-decoration: none; /* 下線を消す */
+  text-decoration: none; 
 }
 
-/* 訪問済みリンクの色 */
 a:visited {
   color: black;
 }
 
-/* ホバー時のリンクの色 */
 a:hover {
   color: black;
 }
 
-/* アクティブ状態のリンクの色 */
 a:active {
   color: black;
 }
@@ -85,7 +81,7 @@ a:active {
 footer{
   background: #FFF;
   text-align: center;
-  padding: 26px; 0;
+  padding: 26px 0;
   border-top: 1px solid #000;
 }
 footer p{
