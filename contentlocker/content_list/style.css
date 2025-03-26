@@ -1,0 +1,86 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  max-width: 100%;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  text-align: center;
+}
+
+h1{
+  font-family: sans-serif;
+  text-align: center;
+  padding-top: 24vw;
+  padding-bottom: 24vw;
+}
+
+/* リンクのデフォルトの色 */
+a {
+    color: black;
+    text-decoration: none; /* 下線を消す */
+}
+
+/* 訪問済みリンクの色 */
+a:visited {
+    color: black;
+}
+
+/* ホバー時のリンクの色 */
+a:hover {
+    color: black;
+}
+
+
+#search {
+  padding: 10px;
+  width: 80%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+#sort {
+  text-align: center;
+  text-align-last: center;
+  padding: 10px;
+  width: 80px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+#sort option {
+  padding: 5px;
+}
+#sort option:hover {
+  background-color: #f1f1f1;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  width: 250px;
+  text-align: left;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+.card a {
+  text-decoration: none;
+  color: blue;
+}
+
+footer{
+  background: #FFF;
+  text-align: center;
+  padding: 26px 0;
+  border-top: 1px solid #000;
+}
+footer p{
+  color: #777;
+  font-size: 0.875rem;
+}

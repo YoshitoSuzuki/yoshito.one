@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>コンテンツ一覧</title>
+  <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name='robots' content='noindex'>
+</head>
+<body>
+    <h1>コンテンツ一覧</h1>
+    <input type="text" id="search" placeholder="検索..." onkeyup="filterCards()">
+    <select id="sort" onchange="sortCards()">
+        <option value="asc">昇順</option>
+        <option value="desc">降順</option>
+    </select>
+    <div class="container" id="cardContainer">
+        <div class="card" data-title="記事A">
+            <h3>記事A</h3>
+            <p><a href="#">記事Aのリンク</a></p>
+        </div>
+        <div class="card" data-title="記事B">
+            <h3>記事B</h3>
+            <p><a href="#">記事Bのリンク</a></p>
+        </div>
+        <div class="card" data-title="記事C">
+            <h3>記事C</h3>
+            <p><a href="#">記事Cのリンク</a></p>
+        </div>
+    </div>
+    <footer><p><small>&copy; 2024 yoshito.me</small></p></footer>
+    <script src="script.js"></script>
+</body>
+</html>
