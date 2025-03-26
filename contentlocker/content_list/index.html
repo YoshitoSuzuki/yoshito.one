@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンテンツ一覧</title>
+</head>
+<body>
+    <h1>コンテンツ一覧</h1>
+    <input type="text" id="search" placeholder="検索..." onkeyup="filterCards()">
+    <select id="sort" onchange="sortCards()">
+        <option value="asc">昇順</option>
+        <option value="desc">降順</option>
+    </select>
+    <div class="container" id="cardContainer">
+        <div class="card" data-title="記事A">
+            <h3>記事A</h3>
+            <p><a href="#">記事Aのリンク</a></p>
+        </div>
+        <div class="card" data-title="記事B">
+            <h3>記事B</h3>
+            <p><a href="#">記事Bのリンク</a></p>
+        </div>
+        <div class="card" data-title="記事C">
+            <h3>記事C</h3>
+            <p><a href="#">記事Cのリンク</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
