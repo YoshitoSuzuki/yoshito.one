@@ -1,12 +1,53 @@
-body {
+@charset "UTF-8";
+body{
+  width: 100%;
   font-family: Arial, sans-serif;
   margin: 20px;
   text-align: center;
 }
+
+h1{
+  font-family: sans-serif;
+  text-align: center;
+  padding-top: 24vw;
+  padding-bottom: 24vw;
+}
+
+/* リンクのデフォルトの色 */
+a {
+    color: black;
+    text-decoration: none; /* 下線を消す */
+}
+
+/* 訪問済みリンクの色 */
+a:visited {
+    color: black;
+}
+
+/* ホバー時のリンクの色 */
+a:hover {
+    color: black;
+}
+
+
 #search {
   padding: 10px;
   width: 80%;
   margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+#sort {
+  padding: 10px;
+  width: 80px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+#sort option {
+  padding: 5px;
+}
+#sort option:hover {
+  background-color: #f1f1f1;
 }
 .container {
   display: flex;
