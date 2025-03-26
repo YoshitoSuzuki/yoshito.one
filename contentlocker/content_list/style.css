@@ -73,3 +73,14 @@ a:hover {
   text-decoration: none;
   color: blue;
 }
+
+footer{
+  background: #FFF;
+  text-align: center;
+  padding: 26px 0;
+  border-top: 1px solid #000;
+}
+footer p{
+  color: #777;
+  font-size: 0.875rem;
+}
