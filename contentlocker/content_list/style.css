@@ -1,6 +1,11 @@
 @charset "UTF-8";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body{
-  width: 100%;
+  max-width: 100%;
   font-family: Arial, sans-serif;
   margin: 20px;
   text-align: center;
@@ -33,11 +38,12 @@ a:hover {
 #search {
   padding: 10px;
   width: 80%;
-  margin-bottom: 20px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 #sort {
+  text-align: center;
+  text-align-last: center;
   padding: 10px;
   width: 80px;
   border-radius: 5px;
