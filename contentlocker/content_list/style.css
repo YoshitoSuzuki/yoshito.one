@@ -69,6 +69,9 @@ a:hover {
   text-align: left;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
 }
+.expl {
+  padding-top: 10px;
+}
 .card a {
   text-decoration: none;
   color: blue;
