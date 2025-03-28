@@ -2,7 +2,7 @@ function filterCards() {
   let input = document.getElementById("search").value.toLowerCase();
   let cards = document.querySelectorAll(".card");
   cards.forEach(card => {
-      let title = card.getAttribute("data-date").toLowerCase();
+      let title = card.getAttribute("data-title").toLowerCase();
       card.style.display = title.includes(input) ? "block" : "none";
   });
 }
