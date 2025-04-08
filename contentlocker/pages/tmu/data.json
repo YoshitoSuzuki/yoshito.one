@@ -1,0 +1,36 @@
+{
+  "categories": [
+    {
+      "name_ja": "学校関連",
+      "name_en": "School",
+      "links": [
+        {
+          "label_ja": "大学ポータル",
+          "label_en": "University Portal",
+          "url": "https://example.university.ac.jp"
+        },
+        {
+          "label_ja": "Moodle",
+          "label_en": "Moodle",
+          "url": "https://moodle.university.ac.jp"
+        }
+      ]
+    },
+    {
+      "name_ja": "ツール・便利系",
+      "name_en": "Tools",
+      "links": [
+        {
+          "label_ja": "Google",
+          "label_en": "Google",
+          "url": "https://www.google.com"
+        },
+        {
+          "label_ja": "Overleaf",
+          "label_en": "Overleaf",
+          "url": "https://www.overleaf.com"
+        }
+      ]
+    }
+  ]
+}
