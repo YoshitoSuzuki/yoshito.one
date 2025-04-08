@@ -26,7 +26,8 @@ function updateTime() {
   const formattedDate = now.toLocaleDateString('ja-JP', {
       year: 'numeric',
       month: '2-digit',
-      day: '2-digit'
+      day: '2-digit',
+      weekday: 'short'
     }
   ).replace(/\//g, '/');
   document.getElementById('formattedDate').textContent = formattedDate;
