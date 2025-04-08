@@ -3,7 +3,7 @@ let currentLang = 'ja';
 document.getElementById('langToggle').addEventListener('click', () => {
   currentLang = currentLang === 'ja' ? 'en' : 'ja';
   document.getElementById('mainTitle').textContent =
-    currentLang === 'ja' ? 'お気に入りリンク集' : 'My Favorite Links';
+    currentLang === 'ja' ? 'TMU ショートカットリンク' : 'TMU Shortcut Links';
   document.getElementById('langToggle').textContent =
     currentLang === 'ja' ? 'English' : '日本語';
   loadLinks();
