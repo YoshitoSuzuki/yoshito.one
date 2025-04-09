@@ -34,11 +34,16 @@
           "label_ja": "学生課",
           "label_en": "Student Affairs",
           "url": "https://gs.tmu.ac.jp"
+        },
+        {
+          "label_ja": "図書館",
+          "label_en": "Library",
+          "url": "https://www.lib.tmu.ac.jp"
         }
       ]
     },
     {
-      "name_ja": "ツール・便利系",
+      "name_ja": "ツール",
       "name_en": "Tools",
       "links": [
         {
