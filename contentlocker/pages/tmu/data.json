@@ -76,6 +76,11 @@
           "url": "https://www.lib.tmu.ac.jp"
         },
         {
+          "label_ja": "国際センター・国際課",
+          "label_en": "International Center",
+          "url": "https://www.ic.tmu.ac.jp/index.html"
+        },
+        {
           "label_ja": "TMUNER",
           "label_en": "TMUNER",
           "url": "https://tmuner.cpark.tmu.ac.jp/ja/index.html"
@@ -87,14 +92,14 @@
       "name_en": "Tools",
       "links": [
         {
-          "label_ja": "Stanford Encyclopedia of Philosophy",
-          "label_en": "Stanford Encyclopedia of Philosophy",
-          "url": "https://plato.stanford.edu"
-        },
-        {
           "label_ja": "notion",
           "label_en": "notion",
           "url": "https://www.notion.so/"
+        },
+        {
+          "label_ja": "Stanford Encyclopedia of Philosophy",
+          "label_en": "Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu"
         },
         {
           "label_ja": "github",
