@@ -1,18 +1,39 @@
 {
   "categories": [
     {
-      "name_ja": "学校関連",
-      "name_en": "School",
+      "name_ja": "学内システム",
+      "name_en": "Internal System",
       "links": [
         {
-          "label_ja": "大学ポータル",
-          "label_en": "University Portal",
-          "url": "https://example.university.ac.jp"
+          "label_ja": "kibaco",
+          "label_en": "kibaco",
+          "url": "https://kibaco-d.tmu.ac.jp/login"
         },
         {
-          "label_ja": "Moodle",
-          "label_en": "Moodle",
-          "url": "https://moodle.university.ac.jp"
+          "label_ja": "campussquare",
+          "label_en": "campussquare",
+          "url": "https://jjh.tmu.ac.jp/campusweb/ssologin.do"
+        }
+      ]
+    },
+    {
+      "name_ja": "大学関連",
+      "name_en": "university",
+      "links": [
+        {
+          "label_ja": "大学公式サイト",
+          "label_en": "university official site",
+          "url": "https://www.tmu.ac.jp/"
+        },
+        {
+          "label_ja": "教務課",
+          "label_en": "Academic Affairs",
+          "url": "https://kyomu.jim.tmu.ac.jp"
+        },
+        {
+          "label_ja": "学生課",
+          "label_en": "Student Affairs",
+          "url": "https://gs.tmu.ac.jp"
         }
       ]
     },
