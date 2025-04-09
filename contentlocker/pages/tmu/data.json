@@ -1,18 +1,53 @@
 {
   "categories": [
     {
-      "name_ja": "学内システム",
-      "name_en": "Internal System",
+      "name_ja": "tmu",
+      "name_en": "tmu",
       "links": [
         {
           "label_ja": "kibaco",
           "label_en": "kibaco",
-          "url": "https://kibaco-d.tmu.ac.jp/login"
+          "url": "https://kibaco-d.tmu.ac.jp/portal/home"
+        },
+        {
+          "label_ja": "kibaco お知らせ",
+          "label_en": "kqibaco information",
+          "url": "https://kibaco-d.tmu.ac.jp/portal/home/information/list"
+        },
+        {
+          "label_ja": "kibaco 授業一覧",
+          "label_en": "kqibaco class list",
+          "url": "https://kibaco.tmu.ac.jp/portal/site/%7E25140127/tool-reset/a8950f8f-e1f0-46d4-a33e-61a2a50be777"
         },
         {
           "label_ja": "campussquare",
           "label_en": "campussquare",
           "url": "https://jjh.tmu.ac.jp/campusweb/ssologin.do"
+        },
+        {
+          "label_ja": "campussquare スマホ版",
+          "label_en": "campussquare smartphone version",
+          "url": "https://jjh.tmu.ac.jp/campusweb/campussmart.do?page=main&tabId=home&locale=ja_JP"
+        },
+        {
+          "label_ja": "メール",
+          "label_en": "outlook",
+          "url": "https://outlook.office.com/mail/"
+        },
+        {
+          "label_ja": "One drive",
+          "label_en": "One drive",
+          "url": "https://jmjtmu-my.sharepoint.com/my"
+        },
+        {
+          "label_ja": "box",
+          "label_en": "box",
+          "url": "https://tmpuc.ent.box.com/folder/0"
+        },
+        {
+          "label_ja": "SharePoint",
+          "label_en": "SharePoint",
+          "url": "https://jmjtmu.sharepoint.com/sites/for_tmuner/DocLib2/"
         }
       ]
     },
@@ -34,22 +69,52 @@
           "label_ja": "学生課",
           "label_en": "Student Affairs",
           "url": "https://gs.tmu.ac.jp"
+        },
+        {
+          "label_ja": "図書館",
+          "label_en": "Library",
+          "url": "https://www.lib.tmu.ac.jp"
+        },
+        {
+          "label_ja": "TMUNER",
+          "label_en": "TMUNER",
+          "url": "https://tmuner.cpark.tmu.ac.jp/ja/index.html"
         }
       ]
     },
     {
-      "name_ja": "ツール・便利系",
+      "name_ja": "ツール",
       "name_en": "Tools",
       "links": [
         {
-          "label_ja": "Google",
-          "label_en": "Google",
-          "url": "https://www.google.com"
+          "label_ja": "Stanford Encyclopedia of Philosophy",
+          "label_en": "Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu"
         },
         {
-          "label_ja": "Overleaf",
-          "label_en": "Overleaf",
-          "url": "https://www.overleaf.com"
+          "label_ja": "notion",
+          "label_en": "notion",
+          "url": "https://www.notion.so/"
+        },
+        {
+          "label_ja": "github",
+          "label_en": "github",
+          "url": "https://github.com"
+        },
+        {
+          "label_ja": "Google ドライブ",
+          "label_en": "Google Drive",
+          "url": "https://drive.google.com/"
+        },
+        {
+          "label_ja": "Google カレンダー",
+          "label_en": "Google Calendar",
+          "url": "https://calendar.google.com/"
+        },
+        {
+          "label_ja": "YouTube",
+          "label_en": "YouTube",
+          "url": "https://www.youtube.com/"
         }
       ]
     }
