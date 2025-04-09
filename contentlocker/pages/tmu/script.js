@@ -1,11 +1,11 @@
-let currentLang = 'ja';
+let currentLang = 'en';
 
 document.getElementById('langToggle').addEventListener('click', () => {
-  currentLang = currentLang === 'ja' ? 'en' : 'ja';
+  currentLang = currentLang === 'en' ? 'ja' : 'en';
   document.getElementById('mainTitle').textContent =
-    currentLang === 'ja' ? 'TMU ショートカットリンク' : 'TMU Shortcut Links';
+    currentLang === 'en' ? 'Links' : 'Links';
   document.getElementById('langToggle').textContent =
-    currentLang === 'ja' ? 'English' : '日本語';
+    currentLang === 'en' ? '日本語' : 'English';
   loadLinks();
 });
 
