@@ -25,7 +25,7 @@ document.getElementById('langToggle').addEventListener('click', () => {
 // タイトルとボタンラベルの更新
 function updateLanguageDisplay() {
   document.getElementById('mainTitle').textContent =
-    currentLang === 'ja' ? 'お気に入りリンク集' : 'My Favorite Links';
+    currentLang === 'ja' ? 'Links' : 'Links';
   document.getElementById('langToggle').textContent =
     currentLang === 'ja' ? 'English' : '日本語';
 }
