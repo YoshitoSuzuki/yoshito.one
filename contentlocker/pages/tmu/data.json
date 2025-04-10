@@ -107,11 +107,6 @@
           "url": "https://www.notion.so/"
         },
         {
-          "label_ja": "Stanford Encyclopedia of Philosophy",
-          "label_en": "Stanford Encyclopedia of Philosophy",
-          "url": "https://plato.stanford.edu"
-        },
-        {
           "label_ja": "github",
           "label_en": "github",
           "url": "https://github.com"
@@ -125,6 +120,11 @@
           "label_ja": "Google カレンダー",
           "label_en": "Google Calendar",
           "url": "https://calendar.google.com/"
+        },
+        {
+          "label_ja": "Stanford Encyclopedia of Philosophy",
+          "label_en": "Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu"
         },
         {
           "label_ja": "YouTube",

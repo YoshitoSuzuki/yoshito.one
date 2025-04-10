@@ -1,11 +1,11 @@
-let currentLang = 'en';
+let currentLang = 'ja';
 
 document.getElementById('langToggle').addEventListener('click', () => {
-  currentLang = currentLang === 'en' ? 'ja' : 'en';
+  currentLang = currentLang === 'ja' ? 'en' : 'ja';
   document.getElementById('mainTitle').textContent =
-    currentLang === 'en' ? 'Links' : 'Links';
+    currentLang === 'ja' ? 'Links' : 'Links';
   document.getElementById('langToggle').textContent =
-    currentLang === 'en' ? '日本語' : 'English';
+    currentLang === 'ja' ? 'English' : '日本語';
   loadLinks();
 });
 
