@@ -1,14 +1,36 @@
-let currentLang = 'ja';
+// 言語の保存キー
+const LANG_KEY = 'preferredLang';
 
-document.getElementById('langToggle').addEventListener('click', () => {
-  currentLang = currentLang === 'ja' ? 'en' : 'ja';
-  document.getElementById('mainTitle').textContent =
-    currentLang === 'ja' ? 'Links' : 'Links';
-  document.getElementById('langToggle').textContent =
-    currentLang === 'ja' ? 'English' : '日本語';
+// 初期言語の決定（localStorage → 自動判定）
+let currentLang = localStorage.getItem(LANG_KEY);
+if (!currentLang) {
+  currentLang = navigator.language.startsWith('ja') ? 'ja' : 'en';
+  localStorage.setItem(LANG_KEY, currentLang); // 初回のみ保存
+}
+
+// ページ読み込み時に実行
+document.addEventListener('DOMContentLoaded', () => {
+  updateLanguageDisplay();
   loadLinks();
 });
 
+// 言語切り替えボタンの処理
+document.getElementById('langToggle').addEventListener('click', () => {
+  currentLang = currentLang === 'ja' ? 'en' : 'ja';
+  localStorage.setItem(LANG_KEY, currentLang); // 切り替え後に保存
+  updateLanguageDisplay();
+  loadLinks();
+});
+
+// タイトルとボタンラベルの更新
+function updateLanguageDisplay() {
+  document.getElementById('mainTitle').textContent =
+    currentLang === 'ja' ? 'お気に入りリンク集' : 'My Favorite Links';
+  document.getElementById('langToggle').textContent =
+    currentLang === 'ja' ? 'English' : '日本語';
+}
+
+// リンク情報の読み込みと表示
 async function loadLinks() {
   const response = await fetch('data.json');
   const data = await response.json();
@@ -44,5 +66,3 @@ async function loadLinks() {
     container.appendChild(categoryDiv);
   });
 }
-
-loadLinks();
