@@ -104,6 +104,11 @@
           "label_ja": "日野キャンパスマップ",
           "label_en": "Hino Campus Map",
           "url": "hino.pdf"
+        },
+        {
+          "label_ja": "東京都立大学 生協HP",
+          "label_en": "TMU Co-op HP",
+          "url": "https://www.univcoop.jp/tmu/"
         }
       ]
     },
