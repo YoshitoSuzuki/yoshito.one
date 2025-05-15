@@ -35,6 +35,11 @@
           "url": "https://jjh.tmu.ac.jp/campusweb/campussmart.do?page=main&tabId=home&locale=ja_JP"
         },
         {
+          "label_ja": "ALC Academy Next",
+          "label_en": "ALC Academy Next",
+          "url": "https://nanext.alcnanext.jp/anetn/Student/StTop/Index"
+        },
+        {
           "label_ja": "メール",
           "label_en": "outlook",
           "url": "https://outlook.office.com/mail/"
