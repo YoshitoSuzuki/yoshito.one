@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>言い訳ルーレット</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://yo4shi4to107.github.io/iiwake/style.css"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+  <body>
+    <h2>言い訳ルーレット</h2>
+    <div class="outline">
+      <div class="r1" id="roulette1">んがん</div>
+      <p>が</p>
+      <div class="r2" id="roulette2">てってっ</div>
+      <p>て</p>
+      <div class="r3" id="roulette3">だんだん</div>
+      <p>だったので遅れました。</p>
+      <br/>
+    </div>
+    <div class="button">
+      <input type="button" class="b" value="スタート" id="start" onclick="start();"/>
+      <input type="button" class="b" value="ストップ" id="stop" onclick="stop();"/>
+    </div>
+    <p class="ap">時間は守ろう。</p>
+    <p class="pp">※スタートボタンを2回連続で押すとバグります。もし押してしまったら、再読み込みしてください。</p>
+    <a href="https://yo4shi4to107.github.io/YS/"><--戻る</a>
+    <footer><p><small>&copy; 2021 3_5yoshitosuzuki</small></p></footer>
+    <script type="text/javascript">
+      var roulette;
+
+      // ルーレットを開始
+      function start() {
+        roulette = setInterval(function() {
+          // 1〜99の範囲でランダムな数値を作成
+          var n1 = Math.floor( Math.random() * 8 );
+          var n2 = Math.floor( Math.random() * 8 );
+          var n3 = Math.floor( Math.random() * 8 );
+          // ルーレット
+          aa1(n1);
+          aa2(n2);
+          aa3(n3);
+        }, 100);
+      }
+
+      // ルーレットを停止
+      function stop() {
+        if(roulette) {
+          clearInterval(roulette);
+        }
+      }
+
+      function aa1(i1){
+        let t1;
+        if(i1==0){t1="頭痛"}
+        else if(i1==1){t1="おなかの痛み"}
+        else if(i1==2){t1="鼻血"}
+        else if(i1==3){t1="事故"}
+        else if(i1==4){t1="雷"}
+        else if(i1==5){t1="小籠包熱すぎたの"}
+        else if(i1==6){t1="おじさんが踊ってたの"}
+        else if(i1==7){t1="食中毒"}
+        write1(t1);
+      }
+
+      function aa2(i2){
+        let t2;
+        if(i2==0){t2="痛く"}
+        else if(i2==1){t2="面白く"}
+        else if(i2==2){t2="うれしく"}
+        else if(i2==3){t2="気持ちよく"}
+        else if(i2==4){t2="怖く"}
+        else if(i2==5){t2="臭く"}
+        else if(i2==6){t2="気持ち悪く"}
+        else if(i2==7){t2="てってっ"}
+        write2(t2);
+      }
+
+      function aa3(i3){
+        let t3;
+        if(i3==0){t3="泣きそう"}
+        else if(i3==1){t3="説教中"}
+        else if(i3==2){t3="うんこ中"}
+        else if(i3==3){t3="職質中"}
+        else if(i3==4){t3="死にそう"}
+        else if(i3==5){t3="骨折れそう"}
+        else if(i3==6){t3="吐きそう"}
+        else if(i3==7){t3="だんだん"}
+        write3(t3);
+      }
+
+      function write1(answer1){
+        document.getElementById("roulette1").innerHTML = answer1;
+      }
+
+      function write2(answer2){
+        document.getElementById("roulette2").innerHTML = answer2;
+      }
+
+      function write3(answer3){
+        document.getElementById("roulette3").innerHTML = answer3;
+      }
+    </script>
+  </body>
+</html>

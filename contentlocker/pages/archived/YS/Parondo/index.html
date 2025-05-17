@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Parondo</title>
+    <input type="button" onclick="game()" name="" value="サイコロをふる">
+    <h1 id="ga">Game</h1>
+    <h1 id="nu">0</h1>
+    <h2 id="nn"> </h2>
+    <br>
+    <br>
+    <h2>パロンドのパラドックスとは</h2>
+    <p>不利な2つのゲームを組み合わせると有利になるというパラドックス</p>
+    <br>
+    <h2>ゲームルール設定</h2>
+    <h3>GameA</h3>
+    <p>52%の確率で所持金が1減る。</p>
+    <p>48%の確率で所持金が1増える。</p>
+    <br>
+    <h3>GameB</h3>
+    <p>所持金が3の倍数の時、85%の確率で所持金が1増える。</p>
+    <p>所持金が3の倍数の時、15%の確率で所持金が1減る。</p>
+    <p>所持金が3の倍数ではないとき、1%の確率で所持金が1増える。</p>
+    <p>所持金が3の倍数ではないとき、99%の確率で所持金が1減る。</p>
+    <br><br>
+    <h2>GameA,GameBをそれぞれ50%の確率で行う。</h2>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let maney = 100;
+      let na = 0;
+      function game(){
+        let x = ra();
+        if(x<=49){
+          let aa=document.getElementById("ga");
+          aa.innerText = "GameA";
+          let y = ra();
+          if(y<=51){
+            maney -= 1;
+          }
+          if(y>=52){
+            maney += 1;
+          }
+          let bb=document.getElementById("nu");
+          bb.innerText = maney;
+        }
+        if(x>=50){
+          let aa=document.getElementById("ga");
+          aa.innerText = "GameB";
+          let z = ra();
+          let q = maney % 3;
+          if(q==1){
+            if(z<=84){
+              maney += 1;
+            }
+          }
+            if(q==2){
+              if(z<=84){
+                maney += 1;
+              }
+            if(z>=85){
+              maney -= 1;
+            }
+          }
+          if(q==0){
+            if(z<=98){
+              maney -= 1;
+            }
+            if(z>=99){
+              maney += 1;
+            }
+          }
+          let bb=document.getElementById("nu");
+          bb.innerText = maney;
+        }
+        na += 1;
+        let bb=document.getElementById("nn");
+        bb.innerText = na + "回目";
+      }
+      function ra(){
+        let n = Math.floor(Math.random()*100);
+        return n;
+      }
+      document.onkeydown = function(e){
+      switch (e.keyCode){
+        case 13:
+        game();
+      }
+
+    }
+    function mm(){
+
+      for(let i=0;i<=99;i++){
+        game();
+      }
+    }
+    document.onkeydown = function(e){
+    switch (e.keyCode){
+      case 32:
+      mm();
+    }
+  }
+    </script>
+  </body>
+</html>
