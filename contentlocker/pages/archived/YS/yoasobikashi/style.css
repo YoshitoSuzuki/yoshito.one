@@ -1,0 +1,28 @@
+@charset "UTF-8";
+h1{
+  margin-left: 10px;
+  margin-top: 10px;
+  font-family: 'Playfair Display', serif;
+}
+p{
+  margin-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+footer{
+  background: #333;
+  text-align: center;
+  padding: 24px; 0;
+}
+footer a {
+  color: #ddd;
+}
+body{
+  background-image: url(yo.jpg);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+p{
+  color: #127353;
+  font-family: 'Playfair Display', serif;
+}

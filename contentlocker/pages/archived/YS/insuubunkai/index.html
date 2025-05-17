@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>積と和から2つの数を求める</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+  <body>
+    <p>使い方：積の数が正の数の時はEnterキー(又は"積が+"ボタン)、</p>
+    <br>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;負の数の時はSpaceキー(又は"積が-"ボタン)を押してください。</p>
+    <br>
+    <br>
+    <p>積は</p><input type="number" id="seki">
+    <p>和は</p><input type="number" id="wa">
+    <br>
+    <br><input type="button" value="積が+" onclick="keisan()" /><input type="button" value="積が-" onclick="keisan2()" />
+    <br>
+    <br>
+    <p>計算結果</p>
+    <br><div id="la"></div>
+    <script>
+      function keisan() {
+        var mn =document.getElementById("seki").value;
+        var mx =document.getElementById("wa").value;
+        var n = Number( mn );
+        var x = Number( mx );
+        let m = n*-1;
+        for(let a=n;a>=m;a--){
+          let i;
+          i = n/a;
+          if(i+a==x){
+            write(i+","+a);
+            break;
+          }
+        }
+      }
+      function keisan2() {
+        var mnn =document.getElementById("seki").value;
+        var mxx =document.getElementById("wa").value;
+        var nn = Number( mnn );
+        var xx = Number( mxx );
+        let mm = nn*-1;
+        for(let a=nn;a<=mm;a++){
+          let i;
+          i = nn/a;
+          if(i+a==xx){
+            write(i+","+a);
+            break;
+          }
+        }
+      }
+      function write(v) {
+        let an = document.getElementById("la");
+        an.innerText=v;
+      }
+      document.onkeydown = function(e){
+        switch (e.keyCode){
+          case 13:
+          keisan();
+          break;
+          case 32:
+          keisan2();
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>

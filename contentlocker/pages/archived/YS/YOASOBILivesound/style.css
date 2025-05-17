@@ -1,0 +1,46 @@
+@charset "UTF-8";
+h1{
+  color: #ffe;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-family: 'Playfair Display', serif;
+}
+footer{
+  background: #333;
+  text-align: center;
+  padding: 24px; 0;
+}
+footer a {
+  color: #ddd;
+}
+p{
+  color: #eed;
+  font-family: 'Playfair Display', serif;
+}
+h2{
+  color: #eed;
+  font-family: 'Playfair Display', serif;
+}
+body{
+  background-color: #060309;
+  background-image: url(yo.png);
+  background-position: right 1% bottom 10%;
+}
+.end{
+  color: #ddc;
+}
+@media (max-width: 600px){
+h1{
+  font-size: 27px;
+}
+h2{
+  font-size: 14px;
+}
+p{
+  font-size: 5px;
+}
+audio {
+  width: 100px;
+  height: 36px;
+}
+}

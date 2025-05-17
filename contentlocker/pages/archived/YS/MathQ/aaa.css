@@ -1,0 +1,31 @@
+@charset "UTF-8";
+.as{
+  padding: 7px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 13px;
+}
+.fff{
+  padding: 20px;
+  font-size: 16px;
+}
+body{
+  background-color: #56ad51;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .as{
+    padding: 14px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 26px;
+  }
+  .fff{
+    padding: 20px;
+    font-size: 32px;
+  }
+  body{
+    background-color: #56ad51;
+    text-align: center;
+  }
+}
