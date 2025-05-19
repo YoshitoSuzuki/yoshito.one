@@ -1,0 +1,21 @@
+@charset "UTF-8";
+.head {
+  background-color: #f53877;
+}
+div {
+  background-color: #f53877;
+}
+div p {
+  margin-left: 10px;
+  font-family: Garamond;
+  font-size: 20px;
+}
+footer {
+  font-size: 12px;
+  background-color: #222;
+  text-align: center;
+  padding: 12px;
+}
+.footerFont {
+  color: #eee;
+}

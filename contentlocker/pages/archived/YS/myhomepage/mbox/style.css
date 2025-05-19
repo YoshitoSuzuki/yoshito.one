@@ -1,0 +1,77 @@
+@charset "UTF-8";
+body{
+  background-color: #e9eaf2;
+}
+.ha{
+  margin-top: 17px;
+  margin-left: 2.5em;
+}
+.ha h2{
+  margin-top: 10px;
+}
+.ha p{
+  margin-top: 10px;
+}
+h1{
+  font-family: 'Noto Sans JP', sans-serif;
+}
+h2{
+  font-family: 'Noto Sans JP', sans-serif;
+}
+p{
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.name{
+  border-width: 2px;
+  border-style: solid;
+  border-color: #000;
+  background-color: #fff;
+  padding: 5px 10px;
+  width: 230px;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #f5f6fa;
+}
+.mess{
+  border-width: 2px;
+  border-style: solid;
+  border-color: #000;
+  background-color: #fff;
+  padding: 10px;
+  width: 80%;
+  max-width: 100%;
+  line-height: 1.5;
+  height: 10em;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #f5f6fa;
+}
+.sen{
+  border-width: 2px;
+  border-style: solid;
+  border-color: #000;
+  background-color: #fff;
+  padding: 3px 8px;
+  font-family: 'Shippori Mincho', serif;
+  background-color: #f5f6fa;
+}
+form{
+  margin-left: 2.5em;
+  margin-bottom: 50px;
+}
+.rau1{
+  margin-top: 70px;
+}
+.rau2{
+  margin-top: 50px;
+}
+.rau3{
+  margin-top: 50px;
+}
+footer{
+  background: #333;
+  text-align: center;
+  padding: 26px; 0;
+}
+footer p{
+  color: #fff;
+  font-size: 0.875rem;
+}

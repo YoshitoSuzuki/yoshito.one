@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>メッセージBOX</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://yo4shi4to107.github.io/mbox/style.css"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+  <body>
+    <div class="ha">
+      <h1>メッセージBOX</h1>
+      <h2>暇つぶしでも質問でもなんでも送って下さい。</h2>
+      <p>送信したメッセージはこれ作った人のスマホに届きます。</p>
+    </div>
+    <form action="https://api.staticforms.xyz/submit" method="post">
+      <div class="rau1">
+        <input type="text" name="name" class="name" placeholder="ニックネームとか">
+      </div>
+      <div class="rau2">
+        <textarea name="message" class="mess" placeholder="メッセージ内容"></textarea>
+      </div>
+        <input type="text" name="honeypot" style="display:none">
+        <input type="hidden" name="accessKey" value="438d0805-b48c-487b-a974-e59ac2813c35">
+        <input type="hidden" name="subject" value="Contact us from - example.com" />
+        <input type="hidden" name="replyTo" value="@">
+        <input type="hidden" name="redirectTo" value="https://yo4shi4to107.github.io/mbox.c/">
+      <div class="rau3">
+        <input type="submit" class="sen" value="送信" />
+      </div>
+    </form>
+    <footer><p><small>&copy; 2022 3_5yoshitosuzuki</small></p></footer>
+  </body>
+</html>

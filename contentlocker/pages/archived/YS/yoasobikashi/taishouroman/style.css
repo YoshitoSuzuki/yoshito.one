@@ -1,0 +1,29 @@
+@charset "UTF-8";
+h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 40px;
+  color: #eee;
+}
+h2 {
+  font-family: 'Noto Sans JP', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Noto Serif JP', serif;
+color: #eee;
+}
+div {
+  background-color: #c79447;
+  text-align: center;
+}
+div p {
+  font-family: 'Noto Serif JP', serif;
+  color: #eee;
+}
+.video {
+  margin-left: 10px;
+}
+footer {
+  font-size: 12px;
+  background-color: #222;
+  text-align: center;
+  padding: 12px;
+}
