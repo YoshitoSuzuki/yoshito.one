@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>メイドマフィア人狼Story</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@500&family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@500&family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://2022-1-b.github.io/testdesuyo2/style.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+  </head>
+  <body>
+
+    <header id="header">
+      <div class="topimg">
+        <img class="toprogo" src="rogo4.png" alt="tile">
+      </div>
+    </header>
+
+    <div class="openbtn"><span></span><span></span><span></span></div>
+    <nav id="g-nav">
+      <div id="g-nav-list"><!--ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除-->
+        <ul>
+          <li><a href="../">Top</a></li>
+          <li><a href="../story/">Story</a></li>
+          <li><a href="../gamerules/">Game rules</a></li>
+          <li><a href="../reserve/">Reserve</a></li>
+          <li><a href="../access/">Access</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+
+    <div class="storymain">
+      <div class="storymaintop">
+        <h2>Story</h2>
+      </div>
+      <div class="stmain">
+        <h3>20XX年</h3>
+        <p>とあるメイド喫茶がオープンした。</p>
+        <p>そのメイド喫茶を運営するのはとある名高いマフィアグループが金稼ぎのために運営していた。</p>
+        <p>そこではマフィアの縛りが強く、思うように営業できなかった。</p>
+        <p>いわゆるブラック企業だ（まあそもそもマフィア自体闇だが）それはおいといて…</p>
+        <p>メイド喫茶の従業員はなんとか独立できないかとマフィア側と交渉したりしたが、マフィア側は収入源を失いたくないため、拒否し通用しなかった。</p>
+        <p>そこで従業員はマフィアグループに極秘で今までの店を逃げ出し、見つかりにくい場所に新しい店を運営、20YY年に開店しマフィアから独立し解放された。</p>
+        <p>しかしそのことを知ったマフィアグループから反感を買った。</p>
+        <p>そしてマフィアはその財力で新しい店の場所を特定し、報復としてスパイ（裏切り者のメイド）を送り込み、その店で働かせた。</p>
+        <p>まだメイド喫茶の従業員はそのことに気づいていないようだ。</p>
+        <p>そのマフィアグループは目標達成のために手段を選ばない。</p>
+        <p>マフィアグループはいつ動くのだろうか。</p>
+        <p>メイド喫茶の運命は…　</p>
+        <p>この結末は皆さんの目で実際にご覧になってください。</p>
+      </div>
+      <div class="stbo">
+        <p>※この話はフィクションです。実在の人物や団体などとは関係ありません。</p>
+      </div>
+    </div>
+
+    <footer>
+      <p id="page-top"><a href="#">Page Top</a></p>
+      <div class="ft">
+        <p>e-mail: MeidoMafiaJinrou@mail.com</p>
+      </div>
+      <div class="fp">
+        <p><small>&copy; 2022 : 9/10 - 9/11   MeidoMafiaJinrou produced by 1-B</small></p>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      function PageTopAnime() {
+		      var scroll = $(window).scrollTop();
+		        if (scroll >= 200){//上から200pxスクロールしたら
+              $('#page-top').removeClass('RightMove');//#page-topについているRightMoveというクラス名を除く
+			        $('#page-top').addClass('LeftMove');//#page-topについているLeftMoveというクラス名を付与
+		        }else{
+			           if(
+				             $('#page-top').hasClass('LeftMove')){//すでに#page-topにLeftMoveというクラス名がついていたら
+				             $('#page-top').removeClass('LeftMove');//LeftMoveというクラス名を除き
+				             $('#page-top').addClass('RightMove');//RightMoveというクラス名を#page-topに付与
+                   }
+               }
+             }
+
+             // 画面をスクロールをしたら動かしたい場合の記述
+             $(window).scroll(function () {
+               PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+             });
+
+             // ページが読み込まれたらすぐに動かしたい場合の記述
+             $(window).on('load', function () {
+               PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+             });
+
+
+             // #page-topをクリックした際の設定
+             $('#page-top').click(function () {
+               $('body,html').animate({
+                 scrollTop: 0//ページトップまでスクロール
+               }, 500);//ページトップスクロールの速さ。数字が大きいほど遅くなる
+               return false;//リンク自体の無効化
+             });
+    </script>
+    <script>
+      $(".openbtn").click(function () {//ボタンがクリックされたら
+	       $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
+         $("#g-nav").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+       });
+
+       $("#g-nav a").click(function () {//ナビゲーションのリンクがクリックされたら
+         $(".openbtn").removeClass('active');//ボタンの activeクラスを除去し
+         $("#g-nav").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
+       });
+    </script>
+    <!--2022 yoshito suzuki-->
+  </body>
+</html>

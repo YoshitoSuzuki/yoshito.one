@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MeidoMafiaJinrou-fin.in-2022-9/11</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@500&family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@500&family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://2022-1-b.github.io/testdesuyo9/style.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+  </head>
+  <body>
+
+
+    <div class="rumain">
+      <div class="toptext">
+        <br><br>
+        <h3>メイドマフィア人狼</h3>
+        <br><br>
+      </div>
+      <div class="matext">
+        <br><br>
+        <p>メイドマフィア人狼は2022年9月11日16時30分をもちましてサービス終了いたしました。<br>
+        上記に伴い、meidomafiajinrou.comも更新を停止いたしました。<br>
+        本"メイドマフィア人狼"ページをご覧いただき、誠にありがとうございました。</p>
+        <br><br>
+      </div>
+      <div class="reto">
+        <a href="javascript:history.back()">前のページへ戻る</a>
+      </div>
+    </div>
+
+    <footer>
+      <p id="page-top"><a href="#">Page Top</a></p>
+      <div class="ft">
+        <p>e-mail: MeidoMafiaJinrou@mail.com</p>
+      </div>
+      <div class="fp">
+        <p><small>&copy; 2022 : 9/10 - 9/11   MeidoMafiaJinrou produced by 1-B</small></p>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      function PageTopAnime() {
+		      var scroll = $(window).scrollTop();
+		        if (scroll >= 200){//上から200pxスクロールしたら
+              $('#page-top').removeClass('RightMove');//#page-topについているRightMoveというクラス名を除く
+			        $('#page-top').addClass('LeftMove');//#page-topについているLeftMoveというクラス名を付与
+		        }else{
+			           if(
+				             $('#page-top').hasClass('LeftMove')){//すでに#page-topにLeftMoveというクラス名がついていたら
+				             $('#page-top').removeClass('LeftMove');//LeftMoveというクラス名を除き
+				             $('#page-top').addClass('RightMove');//RightMoveというクラス名を#page-topに付与
+                   }
+               }
+             }
+
+             // 画面をスクロールをしたら動かしたい場合の記述
+             $(window).scroll(function () {
+               PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+             });
+
+             // ページが読み込まれたらすぐに動かしたい場合の記述
+             $(window).on('load', function () {
+               PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+             });
+
+
+             // #page-topをクリックした際の設定
+             $('#page-top').click(function () {
+               $('body,html').animate({
+                 scrollTop: 0//ページトップまでスクロール
+               }, 500);//ページトップスクロールの速さ。数字が大きいほど遅くなる
+               return false;//リンク自体の無効化
+             });
+    </script>
+    <script>
+      $(".openbtn").click(function () {//ボタンがクリックされたら
+	       $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
+         $("#g-nav").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+       });
+
+       $("#g-nav a").click(function () {//ナビゲーションのリンクがクリックされたら
+         $(".openbtn").removeClass('active');//ボタンの activeクラスを除去し
+         $("#g-nav").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
+       });
+    </script>
+    <!--2022 yoshito suzuki-->
+  </body>
+</html>
