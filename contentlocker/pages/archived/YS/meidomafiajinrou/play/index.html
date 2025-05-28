@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="displayAll">
+      <div class="displayText2">
+        <div id="display11">役職</div>
+        <div id="display22">役職</div>
+        <div id="display33">役職</div>
+        <div id="display44">役職</div>
+        <div id="display55">役職</div>
+        <div id="display66">役職</div>
+        <div id="display77">役職</div>
+        <div id="display88">役職</div>
+        <div id="display99">役職</div>
+      </div>
+      <div class="buttonA">
+        <input class="p1" id="button1" type="button" name="1" value="1" onclick="action1()">
+        <input class="p2" id="button2" type="button" name="2" value="2" onclick="action2()">
+        <input class="p3" id="button3" type="button" name="3" value="3" onclick="action3()">
+        <input class="p4" id="button4" type="button" name="4" value="4" onclick="action4()">
+        <input class="p5" id="button5" type="button" name="5" value="5" onclick="action5()">
+        <input class="p6" id="button6" type="button" name="6" value="6" onclick="action6()">
+        <input class="p7" id="button7" type="button" name="7" value="7" onclick="action7()">
+        <input class="p8" id="button8" type="button" name="8" value="8" onclick="action8()">
+        <input class="p9" id="button9" type="button" name="9" value="9" onclick="action9()">
+      </div>
+      <div class="buttonB">
+        <input class="p1" id="button11" type="button" name="1" value="kill1" onclick="kill1()">
+        <input class="p2" id="button22" type="button" name="2" value="kill2" onclick="kill2()">
+        <input class="p3" id="button33" type="button" name="3" value="kill3" onclick="kill3()">
+        <input class="p4" id="button44" type="button" name="4" value="kill4" onclick="kill4()">
+        <input class="p5" id="button55" type="button" name="5" value="kill5" onclick="kill5()">
+        <input class="p6" id="button66" type="button" name="6" value="kill6" onclick="kill6()">
+        <input class="p7" id="button77" type="button" name="7" value="kill7" onclick="kill7()">
+        <input class="p8" id="button88" type="button" name="8" value="kill8" onclick="kill8()">
+        <input class="p9" id="button99" type="button" name="9" value="kill9" onclick="kill9()">
+      </div>
+      <div class="displayText1">
+        <div id="display1">生存</div>
+        <div id="display2">生存</div>
+        <div id="display3">生存</div>
+        <div id="display4">生存</div>
+        <div id="display5">生存</div>
+        <div id="display6">生存</div>
+        <div id="display7">生存</div>
+        <div id="display8">生存</div>
+        <div id="display9">生存</div>
+      </div>
+    </div>
+    <div class="readText">
+      <p id="reading"></p>
+    </div>
+    <div class=""></div>
+    <div class=""></div>
+    <div id="newText" class="newDisplay">
+      <p id="jobTextp" class="jobDisplayTextp">This text area is</p>
+      <h1 id="jobText" class="jobDisplayText">undefined</h1>
+      <p id="jobTextp2" class="jobDisplayTextp2">please push reset button</p>
+      <h3 id="jobTexth3" class="jobDisplayTesth3">※クレーマーもお客陣営と表示されます</p>
+        <div class="back">
+          <input id="backButton" type="button" name="" value="Back" onclick="back()">
+        </div>
+    </div>
+    <div class="reSet">
+      <input type="button" name="" value="Reset" onclick="reset()">
+    </div>
+    <div class="">
+      <div id="displayStep">0</div>
+    </div>
+    <script type="text/javascript">
+
+      var text1 ="机の中に入っている役職カードを、ほかの人から見られないように確認してください。それではゲームを始めます。夜の時間になりました。皆さん顔を伏せてください。マフィアの人は静かに顔をあげてください。お互いに仲間を確認してください。確認出来たら静かに顔を伏せてください。メンタリストの人は静かに顔をあげてください。占いたい人を選んでください。<BR>結果はこちらです。";
+      var text2 ="確認出来たら静かに顔を伏せてください。昼になりました。皆さん顔をあげてください。犠牲者はいませんでした。話し合いをして追放する人を決めてください。制限時間は180秒です。話し合いは終わった時点で終了可能です。(180秒)<BR>{(180秒全部使ったら)話し合いの時間は終了です。}<BR>投票の時間に移ります。追放したい人の番号が書かれたカードを椅子の後ろに出してください。(票集め)ありがとうございます。投票の結果が出ました。(killボタン押す)<BR>{(票数が被った場合)投票の結果、〇番さんと〇番さんが同じ票数で選ばれました。もう一度投票をいたします。<BR>{(2人の票数が同じだった場合)〇番さんと〇番さんのどちらか}<BR>{(3人以上の票数が同じだった場合)〇番さん、〇番さん、〇番さんのうち、誰か}<BR>(票数が被った場合)に投票してください。もう一度票数が被った場合はその人たちどちらかがランダムで追放されます。(票集め)ありがとうございます。(killボタン押す)}";
+      var text3 ="投票の結果";
+      var text4 ="番さんが追放されました。<BR>{(一回目)追放された方はゲームが終了するまで待つか、退出していただいても大丈夫です。ただし、ゲーム終了まで話すことはできません。}<BR>夜になりました。皆さん顔を伏せてください。SPの人は静かに顔をあげてください。SPの人は守りたい人のカードを静かにあげてください。";
+      var text5 ="ありがとうございました。静かに顔を伏せてください。次に、マフィアの人たちは静かに顔を上げてください。<BR>{(一回目)まずは}<BR>そちらの方、放逐したい人のカードを静かにあげてください。";
+      var text6 ="ありがとうございました。静かに顔を伏せてください。メンタリストの人は静かに顔をあげてください。占いたい人のカードを静かにあげてください。結果はこちらです。<BR><BR>(占い結果を表示した後)/ありがとうございました。静かに顔を伏せてください。重要参考人の人は静かに顔を上げてください。前日に追放された方の結果はこちらです。";
+      var text7 ="夜が明けました。皆さん顔を上げてください。<BR>{(犠牲者がいたら)";
+      var text8 ="番さんが放逐されました。(一回目)放逐された方はゲームが終了するまで待つか、退出していただいても大丈夫です。ただし、ゲーム終了まで話すことはできません。}<BR>{(犠牲者がいなかったら)犠牲者はいませんでした。}<BR>話し合いをして追放する人を決めてください。制限時間は180秒です。話し合いは終わった時点で終了可能です。(180秒)<BR>{(180秒全部使ったら)話し合いの時間は終了です。}<BR>投票の時間に移ります。追放したい人の番号が書かれたカードを椅子の後ろに出してください。(票集め)ありがとうございます。投票の結果が出ました。(killボタン押す)<BR>{(票数が被った場合)投票の結果、〇番さんと〇番さんが同じ票数で選ばれました。もう一度投票をいたします。<BR>{(2人の票数が同じだった場合)〇番さんと〇番さんのどちらか}<BR>{(3人以上の票数が同じだった場合)〇番さん、〇番さん、〇番さんのうち、誰か}<BR>(票数が被った場合)に投票してください。もう一度票数が被った場合はその人たちどちらかがランダムで追放されます。(票集め)ありがとうございます。(killボタン押す)}";
+      var text9 ="";
+      var text10 ="";
+      var text11 ="";
+      var text12 ="";
+
+      let ep = 7;
+      let ap = 2;
+      let epg = 6;
+      let apg = 3;
+
+      let step = 0;
+
+      let sun = false;//true 昼   false 夜
+
+      var player1;
+      var player2;
+      var player3;
+      var player4;
+      var player5;
+      var player6;
+      var player7;
+      var player8;
+      var player9;
+
+      var life1 = 1;
+      var life2 = 1;
+      var life3 = 1;
+      var life4 = 1;
+      var life5 = 1;
+      var life6 = 1;
+      var life7 = 1;
+      var life8 = 1;
+      var life9 = 1;//0:死亡 , 1:生存 , 2:守護
+
+      var job0 ="&nbsp;&nbsp;&nbsp;&nbsp;お客&nbsp;&nbsp;&nbsp;&nbsp;";
+      var job1 ="&nbsp;&nbsp;&nbsp;&nbsp;お客&nbsp;&nbsp;&nbsp;&nbsp";
+      var job2 ="&nbsp;&nbsp;&nbsp;&nbsp;お客&nbsp;&nbsp;&nbsp;&nbsp";
+      var job3 ="&nbsp;&nbsp;マフィア&nbsp;&nbsp;";
+      var job4 ="&nbsp;&nbsp;マフィア&nbsp;&nbsp;";
+      var job5 ="&nbsp;&nbsp;&nbsp;&nbsp;ＳＰ&nbsp;&nbsp;&nbsp;&nbsp;";
+      var job6 ="メンタリスト";
+      var job7 ="&nbsp;&nbsp;重要参考人";
+      var job8 ="&nbsp;&nbsp;クレーマー";
+
+      var lifeJob0 = 1;
+      var lifeJob1 = 1;
+      var lifeJob2 = 1;
+      var lifeJob3 = 1;
+      var lifeJob4 = 1;
+      var lifeJob5 = 1;
+      var lifeJob6 = 1;
+      var lifeJob7 = 1;
+      var lifeJob8 = 1;
+      var lifeJob9 = 1;//0:死亡 , 1:生存 , 2:さっき死んだ人 , 3:守護 , 4:昼に死ぬ
+
+      var groupA ="お客陣営";
+      var groupB ="マフィア陣営";
+
+      var liveText ="生存";
+      var loseText ="追放";
+
+      let naohiro21 = 0;
+
+      function reset(){
+
+        displaySet("reading",text1);
+
+        ep = 7;
+        ap = 2;
+        epg = 6;
+        apg = 3;
+
+        step = 0;
+
+        sun = false;
+
+        life1 = 1;
+        life2 = 1;
+        life3 = 1;
+        life4 = 1;
+        life5 = 1;
+        life6 = 1;
+        life7 = 1;
+        life8 = 1;
+        life9 = 1;
+
+        lifeJob0 = 1;
+        lifeJob1 = 1;
+        lifeJob2 = 1;
+        lifeJob3 = 1;
+        lifeJob4 = 1;
+        lifeJob5 = 1;
+        lifeJob6 = 1;
+        lifeJob7 = 1;
+        lifeJob8 = 1;
+        lifeJob9 = 1;
+
+        const b1 = document.getElementById("button1");
+        b1.disabled = false;
+        const b11 = document.getElementById("button11");
+        b11.disabled = false;
+        const b2 = document.getElementById("button2");
+        b2.disabled = false;
+        const b22 = document.getElementById("button22");
+        b22.disabled = false;
+        const b3 = document.getElementById("button3");
+        b3.disabled = false;
+        const b33 = document.getElementById("button33");
+        b33.disabled = false;
+        const b4 = document.getElementById("button4");
+        b4.disabled = false;
+        const b44 = document.getElementById("button44");
+        b44.disabled = false;
+        const b5 = document.getElementById("button5");
+        b5.disabled = false;
+        const b55 = document.getElementById("button55");
+        b55.disabled = false;
+        const b6 = document.getElementById("button6");
+        b6.disabled = false;
+        const b66 = document.getElementById("button66");
+        b66.disabled = false;
+        const b7 = document.getElementById("button7");
+        b7.disabled = false;
+        const b77 = document.getElementById("button77");
+        b77.disabled = false;
+        const b8 = document.getElementById("button8");
+        b8.disabled = false;
+        const b88 = document.getElementById("button88");
+        b88.disabled = false;
+        const b9 = document.getElementById("button9");
+        b9.disabled = false;
+        const b99 = document.getElementById("button99");
+        b99.disabled = false;
+        document.getElementById("display1").innerHTML = "生存";
+        document.getElementById("display2").innerHTML = "生存";
+        document.getElementById("display3").innerHTML = "生存";
+        document.getElementById("display4").innerHTML = "生存";
+        document.getElementById("display5").innerHTML = "生存";
+        document.getElementById("display6").innerHTML = "生存";
+        document.getElementById("display7").innerHTML = "生存";
+        document.getElementById("display8").innerHTML = "生存";
+        document.getElementById("display9").innerHTML = "生存";
+        buttonOff("button11");
+        buttonOff("button22");
+        buttonOff("button33");
+        buttonOff("button44");
+        buttonOff("button55");
+        buttonOff("button66");
+        buttonOff("button77");
+        buttonOff("button88");
+        buttonOff("button99");
+
+        displaySet("jobTextp","This text area is");
+        displaySet("jobText","undefined");
+        displaySet("jobTextp2","please push rest button");
+        document.getElementById("newText").classList.remove("newTextDisplay");
+        step = 0;
+        displaySet("displayStep",step);
+        buttonOff("backButton");
+
+        var i = Math.floor(Math.random()*9);
+        switch (i){
+          case 0:
+          displaySet("display11",job0);
+          player1 = 0;
+          break;
+
+          case 1:
+          displaySet("display11",job1);
+          player1 = 1;
+          break;
+
+          case 2:
+          displaySet("display11",job2);
+          player1 = 2;
+          break;
+
+          case 3:
+          displaySet("display11",job3);
+          player1 = 3;
+          break;
+
+          case 4:
+          displaySet("display11",job4);
+          player1 = 4;
+          break;
+
+          case 5:
+          displaySet("display11",job5);
+          player1 = 5;
+          break;
+
+          case 6:
+          displaySet("display11",job6);
+          player1 = 6;
+          break;
+
+          case 7:
+          displaySet("display11",job7);
+          player1 = 7;
+          break;
+
+          case 8:
+          displaySet("display11",job8);
+          player1 = 8;
+          break;
+        }
+
+        while (i == player1) {
+          var i = Math.floor(Math.random()*9);
+          switch (i){
+            case 0:
+            displaySet("display22",job0);
+            player2 = 0;
+            break;
+
+            case 1:
+            displaySet("display22",job1);
+            player2 = 1;
+            break;
+
+            case 2:
+            displaySet("display22",job2);
+            player2 = 2;
+            break;
+
+            case 3:
+            displaySet("display22",job3);
+            player2 = 3;
+            break;
+
+            case 4:
+            displaySet("display22",job4);
+            player2 = 4;
+            break;
+
+            case 5:
+            displaySet("display22",job5);
+            player2 = 5;
+            break;
+
+            case 6:
+            displaySet("display22",job6);
+            player2 = 6;
+            break;
+
+            case 7:
+            displaySet("display22",job7);
+            player2 = 7;
+            break;
+
+            case 8:
+            displaySet("display22",job8);
+            player2 = 8;
+            break;
+          }
+        }
+
+        while ((i == player1)||(i == player2) ) {
+          var i = Math.floor(Math.random()*9);
+          switch (i){
+            case 0:
+            displaySet("display33",job0);
+            player3 = 0;
+            break;
+
+            case 1:
+            displaySet("display33",job1);
+            player3 = 1;
+            break;
+
+            case 2:
+            displaySet("display33",job2);
+            player3 = 2;
+            break;
+
+            case 3:
+            displaySet("display33",job3);
+            player3 = 3;
+            break;
+
+            case 4:
+            displaySet("display33",job4);
+            player3 = 4;
+            break;
+
+            case 5:
+            displaySet("display33",job5);
+            player3 = 5;
+            break;
+
+            case 6:
+            displaySet("display33",job6);
+            player3 = 6;
+            break;
+
+            case 7:
+            displaySet("display33",job7);
+            player3 = 7;
+            break;
+
+            case 8:
+            displaySet("display33",job8);
+            player3 = 8;
+            break;
+          }
+        }
+
+        while ((i == player1)||(i == player2)||(i == player3) ) {
+          var i = Math.floor(Math.random()*9);
+          switch (i){
+            case 0:
+            displaySet("display44",job0);
+            player4 = 0;
+            break;
+
+            case 1:
+            displaySet("display44",job1);
+            player4 = 1;
+            break;
+
+            case 2:
+            displaySet("display44",job2);
+            player4 = 2;
+            break;
+
+            case 3:
+            displaySet("display44",job3);
+            player4 = 3;
+            break;
+
+            case 4:
+            displaySet("display44",job4);
+            player4 = 4;
+            break;
+
+            case 5:
+            displaySet("display44",job5);
+            player4 = 5;
+            break;
+
+            case 6:
+            displaySet("display44",job6);
+            player4 = 6;
+            break;
+
+            case 7:
+            displaySet("display44",job7);
+            player4 = 7;
+            break;
+
+            case 8:
+            displaySet("display44",job8);
+            player4 = 8;
+            break;
+          }
+        }
+
+        while ((i == player1)||(i == player2)||(i == player3)||(i == player4) ) {
+          var i = Math.floor(Math.random()*9);
+          switch (i){
+            case 0:
+            displaySet("display55",job0);
+            player5 = 0;
+            break;
+
+            case 1:
+            displaySet("display55",job1);
+            player5 = 1;
+            break;
+
+            case 2:
+            displaySet("display55",job2);
+            player5 = 2;
+            break;
+
+            case 3:
+            displaySet("display55",job3);
+            player5 = 3;
+            break;
+
+            case 4:
+            displaySet("display55",job4);
+            player5 = 4;
+            break;
+
+            case 5:
+            displaySet("display55",job5);
+            player5 = 5;
+            break;
+
+            case 6:
+            displaySet("display55",job6);
+            player5 = 6;
+            break;
+
+            case 7:
+            displaySet("display55",job7);
+            player5 = 7;
+            break;
+
+            case 8:
+            displaySet("display55",job8);
+            player5 = 8;
+            break;
+          }
+        }
+
+        while ((i == player1)||(i == player2)||(i == player3)||(i == player4)||(i == player5) ) {
+          var i = Math.floor(Math.random()*9);
+          switch (i){
+            case 0:
+            displaySet("display66",job0);
+            player6 = 0;
+            break;
+
+            case 1:
+            displaySet("display66",job1);
+            player6 = 1;
+            break;
+
+            case 2:
+            displaySet("display66",job2);
+            player6 = 2;
+            break;
+
+            case 3:
+            displaySet("display66",job3);
+            player6 = 3;
+            break;
+
+            case 4:
+            displaySet("display66",job4);
+            player6 = 4;
+            break;
+
+            case 5:
+            displaySet("display66",job5);
+            player6 = 5;
+            break;
+
+            case 6:
+            displaySet("display66",job6);
+            player6 = 6;
+            break;
+
+            case 7:
+            displaySet("display66",job7);
+            player6 = 7;
+            break;
+
+            case 8:
+            displaySet("display66",job8);
+            player6 = 8;
+            break;
+          }
+        }
+
+        while ((i == player1)||(i == player2)||(i == player3)||(i == player4)||(i == player5)||(i == player6) ) {
+          var i = Math.floor(Math.random()*9);
+          switch (i){
+            case 0:
+            displaySet("display77",job0);
+            player7 = 0;
+            break;
+
+            case 1:
+            displaySet("display77",job1);
+            player7 = 1;
+            break;
+
+            case 2:
+            displaySet("display77",job2);
+            player7 = 2;
+            break;
+
+            case 3:
+            displaySet("display77",job3);
+            player7 = 3;
+            break;
+
+            case 4:
+            displaySet("display77",job4);
+            player7 = 4;
+            break;
+
+            case 5:
+            displaySet("display77",job5);
+            player7 = 5;
+            break;
+
+            case 6:
+            displaySet("display77",job6);
+            player7 = 6;
+            break;
+
+            case 7:
+            displaySet("display77",job7);
+            player7 = 7;
+            break;
+
+            case 8:
+            displaySet("display77",job8);
+            player7 = 8;
+            break;
+          }
+        }
+
+        while ((i == player1)||(i == player2)||(i == player3)||(i == player4)||(i == player5)||(i == player6)||(i == player7) ) {
+          var i = Math.floor(Math.random()*9);
+          switch (i){
+            case 0:
+            displaySet("display88",job0);
+            player8 = 0;
+            break;
+
+            case 1:
+            displaySet("display88",job1);
+            player8 = 1;
+            break;
+
+            case 2:
+            displaySet("display88",job2);
+            player8 = 2;
+            break;
+
+            case 3:
+            displaySet("display88",job3);
+            player8 = 3;
+            break;
+
+            case 4:
+            displaySet("display88",job4);
+            player8 = 4;
+            break;
+
+            case 5:
+            displaySet("display88",job5);
+            player8 = 5;
+            break;
+
+            case 6:
+            displaySet("display88",job6);
+            player8 = 6;
+            break;
+
+            case 7:
+            displaySet("display88",job7);
+            player8 = 7;
+            break;
+
+            case 8:
+            displaySet("display88",job8);
+            player8 = 8;
+            break;
+          }
+        }
+
+        while ((i == player1)||(i == player2)||(i == player3)||(i == player4)||(i == player5)||(i == player6)||(i == player7)||(i == player8) ) {
+          var i = Math.floor(Math.random()*9);
+          switch (i){
+            case 0:
+            displaySet("display99",job0);
+            player9 = 0;
+            break;
+
+            case 1:
+            displaySet("display99",job1);
+            player9 = 1;
+            break;
+
+            case 2:
+            displaySet("display99",job2);
+            player9 = 2;
+            break;
+
+            case 3:
+            displaySet("display99",job3);
+            player9 = 3;
+            break;
+
+            case 4:
+            displaySet("display99",job4);
+            player9 = 4;
+            break;
+
+            case 5:
+            displaySet("display99",job5);
+            player9 = 5;
+            break;
+
+            case 6:
+            displaySet("display99",job6);
+            player9 = 6;
+            break;
+
+            case 7:
+            displaySet("display99",job7);
+            player9 = 7;
+            break;
+
+            case 8:
+            displaySet("display99",job8);
+            player9 = 8;
+            break;
+          }
+        }
+        naohiro21 = 0;
+      }
+
+      function displaySet(textID,setText){
+        document.getElementById(textID).innerHTML = setText;
+      }
+
+      function action1(){
+        action(player1,1,"display1",life1);
+      }
+      function action2(){
+        action(player2,2,"display2",life2);
+      }
+      function action3(){
+        action(player3,3,"display3",life3);
+      }
+      function action4(){
+        action(player4,4,"display4",life4);
+      }
+      function action5(){
+        action(player5,5,"display5",life5);
+      }
+      function action6(){
+        action(player6,6,"display6",life6);
+      }
+      function action7(){
+        action(player7,7,"display7",life7);
+      }
+      function action8(){
+        action(player8,8,"display8",life8);
+      }
+      function action9(){
+        action(player9,9,"display9",life9);
+      }
+
+      function action(playerName,playerNumber,playerDisplayAID,playerLifeName){
+        switch (step){
+          case 0:
+          if(playerName != 6){
+            if((playerName==0)||(playerName==1)||(playerName==2)||(playerName==5)||(playerName==6)||(playerName==7)||(playerName==8)){
+              displaySet("jobTextp",playerNumber+"さんは");
+              displaySet("jobText",groupA);
+              displaySet("jobTextp2","です。");
+            }else if((playerName==3)||(playerName==4)){
+              displaySet("jobTextp",playerNumber+"さんは");
+              displaySet("jobText",groupB);
+              displaySet("jobTextp2","です。");
+            }
+            document.getElementById("newText").classList.add("newTextDisplay");
+            buttonOn("backButton");
+          }
+          break;
+          case 2:
+          if((playerName==0)||(playerName==1)||(playerName==2)||(playerName==3)||(playerName==4)||(playerName==6)||(playerName==7)||(playerName==8)){
+            if(lifeJob5==1){
+              displaySet(playerDisplayAID,"守護");
+              lifeControlTo3(playerNumber,playerName);
+            }
+            stepUp();
+            displaySet("reading",text5);
+          }
+          break;
+          case 3:
+          if((playerName != 3)&&(playerName != 4)){
+            if(playerLifeName != 3){
+              switch (playerNumber){
+                case 1:
+                life1 = 4;
+                break;
+                case 2:
+                life2 = 4;
+                break;
+                case 3:
+                life3 = 4;
+                break;
+                case 4:
+                life4 = 4;
+                break;
+                case 5:
+                life5 = 4;
+                break;
+                case 6:
+                life6 = 4;
+                break;
+                case 7:
+                life7 = 4;
+                break;
+                case 8:
+                life8 = 4;
+                break;
+                case 9:
+                life9 = 4;
+                break;
+              }
+              displaySet(playerDisplayAID,"来死");
+            }else{
+              switch (playerNumber){
+                case 1:
+                displaySet("display1","阻止");
+                break;
+                case 2:
+                displaySet("display2","阻止");
+                break;
+                case 3:
+                displaySet("display3","阻止");
+                break;
+                case 4:
+                displaySet("display4","阻止");
+                break;
+                case 5:
+                displaySet("display5","阻止");
+                break;
+                case 6:
+                displaySet("display6","阻止");
+                break;
+                case 7:
+                displaySet("display7","阻止");
+                break;
+                case 8:
+                displaySet("display8","阻止");
+                break;
+                case 9:
+                displaySet("display9","阻止");
+                break;
+              }
+            }
+            stepUp();
+            displaySet("reading",text6);
+          }
+          break;
+          case 4:
+          if(playerName != 6){
+            if((lifeJob6 != 0)&&(lifeJob6 != 2)){
+              if((playerName==0)||(playerName==1)||(playerName==2)||(playerName==5)||(playerName==6)||(playerName==7)||(playerName==8)){
+                displaySet("jobTextp",playerNumber+"さんは");
+                displaySet("jobText",groupA);
+                displaySet("jobTextp2","です。");
+              }else if((playerName==3)||(playerName==4)){
+                displaySet("jobTextp",playerNumber+"さんは");
+                displaySet("jobText",groupB);
+                displaySet("jobTextp2","です。");
+              }
+            }else {
+              displaySet("jobTextp",job6+loseText+"済。");
+              displaySet("jobText","Backボタン");
+              displaySet("jobTextp2","を押してください。");
+            }
+            document.getElementById("newText").classList.add("newTextDisplay");
+            buttonOn("backButton");
+          }
+          break;
+        }
+      }
+
+      function buttonOn(buttonID){
+        const buttonKillb = document.getElementById(buttonID);
+        buttonKillb.disabled = false;
+      }
+      function buttonOff(buttonID){
+        const buttonKillb = document.getElementById(buttonID);
+        buttonKillb.disabled = true;
+      }
+
+      function back(){
+        document.getElementById("newText").classList.remove("newTextDisplay");
+        if((step==0)||(step==5)){
+          buttonOff("button1");
+          buttonOff("button2");
+          buttonOff("button3");
+          buttonOff("button4");
+          buttonOff("button5");
+          buttonOff("button6");
+          buttonOff("button7");
+          buttonOff("button8");
+          buttonOff("button9");
+        }
+        stepUp();
+        buttonOff("backButton");
+        if(step == 5){
+          buttonOn("backButton");
+        }
+        if(step==1){
+          displaySet("reading",text2);
+        }
+      }
+
+      function stepUp(){
+        step ++;
+        displaySet("displayStep",step);
+        switch (step){
+          case 1:
+          buttonOn("button11");
+          buttonOn("button22");
+          buttonOn("button33");
+          buttonOn("button44");
+          buttonOn("button55");
+          buttonOn("button66");
+          buttonOn("button77");
+          buttonOn("button88");
+          buttonOn("button99");
+          break;
+          case 2:
+          buttonOff("button11");
+          buttonOff("button22");
+          buttonOff("button33");
+          buttonOff("button44");
+          buttonOff("button55");
+          buttonOff("button66");
+          buttonOff("button77");
+          buttonOff("button88");
+          buttonOff("button99");
+          break;
+          case 3:
+          buttonOff("button11");
+          buttonOff("button22");
+          buttonOff("button33");
+          buttonOff("button44");
+          buttonOff("button55");
+          buttonOff("button66");
+          buttonOff("button77");
+          buttonOff("button88");
+          buttonOff("button99");
+          break;
+          case 4:
+          break;
+          case 5:
+          displayKilleder();
+          break;
+          case 6:
+          displaySet("reading",text7+findPlayerNumber(4)+text8);
+          for(let i=0;i<=10;i++){
+            returnLifeNumberTo1(findPlayerTolife(3));
+          }
+          naohiro21 = 1;
+          killPlayer(findPlayerTolife(4));
+          naohiro21 = 0;
+          for(let i=0;i<=10;i++){
+            returnLifeNumberTo0(findPlayerTolife(2));
+          }
+          if(life1 != 0){
+            buttonOn("button11");
+          }
+          if(life2 != 0){
+            buttonOn("button22");
+          }
+          if(life3 != 0){
+            buttonOn("button33");
+          }
+          if(life4 != 0){
+            buttonOn("button44");
+          }
+          if(life5 != 0){
+            buttonOn("button55");
+          }
+          if(life6 != 0){
+            buttonOn("button66");
+          }
+          if(life7 != 0){
+            buttonOn("button77");
+          }
+          if(life8 != 0){
+            buttonOn("button88");
+          }
+          if(life9 != 0){
+            buttonOn("button99");
+          }
+          break;
+        }
+      }
+
+      function findPlayerTolife(findLifeNumber){
+        if(life1==findLifeNumber){
+          return life1;
+        }else if(life2==findLifeNumber){
+          return life2;
+        }else if(life3==findLifeNumber){
+          return life3;
+        }else if(life4==findLifeNumber){
+          return life4;
+        }else if(life5==findLifeNumber){
+          return life5;
+        }else if(life6==findLifeNumber){
+          return life6;
+        }else if(life7==findLifeNumber){
+          return life7;
+        }else if(life8==findLifeNumber){
+          return life8;
+        }else if(life9==findLifeNumber){
+          return life9;
+        }
+      }
+
+      function findPlayerName(findLifeID){
+        switch (findLifeID){
+          case life1:
+          return player1;
+          break;
+          case life2:
+          return player2;
+          break;
+          case life3:
+          return player3;
+          break;
+          case life4:
+          return player4;
+          break;
+          case life5:
+          return player5;
+          break;
+          case life6:
+          return player6;
+          break;
+          case life7:
+          return player7;
+          break;
+          case life8:
+          return player8;
+          break;
+          case life9:
+          return player9;
+          break;
+        }
+      }
+
+      function findPlayerNumber(findLifeID){
+        switch (findLifeID){
+          case life1:
+          return 1;
+          break;
+          case life2:
+          return 2;
+          break;
+          case life3:
+          return 3;
+          break;
+          case life4:
+          return 4;
+          break;
+          case life5:
+          return 5;
+          break;
+          case life6:
+          return 6;
+          break;
+          case life7:
+          return 7;
+          break;
+          case life8:
+          return 8;
+          break;
+          case life9:
+          return 9;
+          break;
+        }
+      }
+
+      function returnLifeNumberTo1(playerLifeID){
+        switch (playerLifeID){
+          case life1:
+          life1 =1;
+          displaySet("display1","生存");
+          break;
+          case life2:
+          life2 =1;
+          displaySet("display2","生存");
+          break;
+          case life3:
+          life3 =1;
+          displaySet("display3","生存");
+          break;
+          case life4:
+          life4 =1;
+          displaySet("display4","生存");
+          break;
+          case life5:
+          life5 =1;
+          displaySet("display5","生存");
+          break;
+          case life6:
+          life6 =1;
+          displaySet("display6","生存");
+          break;
+          case life7:
+          life7 =1;
+          displaySet("display7","生存");
+          break;
+          case life8:
+          life8 =1;
+          displaySet("display8","生存");
+          break;
+          case life9:
+          life9 =1;
+          displaySet("display9","生存");
+          break;
+        }
+      }
+
+      function returnLifeNumberTo0(playerLifeID){
+        switch (playerLifeID){
+          case life1:
+          life1 =0;
+          displaySet("display1",loseText);
+          break;
+          case life2:
+          life2 =0;
+          displaySet("display2",loseText);
+          break;
+          case life3:
+          life3 =0;
+          displaySet("display3",loseText);
+          break;
+          case life4:
+          life4 =0;
+          displaySet("display4",loseText);
+          break;
+          case life5:
+          life5 =0;
+          displaySet("display5",loseText);
+          break;
+          case life6:
+          life6 =0;
+          displaySet("display6",loseText);
+          break;
+          case life7:
+          life7 =0;
+          displaySet("display7",loseText);
+          break;
+          case life8:
+          life8 =0;
+          displaySet("display8",loseText);
+          break;
+          case life9:
+          life9 =0;
+          displaySet("display9",loseText);
+          break;
+        }
+      }
+
+      function displayKilleder(){
+        if((lifeJob7 != 0)&&(lifeJob7 != 2)){
+          if(life1==2){
+            if((player1==0)||(player1==1)||(player1==2)||(player1==5)||(player1==6)||(player1==7)||(player1==8)){
+              displaySet("jobTextp","1さんは");
+              displaySet("jobText",groupA);
+              displaySet("jobTextp2","でした。");
+            }else if((player1==3)||(player1==4)){
+              displaySet("jobTextp","1さんは");
+              displaySet("jobText",groupB);
+              displaySet("jobTextp2","でした。");
+            }
+          }else if(life2==2){
+            if((player2==0)||(player2==1)||(player2==2)||(player2==5)||(player2==6)||(player2==7)||(player2==8)){
+              displaySet("jobTextp","2さんは");
+              displaySet("jobText",groupA);
+              displaySet("jobTextp2","でした。");
+            }else if((player2==3)||(player2==4)){
+              displaySet("jobTextp","2さんは");
+              displaySet("jobText",groupB);
+              displaySet("jobTextp2","でした。");
+            }
+          }else if(life3==2){
+            if((player3==0)||(player3==1)||(player3==2)||(player3==5)||(player3==6)||(player3==7)||(player3==8)){
+              displaySet("jobTextp","3さんは");
+              displaySet("jobText",groupA);
+              displaySet("jobTextp2","でした。");
+            }else if((player3==3)||(player3==4)){
+              displaySet("jobTextp","3さんは");
+              displaySet("jobText",groupB);
+              displaySet("jobTextp2","でした。");
+            }
+          }else if(life4==2){
+            if((player4==0)||(player4==1)||(player4==2)||(player4==5)||(player4==6)||(player4==7)||(player4==8)){
+              displaySet("jobTextp","4さんは");
+              displaySet("jobText",groupA);
+              displaySet("jobTextp2","でした。");
+            }else if((player4==3)||(player4==4)){
+              displaySet("jobTextp","4さんは");
+              displaySet("jobText",groupB);
+              displaySet("jobTextp2","でした。");
+            }
+          }else if(life5==2){
+            if((player5==0)||(player5==1)||(player5==2)||(player5==5)||(player5==6)||(player5==7)||(player5==8)){
+              displaySet("jobTextp","5さんは");
+              displaySet("jobText",groupA);
+              displaySet("jobTextp2","でした。");
+            }else if((player5==3)||(player5==4)){
+              displaySet("jobTextp","5さんは");
+              displaySet("jobText",groupB);
+              displaySet("jobTextp2","でした。");
+            }
+          }else if(life6==2){
+            if((player6==0)||(player6==1)||(player6==2)||(player6==5)||(player6==6)||(player6==7)||(player6==8)){
+              displaySet("jobTextp","6さんは");
+              displaySet("jobText",groupA);
+              displaySet("jobTextp2","でした。");
+            }else if((player6==3)||(player6==4)){
+              displaySet("jobTextp","6さんは");
+              displaySet("jobText",groupB);
+              displaySet("jobTextp2","でした。");
+            }
+          }else if(life7==2){
+            if((player7==0)||(player7==1)||(player7==2)||(player7==5)||(player7==6)||(player7==7)||(player7==8)){
+              displaySet("jobTextp","7さんは");
+              displaySet("jobText",groupA);
+              displaySet("jobTextp2","でした。");
+            }else if((player7==3)||(player7==4)){
+              displaySet("jobTextp","7さんは");
+              displaySet("jobText",groupB);
+              displaySet("jobTextp2","でした。");
+            }
+          }else if(life8==2){
+            if((player8==0)||(player8==1)||(player8==2)||(player8==5)||(player8==6)||(player8==7)||(player8==8)){
+              displaySet("jobTextp","8さんは");
+              displaySet("jobText",groupA);
+              displaySet("jobTextp2","でした。");
+            }else if((player8==3)||(player8==4)){
+              displaySet("jobTextp","8さんは");
+              displaySet("jobText",groupB);
+              displaySet("jobTextp2","でした。");
+            }
+          }else if(life9==2){
+            if((player9==0)||(player9==1)||(player9==2)||(player9==5)||(player9==6)||(player9==7)||(player9==8)){
+              displaySet("jobTextp","9さんは");
+              displaySet("jobText",groupA);
+              displaySet("jobTextp2","でした。");
+            }else if((player9==3)||(player9==4)){
+              displaySet("jobTextp","9さんは");
+              displaySet("jobText",groupB);
+              displaySet("jobTextp2","でした。");
+            }
+          }
+        }else{
+          displaySet("jobTextp",job7+loseText+"済。");
+          displaySet("jobText","Backボタン");
+          displaySet("jobTextp2","を押してください。");
+        }
+        document.getElementById("newText").classList.add("newTextDisplay");
+        buttonOn("backButton");
+      }
+
+      function displayFin0win(){
+        AdisplayFin("button1","button11","display1",job0+"の勝利");
+        AdisplayFin("button2","button22","display2",job0+"の勝利");
+        AdisplayFin("button3","button33","display3",job0+"の勝利");
+        AdisplayFin("button4","button44","display4",job0+"の勝利");
+        AdisplayFin("button5","button55","display5",job0+"の勝利");
+        AdisplayFin("button6","button66","display6",job0+"の勝利");
+        AdisplayFin("button7","button77","display7",job0+"の勝利");
+        AdisplayFin("button8","button88","display8",job0+"の勝利");
+        AdisplayFin("button9","button99","display9",job0+"の勝利");
+      }
+      function displayFIn1win(){
+        AdisplayFin("button1","button11","display1",job3+"の勝利");
+        AdisplayFin("button2","button22","display2",job3+"の勝利");
+        AdisplayFin("button3","button33","display3",job3+"の勝利");
+        AdisplayFin("button4","button44","display4",job3+"の勝利");
+        AdisplayFin("button5","button55","display5",job3+"の勝利");
+        AdisplayFin("button6","button66","display6",job3+"の勝利");
+        AdisplayFin("button7","button77","display7",job3+"の勝利");
+        AdisplayFin("button8","button88","display8",job3+"の勝利");
+        AdisplayFin("button9","button99","display9",job3+"の勝利");
+      }
+      function AdisplayFin(buttonID,buttonID2,displayID,innertext){
+        const buttonKilla = document.getElementById(buttonID);
+        buttonKilla.disabled = true;
+        const buttonKillb = document.getElementById(buttonID2);
+        buttonKillb.disabled = true;
+        document.getElementById(displayID).innerHTML = innertext;
+      }
+
+      function kill1(){
+        const buttonKilla = document.getElementById("button1");
+        buttonKilla.disabled = true;
+        const buttonKillb = document.getElementById("button11");
+        buttonKillb.disabled = true;
+        document.getElementById("display1").innerHTML = loseText;
+        if((player1 == 0)||(player1 == 1)||(player1 == 2)||(player1 == 5)||(player1 == 6)||(player1 == 7)){
+          ep --;
+          epg --;
+        }else if((player1 == 3)||(player1 == 4)) {
+          ap --;
+          apg --;
+        }else if(player1 == 8){
+          ep --;
+          apg --;
+        }
+        if(ep <= ap){
+          displayFIn1win();
+        }
+        if(ap == 0){
+          displayFin0win();
+        }
+        killLifeControl(1,player1);
+        if(naohiro21 == 0){
+          if(step >= 6){
+            step =1;
+          }
+        }
+        killButtonNotOn();
+        stepUp();
+      }
+      function kill2(){
+        const buttonKilla = document.getElementById("button2");
+        buttonKilla.disabled = true;
+        const buttonKillb = document.getElementById("button22");
+        buttonKillb.disabled = true;
+        document.getElementById("display2").innerHTML = loseText;
+        if((player2 == 0)||(player2 == 1)||(player2 == 2)||(player2 == 5)||(player2 == 6)||(player2 == 7)){
+          ep --;
+          epg --;
+        }else if((player2 == 3)||(player2 == 4)) {
+          ap --;
+          apg --;
+        }else if(player2 == 8){
+          ep --;
+          apg --;
+        }
+        if(ep <= ap){
+          displayFIn1win();
+        }
+        if(ap == 0){
+          displayFin0win();
+        }
+        killLifeControl(2,player2);
+        if(naohiro21 == 0){
+          if(step >= 6){
+            step =1;
+          }
+        }
+        killButtonNotOn();
+        stepUp();
+      }
+      function kill3(){
+        const buttonKilla = document.getElementById("button3");
+        buttonKilla.disabled = true;
+        const buttonKillb = document.getElementById("button33");
+        buttonKillb.disabled = true;
+        document.getElementById("display3").innerHTML = loseText;
+        if((player3 == 0)||(player3 == 1)||(player3 == 2)||(player3 == 5)||(player3 == 6)||(player3 == 7)){
+          ep --;
+          epg --;
+        }else if((player3 == 3)||(player3 == 4)) {
+          ap --;
+          apg --;
+        }else if(player3 == 8){
+          ep --;
+          apg --;
+        }
+        if(ep <= ap){
+          displayFIn1win();
+        }
+        if(ap == 0){
+          displayFin0win();
+        }
+        killLifeControl(3,player3);
+        if(naohiro21 == 0){
+          if(step >= 6){
+            step =1;
+          }
+        }
+        killButtonNotOn();
+        stepUp();
+      }
+      function kill4(){
+        const buttonKilla = document.getElementById("button4");
+        buttonKilla.disabled = true;
+        const buttonKillb = document.getElementById("button44");
+        buttonKillb.disabled = true;
+        document.getElementById("display4").innerHTML = loseText;
+        if((player4 == 0)||(player4 == 1)||(player4 == 2)||(player4 == 5)||(player4 == 6)||(player4 == 7)){
+          ep --;
+          epg --;
+        }else if((player4 == 3)||(player4 == 4)) {
+          ap --;
+          apg --;
+        }else if(player4 == 8){
+          ep --;
+          apg --;
+        }
+        if(ep <= ap){
+          displayFIn1win();
+        }
+        if(ap == 0){
+          displayFin0win();
+        }
+        killLifeControl(4,player4);
+        if(naohiro21 == 0){
+          if(step >= 6){
+            step =1;
+          }
+        }
+        killButtonNotOn();
+        stepUp();
+      }
+      function kill5(){
+        const buttonKilla = document.getElementById("button5");
+        buttonKilla.disabled = true;
+        const buttonKillb = document.getElementById("button55");
+        buttonKillb.disabled = true;
+        document.getElementById("display5").innerHTML = loseText;
+        if((player5 == 0)||(player5 == 1)||(player5 == 2)||(player5 == 5)||(player5 == 6)||(player5 == 7)){
+          ep --;
+          epg --;
+        }else if((player5 == 3)||(player5 == 4)) {
+          ap --;
+          apg --;
+        }else if(player5 == 8){
+          ep --;
+          apg --;
+        }
+        if(ep <= ap){
+          displayFIn1win();
+        }
+        if(ap == 0){
+          displayFin0win();
+        }
+        killLifeControl(5,player5);
+        if(naohiro21 == 0){
+          if(step >= 6){
+            step =1;
+          }
+        }
+        killButtonNotOn();
+        stepUp();
+      }
+      function kill6(){
+        const buttonKilla = document.getElementById("button6");
+        buttonKilla.disabled = true;
+        const buttonKillb = document.getElementById("button66");
+        buttonKillb.disabled = true;
+        document.getElementById("display6").innerHTML = loseText;
+        if((player6 == 0)||(player6 == 1)||(player6 == 2)||(player6 == 5)||(player6 == 6)||(player6 == 7)){
+          ep --;
+          epg --;
+        }else if((player6 == 3)||(player6 == 4)) {
+          ap --;
+          apg --;
+        }else if(player6 == 8){
+          ep --;
+          apg --;
+        }
+        if(ep <= ap){
+          displayFIn1win();
+        }
+        if(ap == 0){
+          displayFin0win();
+        }
+        killLifeControl(6,player6);
+        if(naohiro21 == 0){
+          if(step >= 6){
+            step =1;
+          }
+        }
+        killButtonNotOn();
+        stepUp();
+      }
+      function kill7(){
+        const buttonKilla = document.getElementById("button7");
+        buttonKilla.disabled = true;
+        const buttonKillb = document.getElementById("button77");
+        buttonKillb.disabled = true;
+        document.getElementById("display7").innerHTML = loseText;
+        if((player7 == 0)||(player7 == 1)||(player7 == 2)||(player7 == 5)||(player7 == 6)||(player7 == 7)){
+          ep --;
+          epg --;
+        }else if((player7 == 3)||(player7 == 4)) {
+          ap --;
+          apg --;
+        }else if(player7 == 8){
+          ep --;
+          apg --;
+        }
+        if(ep <= ap){
+          displayFIn1win();
+        }
+        if(ap == 0){
+          displayFin0win();
+        }
+        killLifeControl(7,player7);
+        if(naohiro21 == 0){
+          if(step >= 6){
+            step =1;
+          }
+        }
+        killButtonNotOn();
+        stepUp();
+      }
+      function kill8(){
+        const buttonKilla = document.getElementById("button8");
+        buttonKilla.disabled = true;
+        const buttonKillb = document.getElementById("button88");
+        buttonKillb.disabled = true;
+        document.getElementById("display8").innerHTML = loseText;
+        if((player8 == 0)||(player8 == 1)||(player8 == 2)||(player8 == 5)||(player8 == 6)||(player8 == 7)){
+          ep --;
+          epg --;
+        }else if((player8 == 3)||(player8 == 4)) {
+          ap --;
+          apg --;
+        }else if(player8 == 8){
+          ep --;
+          apg --;
+        }
+        if(ep <= ap){
+          displayFIn1win();
+        }
+        if(ap == 0){
+          displayFin0win();
+        }
+        killLifeControl(8,player8);
+        if(naohiro21 == 0){
+          if(step >= 6){
+            step =1;
+          }
+        }
+        killButtonNotOn();
+        stepUp();
+      }
+      function kill9(){
+        const buttonKilla = document.getElementById("button9");
+        buttonKilla.disabled = true;
+        const buttonKillb = document.getElementById("button99");
+        buttonKillb.disabled = true;
+        document.getElementById("display9").innerHTML = loseText;
+        if((player9 == 0)||(player9 == 1)||(player9 == 2)||(player9 == 5)||(player9 == 6)||(player9 == 7)){
+          ep --;
+          epg --;
+        }else if((player9 == 3)||(player9 == 4)) {
+          ap --;
+          apg --;
+        }else if(player9 == 8){
+          ep --;
+          apg --;
+        }
+        if(ep <= ap){
+          displayFIn1win();
+        }
+        if(ap == 0){
+          displayFin0win();
+        }
+        killLifeControl(9,player9);
+        if(naohiro21 == 0){
+          if(step >= 6){
+            step =1;
+          }
+        }
+        killButtonNotOn();
+        stepUp();
+      }
+
+      function killButtonNotOn(){
+        if((life1 != 0)&&(life1 != 2)){
+          buttonOn("button1");
+        }
+        if((life2 != 0)&&(life2 != 2)){
+          buttonOn("button2");
+        }
+        if((life3 != 0)&&(life3 != 2)){
+          buttonOn("button3");
+        }
+        if((life4 != 0)&&(life4 != 2)){
+          buttonOn("button4");
+        }
+        if((life5 != 0)&&(life5 != 2)){
+          buttonOn("button5");
+        }
+        if((life6 != 0)&&(life6 != 2)){
+          buttonOn("button6");
+        }
+        if((life7 != 0)&&(life7 != 2)){
+          buttonOn("button7");
+        }
+        if((life8 != 0)&&(life8 != 2)){
+          buttonOn("button8");
+        }
+        if((life9 != 0)&&(life9 != 2)){
+          buttonOn("button9");
+        }
+        if(step==1){
+          displaySet("reading",text3+findPlayerNumber(2)+text4);
+        }
+      }
+
+      function killPlayer(playerLifeID){
+        switch (playerLifeID){
+          case life1:
+          kill1();
+          break;
+          case life2:
+          kill2();
+          break;
+          case life3:
+          kill3();
+          break;
+          case life4:
+          kill4();
+          break;
+          case life5:
+          kill5();
+          break;
+          case life6:
+          kill6();
+          break;
+          case life7:
+          kill7();
+          break;
+          case life8:
+          kill8();
+          break;
+          case life9:
+          kill9();
+          break;
+        }
+      }
+
+      function lifeControlTo3(playerNumber,playerID){
+        switch (playerNumber){
+          case 1:
+          life1 = 3;
+          break;
+          case 2:
+          life2 = 3;
+          break;
+          case 3:
+          life3 = 3;
+          break;
+          case 4:
+          life4 = 3;
+          break;
+          case 5:
+          life5 = 3;
+          break;
+          case 6:
+          life6 = 3;
+          break;
+          case 7:
+          life7 = 3;
+          break;
+          case 8:
+          life8 = 3;
+          break;
+          case 9:
+          life9 = 3;
+          break;
+        }
+        switch (playerID){
+          case 0:
+          lifejob0 = 3;
+          break;
+          case 1:
+          lifejob1 = 3;
+          break;
+          case 2:
+          lifejob2 = 3;
+          break;
+          case 3:
+          lifejob3 = 3;
+          break;
+          case 4:
+          lifejob4 = 3;
+          break;
+          case 5:
+          lifejob5 = 3;
+          break;
+          case 6:
+          lifejob6 = 3;
+          break;
+          case 7:
+          lifejob7 = 3;
+          break;
+          case 8:
+          lifejob8 = 3;
+          break;
+        }
+      }
+
+      function lifeControlTO3Off(){
+        if(life1==3){
+          life1 = 1;
+        }else if(life2==3){
+          life2 = 1;
+        }else if(life3==3){
+          life3 = 1;
+        }else if(life4==3){
+          life4 = 1;
+        }else if(life5==3){
+          life5 = 1;
+        }else if(life6==3){
+          life6 = 1;
+        }else if(life7==3){
+          life7 = 1;
+        }else if(life8==3){
+          life8 = 1;
+        }else if(life9==3){
+          life9 = 1;
+        }
+        if(lifeJob0==3){
+          lifeJob0 = 1;
+        }else if(lifeJob1==3){
+          lifeJob1 = 1;
+        }else if(lifeJob2==3){
+          lifeJob2 = 1;
+        }else if(lifeJob3==3){
+          lifeJob3 = 1;
+        }else if(lifeJob4==3){
+          lifeJob4 = 1;
+        }else if(lifeJob5==3){
+          lifeJob5 = 1;
+        }else if(lifeJob6==3){
+          lifeJob6 = 1;
+        }else if(lifeJob7==3){
+          lifeJob7 = 1;
+        }else if(lifeJob8==3){
+          lifeJob8 = 1;
+        }
+      }
+
+      function killLifeControl(playerNumber,playerID){
+        switch (playerNumber){
+          case 1:
+          life1 = 2;
+          break;
+          case 2:
+          life2 = 2;
+          break;
+          case 3:
+          life3 = 2;
+          break;
+          case 4:
+          life4 = 2;
+          break;
+          case 5:
+          life5 = 2;
+          break;
+          case 6:
+          life6 = 2;
+          break;
+          case 7:
+          life7 = 2;
+          break;
+          case 8:
+          life8 = 2;
+          break;
+          case 9:
+          life9 = 2;
+          break;
+        }
+        switch (playerID){
+          case 0:
+          lifeJob0 = 2;
+          break;
+          case 1:
+          lifeJob1 = 2;
+          break;
+          case 2:
+          lifeJob2 = 2;
+          break;
+          case 3:
+          lifeJob3 = 2;
+          break;
+          case 4:
+          lifeJob4 = 2;
+          break;
+          case 5:
+          lifeJob5 = 2;
+          break;
+          case 6:
+          lifeJob6 = 2;
+          break;
+          case 7:
+          lifeJob7 = 2;
+          break;
+          case 8:
+          lifeJob8 = 2;
+          break;
+        }
+      }
+
+    </script>
+  </body>
+</html>
