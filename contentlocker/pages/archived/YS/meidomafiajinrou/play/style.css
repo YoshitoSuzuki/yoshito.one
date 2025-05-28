@@ -1,0 +1,72 @@
+@charset "UTF-8";
+.displayAll{
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 20px;
+}
+.buttonA{
+  display: flex;
+  justify-content: space-around;
+}
+.buttonA input{
+  width: 100px;
+  height: 50px;
+}
+.buttonB{
+  display: flex;
+  justify-content: space-around;
+}
+.buttonB input{
+  width: 100px;
+  height: 50px;
+}
+.displayText1{
+  display: flex;
+  justify-content: space-around;
+}
+.displayText2{
+  display: flex;
+  justify-content: space-around;
+}
+
+.back{
+  text-align: center;
+  padding-top: 160px;
+  margin-top: -160px;
+}
+.back input{
+  width: 130px;
+  height: 45px;
+}
+
+.newDisplay{
+  color: #fff;
+}
+
+.newTextDisplay{
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 90%;
+  background: #fff;
+  z-index: 2147483647;
+  text-align: center;
+  color: #000;
+  margin-top: -30px;
+}
+.newTextDisplay h1{
+  font-size: 200px;
+  margin-top: -120px;
+  margin-bottom: -120px;
+}
+.newTextDisplay p{
+  font-size: 100px;
+}
+.newTextDisplay h3{
+  font-size: 30px;
+  margin-top: -90px;
+}
+
+.reSet{
+  text-align: center;
+  padding-top: 1000px;
+}
