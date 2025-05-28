@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Shippori+Mincho&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="number">
+      <h1 id="remain">120</h1>
+    </div>
+    <div class="buttonarea">
+      <input type="button" onclick="countdown()" value="start">
+      <input type="button" onclick="reset()" value="reset">
+    </div>
+    <script>
+      let count = 3;
+      var time = 120;
+      function countdown(){
+        count = time;
+        var countdownid = setInterval(function(){
+          count --;
+          remain.innerHTML=count;
+          if(count==0){
+            clearInterval(countdownid);
+            remain.innerHTML=time;
+          }
+        } ,1000);
+      }
+
+      function reset(){
+        count =2;
+        remain.innerHTML=time;
+      }
+    </script>
+  </body>
+</html>

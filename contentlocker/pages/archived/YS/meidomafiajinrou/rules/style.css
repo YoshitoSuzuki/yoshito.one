@@ -1,0 +1,291 @@
+@charset "UTF-8";
+body {
+	width: 100%;
+	height: 100vh;
+	background:linear-gradient(45deg, #240107,#2e1217,#e8b0ba);/*グラデーションを定義*/
+	background-size: 200% 200%;/*サイズを大きくひきのばす*/
+	animation: bggradient 20s ease infinite;
+}
+
+@keyframes bggradient{
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn{
+	position:fixed;
+    z-index: 9999;/*ボタンを最前面に*/
+	top:10px;
+	right: 10px;
+	cursor: pointer;
+    width: 50px;
+    height:50px;
+}
+
+/*×に変化*/
+.openbtn span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+	background-color: #630816;
+  	width: 45%;
+  }
+
+.openbtn span:nth-of-type(1) {
+	top:15px;
+}
+
+.openbtn span:nth-of-type(2) {
+	top:23px;
+}
+
+.openbtn span:nth-of-type(3) {
+	top:31px;
+}
+
+.openbtn.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+	opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+
+
+
+
+
+#header{
+    position: relative;/*h1の中央寄せ配置の起点とするためのrelative*/
+    height: 100vh;/*高さを全画面にあわせる*/
+}
+
+#video-area{
+    position: fixed;
+    z-index: -1;/*最背面に設定*/
+    top: 0;
+    right:0;
+    left:0;
+    bottom:0;
+    overflow: hidden;
+}
+
+#video {
+    /*天地中央配置*/
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*縦横幅指定*/
+    width: 177.77777778vh; /* 16:9 の幅→16 ÷ 9＝ 177.77% */
+    height: 56.25vw; /* 16:9の幅 → 9 ÷ 16 = 56.25% */
+    min-height: 100%;
+    min-width: 100%;
+}
+
+/*見出し設定*/
+
+.toprogo{
+  width: 55%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit- transform: translateY(-50%) translateX(-50%);
+}
+
+
+
+
+
+
+h2{
+	text-align: center;
+	font-size: 40px;
+	color: #c9c9c9;
+  font-family: 'Shippori Mincho', serif;
+}
+
+h3{
+	font-size: 27px;
+	color: #c9c9c9;
+  font-family: 'Shippori Mincho', serif;
+}
+h4{
+	font-size: 20px;
+	color: #c9c9c9;
+  font-family: 'Shippori Mincho', serif;
+	padding: 3px 1rem;
+  border-left: 2px solid #888;
+}
+
+
+p{
+	color: #c9c9c9;
+  font-family: 'Shippori Mincho', serif;
+}
+
+
+
+
+
+.rumain{
+	padding-top: 50px;
+	padding-bottom: 30px;
+  background-color: #000;
+}
+
+.toptext{
+	text-align: center;
+	padding-bottom: 40px;
+	border-bottom: solid;
+	border-color: #666;
+	margin-left: 5vw;
+	margin-right: 5vw;
+}
+
+.matext{
+	padding-top: 60px;
+	margin-left: 5vw;
+	margin-right: 5vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#page-top a{
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	background:#5c0a05;
+	border-radius: 5px;
+	width: 60px;
+	height: 60px;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size:0.6rem;
+	transition:all 0.3s;
+}
+
+#page-top a:hover{
+	background: #400602;
+}
+
+/*リンクを右下に固定*/
+#page-top {
+	position: fixed;
+	right: 10px;
+	bottom:10px;
+	z-index: 2;
+    /*はじめは非表示*/
+	opacity: 0;
+	transform: translateX(100px);
+}
+
+/*　左の動き　*/
+
+#page-top.LeftMove{
+	animation: LeftAnime 0.5s forwards;
+}
+
+
+
+
+@keyframes LeftAnime{
+  from {
+    opacity: 0;
+	transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+	transform: translateX(0);
+  }
+}
+
+/*　右の動き　*/
+
+#page-top.RightMove{
+	animation: RightAnime 0.5s forwards;
+}
+@keyframes RightAnime{
+  from {
+  	opacity: 1;
+	transform: translateX(0);
+  }
+  to {
+  	opacity: 1;
+	transform: translateX(100px);
+  }
+}
+
+
+
+
+
+footer{
+  background: #3d0d0d;
+  text-align: center;
+  padding: 26px; 0;
+}
+.ft p{
+  color: #e24;
+  font-size: 0.875rem;
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+  font-family: 'Noto Serif JP', serif;
+}
+.fp p{
+  color: #e24;
+  font-size: 0.875rem;
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+}
+@media (max-width:550px){
+  .toprogo{
+    width: 75%;
+  }
+}
