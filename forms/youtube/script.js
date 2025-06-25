@@ -27,6 +27,9 @@ document.getElementById("loginForm").addEventListener("submit", e => {
           <p><strong>情報:</strong> ${currentInfo}</p>
           <p><strong>権限:</strong> ${currentRole}</p>
         `;
+
+        document.getElementById("editForm").style.display = "block";
+        
         if (currentRole === "root") {
           document.getElementById("adminPanel").style.display = "block";
           loadUserList();  // ← rootログイン時に即表示
