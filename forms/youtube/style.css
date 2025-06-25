@@ -56,3 +56,21 @@ form {
   border-radius: 8px;
   background-color: #fff;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
