@@ -15,12 +15,14 @@ document.getElementById("loginForm").addEventListener("submit", e => {
     .then(res => res.json())
     .then(data => {
       if (data.status === "success") {
+        // 保存 & 表示
         localStorage.setItem("savedID", id);
         localStorage.setItem("savedPass", password);
         currentName = data.name;
         currentEmail = data.email;
         currentInfo = data.info;
         currentRole = data.role || "user";
+
         document.getElementById("result").innerHTML = `
           <p><strong>名前:</strong> ${currentName}</p>
           <p><strong>メール:</strong> ${currentEmail}</p>
@@ -28,17 +30,24 @@ document.getElementById("loginForm").addEventListener("submit", e => {
           <p><strong>権限:</strong> ${currentRole}</p>
         `;
 
+        // 情報編集フォームを表示
         document.getElementById("editForm").style.display = "block";
-        
+
         if (currentRole === "root") {
           document.getElementById("adminPanel").style.display = "block";
-          loadUserList();  // ← rootログイン時に即表示
-        } else {
-          alert(data.message);
+          loadUserList();
         }
+      } else {
+        // status !== "success" のとき（例：ログイン失敗）
+        alert(data.message || "ログインに失敗しました");
       }
+    })
+    .catch(error => {
+      console.error("通信エラー:", error);
+      alert("通信エラーが発生しました");
     });
 });
+
 
 document.getElementById("updateForm").addEventListener("submit", e => {
   e.preventDefault();
