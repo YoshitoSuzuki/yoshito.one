@@ -27,10 +27,12 @@ document.getElementById("loginForm").addEventListener("submit", e => {
           <p><strong>情報:</strong> ${currentInfo}</p>
           <p><strong>権限:</strong> ${currentRole}</p>
         `;
-        document.getElementById("editForm").style.display = "block";
-        if (currentRole === "root") document.getElementById("adminPanel").style.display = "block";
-      } else {
-        alert(data.message);
+        if (currentRole === "root") {
+          document.getElementById("adminPanel").style.display = "block";
+          loadUserList();  // ← rootログイン時に即表示
+        } else {
+          alert(data.message);
+        }
       }
     });
 });
@@ -115,3 +117,42 @@ window.onload = function () {
     document.getElementById("loginForm").dispatchEvent(new Event("submit"));
   }
 };
+
+function loadUserList() {
+  const id = localStorage.getItem("savedID");
+  const pass = localStorage.getItem("savedPass");
+
+  const formData = new FormData();
+  formData.append("mode", "list");
+  formData.append("id", id);
+  formData.append("password", pass);
+
+  fetch(scriptURL, { method: 'POST', body: formData })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status === "success") {
+        const container = document.getElementById("userTableContainer");
+        const users = data.users;
+
+        let html = `<table><thead><tr>
+          <th>ID</th><th>名前</th><th>Email</th><th>情報</th><th>権限</th>
+        </tr></thead><tbody>`;
+
+        users.forEach(user => {
+          html += `<tr>
+            <td>${user.id}</td>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.info}</td>
+            <td>${user.role}</td>
+          </tr>`;
+        });
+
+        html += `</tbody></table>`;
+        container.innerHTML = html;
+        document.getElementById("userListSection").style.display = "block";
+      } else {
+        alert("ユーザー一覧の取得に失敗しました");
+      }
+    });
+}
