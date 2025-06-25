@@ -1,119 +1,117 @@
 const scriptURL = 'https://script.google.com/macros/s/AKfycbyQVwqzUZS6YCaeFbrgU6H8jARdmCtsB1_ieZpAUmYFFlcxfGGzxW9Zh1KaN3Mvl-RScg/exec';
+let currentName = "", currentEmail = "", currentInfo = "", currentRole = "";
 
-function login() {
-    const id = document.getElementById("userID").value;
-    const password = document.getElementById("userPass").value;
+document.getElementById("loginForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const id = document.getElementById("userID").value;
+  const password = document.getElementById("userPass").value;
 
-    const formData = new FormData();
-    formData.append('mode', 'login');
-    formData.append('id', id);
-    formData.append('password', password);
+  const formData = new FormData();
+  formData.append("mode", "login");
+  formData.append("id", id);
+  formData.append("password", password);
 
-    fetch(scriptURL, {
-    method: 'POST',
-    body: formData
-    }).then(res => res.json())
+  fetch(scriptURL, { method: 'POST', body: formData })
+    .then(res => res.json())
     .then(data => {
-        if (data.status === "success") {
+      if (data.status === "success") {
         localStorage.setItem("savedID", id);
         localStorage.setItem("savedPass", password);
-        showUser(data);
-        } else {
-        document.getElementById("result").innerText = data.message;
-        }
+        currentName = data.name;
+        currentEmail = data.email;
+        currentInfo = data.info;
+        currentRole = data.role || "user";
+        document.getElementById("result").innerHTML = `
+          <p><strong>名前:</strong> ${currentName}</p>
+          <p><strong>メール:</strong> ${currentEmail}</p>
+          <p><strong>情報:</strong> ${currentInfo}</p>
+          <p><strong>権限:</strong> ${currentRole}</p>
+        `;
+        document.getElementById("editForm").style.display = "block";
+        if (currentRole === "root") document.getElementById("adminPanel").style.display = "block";
+      } else {
+        alert(data.message);
+      }
     });
-}
+});
 
-function showUser(data) {
-    document.getElementById("result").innerHTML = `
-    <p><strong>名前:</strong> ${data.name}</p>
-    <p><strong>メール:</strong> ${data.email}</p>
-    <p><strong>情報:</strong> ${data.info}</p>
-    `;
-    document.getElementById("editForm").style.display = "block";
-}
-
-function updateInfo() {
+document.getElementById("updateForm").addEventListener("submit", e => {
+  e.preventDefault();
   const id = localStorage.getItem("savedID");
   const pass = localStorage.getItem("savedPass");
-
-  // 入力欄の値を取得
-  const inputName = document.getElementById("editName").value;
-  const inputEmail = document.getElementById("editEmail").value;
-  const inputInfo = document.getElementById("editInfo").value;
-  const inputNewID = document.getElementById("editNewID").value;
-  const inputNewPass = document.getElementById("editNewPass").value;
-
-  // 空欄なら現在の値を使う
-  const name = inputName || currentName;
-  const email = inputEmail || currentEmail;
-  const info = inputInfo || currentInfo;
-  const newID = inputNewID || id;
-  const newPass = inputNewPass || pass;
 
   const formData = new FormData();
   formData.append("mode", "update");
   formData.append("id", id);
   formData.append("password", pass);
-  formData.append("name", name);
-  formData.append("email", email);
-  formData.append("info", info);
-  formData.append("newID", newID);
-  formData.append("newPass", newPass);
+  formData.append("name", document.getElementById("editName").value || currentName);
+  formData.append("email", document.getElementById("editEmail").value || currentEmail);
+  formData.append("info", document.getElementById("editInfo").value || currentInfo);
+  formData.append("newID", document.getElementById("editNewID").value || id);
+  formData.append("newPass", document.getElementById("editNewPass").value || pass);
 
-  fetch(scriptURL, {
-    method: 'POST',
-    body: formData
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.status === "success") {
-      alert("更新しました！");
-      localStorage.setItem("savedID", newID);
-      localStorage.setItem("savedPass", newPass);
-    } else {
-      alert("更新失敗：" + data.message);
-    }
-  });
-}
+  fetch(scriptURL, { method: 'POST', body: formData })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status === "success") {
+        alert("情報を更新しました");
+      } else {
+        alert(data.message);
+      }
+    });
+});
 
+document.getElementById("addUserForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const formData = new FormData();
+  formData.append("mode", "add");
+  formData.append("id", localStorage.getItem("savedID"));
+  formData.append("password", localStorage.getItem("savedPass"));
+  formData.append("newID", document.getElementById("addID").value);
+  formData.append("newPass", document.getElementById("addPass").value);
+  formData.append("name", document.getElementById("addName").value);
+  formData.append("email", document.getElementById("addEmail").value);
+  formData.append("info", document.getElementById("addInfo").value);
+  formData.append("role", document.getElementById("addRole").value);
 
+  fetch(scriptURL, { method: 'POST', body: formData })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status === "success") {
+        alert("ユーザーを追加しました");
+      } else {
+        alert(data.message);
+      }
+    });
+});
 
-// 自動ログイン（保存されていれば）
+document.getElementById("deleteUserForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const formData = new FormData();
+  formData.append("mode", "delete");
+  formData.append("id", localStorage.getItem("savedID"));
+  formData.append("password", localStorage.getItem("savedPass"));
+  formData.append("targetID", document.getElementById("deleteID").value);
+  formData.append("targetPass", document.getElementById("deletePass").value);
+
+  fetch(scriptURL, { method: 'POST', body: formData })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status === "success") {
+        alert("ユーザーを削除しました");
+      } else {
+        alert(data.message);
+      }
+    });
+});
+
+// 自動ログイン
 window.onload = function () {
-    const id = localStorage.getItem("savedID");
-    const pass = localStorage.getItem("savedPass");
-    if (id && pass) {
+  const id = localStorage.getItem("savedID");
+  const pass = localStorage.getItem("savedPass");
+  if (id && pass) {
     document.getElementById("userID").value = id;
     document.getElementById("userPass").value = pass;
-    login();
-    }
+    document.getElementById("loginForm").dispatchEvent(new Event("submit"));
+  }
 };
-
-function handleLoginSubmit(event) {
-    event.preventDefault(); // ページの再読み込みを防ぐ
-    login();                // ログイン処理を呼び出す
-}
-
-function handleUpdateSubmit(event) {
-    event.preventDefault();
-    updateInfo();           // 更新処理を呼び出す
-}
-
-let currentName = "";
-let currentEmail = "";
-let currentInfo = "";
-
-function showUser(data) {
-  // 現在の情報を変数に保存
-  currentName = data.name;
-  currentEmail = data.email;
-  currentInfo = data.info;
-
-  document.getElementById("result").innerHTML = `
-    <p><strong>名前:</strong> ${data.name}</p>
-    <p><strong>メール:</strong> ${data.email}</p>
-    <p><strong>情報:</strong> ${data.info}</p>
-  `;
-  document.getElementById("editForm").style.display = "block";
-}

@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-  <meta charset="UTF-8">
-  <title>ログイン＆編集ページ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>ユーザー管理ページ</title>
   <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
-
 <body>
-    <h2>ログイン</h2>
-    <form id="loginForm" onsubmit="handleLoginSubmit(event)">
-        <input type="text" id="userID" placeholder="ID" required><br>
-        <input type="password" id="userPass" placeholder="Password" required><br>
-        <button type="submit">ログイン</button>
+  <h2>ログイン</h2>
+  <form id="loginForm">
+    <input type="text" id="userID" placeholder="ID" required><br>
+    <input type="password" id="userPass" placeholder="Password" required><br>
+    <button type="submit">ログイン</button>
+  </form>
+
+  <div id="result"></div>
+
+  <div id="editForm" style="display:none;">
+    <h2>情報を編集</h2>
+    <form id="updateForm">
+      <input id="editName" placeholder="名前"><br>
+      <input id="editEmail" placeholder="メール"><br>
+      <input id="editInfo" placeholder="情報"><br>
+      <input id="editNewID" placeholder="新しいID"><br>
+      <input id="editNewPass" placeholder="新しいパスワード"><br>
+      <button type="submit">更新する</button>
+    </form>
+  </div>
+
+  <div id="adminPanel" style="display:none;">
+    <h2>管理者パネル（root専用）</h2>
+    <h3>ユーザー追加</h3>
+    <form id="addUserForm">
+      <input id="addID" placeholder="新しいID" required><br>
+      <input id="addPass" placeholder="パスワード" required><br>
+      <input id="addName" placeholder="名前"><br>
+      <input id="addEmail" placeholder="メール"><br>
+      <input id="addInfo" placeholder="情報"><br>
+      <select id="addRole">
+        <option value="user">user</option>
+        <option value="root">root</option>
+      </select><br>
+      <button type="submit">追加</button>
     </form>
 
-    <div id="result"></div>
-
-    <div id="editForm" style="display:none;">
-        <h2>情報を編集</h2>
-        <form id="updateForm" onsubmit="handleUpdateSubmit(event)">
-        <input id="editName" placeholder="名前"><br>
-        <input id="editEmail" placeholder="メール"><br>
-        <input id="editInfo" placeholder="情報"><br>
-        <input id="editNewID" placeholder="新しいID"><br>
-        <input id="editNewPass" placeholder="新しいパスワード"><br>
-        <button type="submit">更新する</button>
-        </form>
-    </div>
+    <h3>ユーザー削除</h3>
+    <form id="deleteUserForm">
+      <input id="deleteID" placeholder="削除するID" required><br>
+      <input id="deletePass" placeholder="そのパスワード" required><br>
+      <button type="submit">削除</button>
+    </form>
+  </div>
 
   <script src="script.js"></script>
 </body>
