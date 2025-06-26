@@ -60,7 +60,7 @@ document.getElementById("loginForm").addEventListener("submit", e => {
 
 document.getElementById("updateForm").addEventListener("submit", e => {
   e.preventDefault();
-  showLoading("情報を更新中…");
+  showLoading("変更内容を確認中…");
 
   const id = localStorage.getItem("savedID");
   const pass = localStorage.getItem("savedPass");
