@@ -93,6 +93,7 @@ document.getElementById("addUserForm").addEventListener("submit", e => {
     .then(data => {
       if (data.status === "success") {
         alert("ユーザーを追加しました");
+        loadUserList(); // ユーザー一覧を再読み込み
       } else {
         alert(data.message);
       }
@@ -113,6 +114,7 @@ document.getElementById("deleteUserForm").addEventListener("submit", e => {
     .then(data => {
       if (data.status === "success") {
         alert("ユーザーを削除しました");
+        loadUserList(); // ユーザー一覧を再読み込み
       } else {
         alert(data.message);
       }
