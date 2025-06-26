@@ -41,7 +41,7 @@ document.getElementById("loginForm").addEventListener("submit", e => {
           <p><strong>権限:</strong> ${currentRole}</p>
         `;
 
-        document.getElementById("editForm").style.display = currentRole === "readonly" ? "none" : "block";
+        document.getElementById("editForm").style.display = currentRole === "read" ? "none" : "block";
         document.getElementById("adminPanel").style.display = currentRole === "root" ? "block" : "none";
 
         if (currentRole === "root") {
