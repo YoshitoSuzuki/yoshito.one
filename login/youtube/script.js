@@ -88,15 +88,17 @@ document.getElementById("updateForm").addEventListener("submit", e => {
     .then(data => {
       hideLoading();
       if (data.status === "success") {
-        alert("情報を更新しました");
 
         if (changed) {
+          alert("情報を更新しました");
           reloging = true;
           localStorage.setItem("savedID", newID);
           localStorage.setItem("savedPass", newPass);
           document.getElementById("userID").value = newID;
           document.getElementById("userPass").value = newPass;
           document.getElementById("loginForm").dispatchEvent(new Event("submit"));
+        }else {
+          alert("変更はありません");
         }
       } else {
         alert(data.message || "更新に失敗しました");
