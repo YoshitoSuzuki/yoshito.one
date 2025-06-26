@@ -1,18 +1,10 @@
 const scriptURL = 'https://script.google.com/macros/s/AKfycbyQVwqzUZS6YCaeFbrgU6H8jARdmCtsB1_ieZpAUmYFFlcxfGGzxW9Zh1KaN3Mvl-RScg/exec';
 let currentName = "", currentEmail = "", currentInfo = "", currentRole = "";
 
-let reloging = false;
-
+// ログイン処理
 document.getElementById("loginForm").addEventListener("submit", e => {
   e.preventDefault();
-
-  if (reloging){
-    showLoading("再ログイン中…");
-    reloging = false;
-  }else {
-    showLoading("ログイン中…");
-  }
-
+  showLoading("ログイン中…");
 
   const id = document.getElementById("userID").value;
   const password = document.getElementById("userPass").value;
@@ -28,6 +20,7 @@ document.getElementById("loginForm").addEventListener("submit", e => {
       hideLoading();
 
       if (data.status === "success") {
+        // 保存 & 表示
         localStorage.setItem("savedID", id);
         localStorage.setItem("savedPass", password);
         currentName = data.name;
@@ -59,6 +52,7 @@ document.getElementById("loginForm").addEventListener("submit", e => {
     });
 });
 
+// 情報更新処理
 document.getElementById("updateForm").addEventListener("submit", e => {
   e.preventDefault();
   showLoading("情報を更新中…");
@@ -68,21 +62,16 @@ document.getElementById("updateForm").addEventListener("submit", e => {
 
   const newID = document.getElementById("editNewID").value || id;
   const newPass = document.getElementById("editNewPass").value || pass;
-  const newName = document.getElementById("editName").value || currentName;
-  const newEmail = document.getElementById("editEmail").value || currentEmail;
-  const newInfo = document.getElementById("editInfo").value || currentInfo;
 
   const formData = new FormData();
   formData.append("mode", "update");
   formData.append("id", id);
   formData.append("password", pass);
+  formData.append("name", document.getElementById("editName").value || currentName);
+  formData.append("email", document.getElementById("editEmail").value || currentEmail);
+  formData.append("info", document.getElementById("editInfo").value || currentInfo);
   formData.append("newID", newID);
   formData.append("newPass", newPass);
-  formData.append("name", newName);
-  formData.append("email", newEmail);
-  formData.append("info", newInfo);
-
-  const changed = (newID !== id || newPass !== pass || newName !== currentName || newEmail !== currentEmail || newInfo !== currentInfo);
 
   fetch(scriptURL, { method: 'POST', body: formData })
     .then(res => res.json())
@@ -90,26 +79,25 @@ document.getElementById("updateForm").addEventListener("submit", e => {
       hideLoading();
       if (data.status === "success") {
         alert("情報を更新しました");
-        reloging = true;
 
-        if (changed) {
-          // 新しいID/Passで再ログイン
+        // IDやパスワードが変更されたら再ログイン
+        if (newID !== id || newPass !== pass) {
           localStorage.setItem("savedID", newID);
           localStorage.setItem("savedPass", newPass);
-          document.getElementById("userID").value = newID;
-          document.getElementById("userPass").value = newPass;
-          document.getElementById("loginForm").dispatchEvent(new Event("submit"));
+          sessionStorage.removeItem("alreadyAutoLoggedIn");
+          location.reload();
         }
       } else {
-        alert(data.message || "更新に失敗しました");
-        reloging = false;
+        alert(data.message);
       }
     });
 });
 
+// ユーザー追加処理
 document.getElementById("addUserForm").addEventListener("submit", e => {
   e.preventDefault();
   showLoading("ユーザーを追加中…");
+
   const formData = new FormData();
   formData.append("mode", "add");
   formData.append("id", localStorage.getItem("savedID"));
@@ -129,11 +117,12 @@ document.getElementById("addUserForm").addEventListener("submit", e => {
         alert("ユーザーを追加しました");
         loadUserList();
       } else {
-        alert(data.message || "追加に失敗しました");
+        alert(data.message);
       }
     });
 });
 
+// ユーザー削除処理
 document.getElementById("deleteUserForm").addEventListener("submit", e => {
   e.preventDefault();
   showLoading("ユーザーを削除中…");
@@ -153,18 +142,35 @@ document.getElementById("deleteUserForm").addEventListener("submit", e => {
         alert("ユーザーを削除しました");
         loadUserList();
       } else {
-        alert(data.message || "削除に失敗しました");
+        alert(data.message);
       }
     });
 });
 
+// 自動ログイン（1回だけ）
+window.onload = function () {
+  const id = localStorage.getItem("savedID");
+  const pass = localStorage.getItem("savedPass");
+
+  if (id && pass && !sessionStorage.getItem("alreadyAutoLoggedIn")) {
+    sessionStorage.setItem("alreadyAutoLoggedIn", "true");
+    document.getElementById("userID").value = id;
+    document.getElementById("userPass").value = pass;
+    document.getElementById("loginForm").dispatchEvent(new Event("submit"));
+  }
+};
+
+// ユーザー一覧の取得
 function loadUserList() {
   showLoading("ユーザー一覧を取得中…");
 
+  const id = localStorage.getItem("savedID");
+  const pass = localStorage.getItem("savedPass");
+
   const formData = new FormData();
   formData.append("mode", "list");
-  formData.append("id", localStorage.getItem("savedID"));
-  formData.append("password", localStorage.getItem("savedPass"));
+  formData.append("id", id);
+  formData.append("password", pass);
 
   fetch(scriptURL, { method: 'POST', body: formData })
     .then(res => res.json())
@@ -197,27 +203,20 @@ function loadUserList() {
     });
 }
 
+// ローディング表示
 function showLoading(message = "処理中です。しばらくお待ちください...") {
   const overlay = document.getElementById("loadingOverlay");
-  if (overlay) {
-    const content = overlay.querySelector(".overlay-content p");
-    if (content) content.textContent = message;
-    overlay.style.display = "flex";
+  if (!overlay) return;
+  const messageElement = overlay.querySelector("p");
+  if (messageElement) {
+    messageElement.textContent = message;
   }
+  overlay.style.display = "flex";
 }
 
+// ローディング非表示
 function hideLoading() {
   const overlay = document.getElementById("loadingOverlay");
-  if (overlay) overlay.style.display = "none";
+  if (!overlay) return;
+  overlay.style.display = "none";
 }
-
-// 自動ログイン
-window.onload = function () {
-  const id = localStorage.getItem("savedID");
-  const pass = localStorage.getItem("savedPass");
-  if (id && pass) {
-    document.getElementById("userID").value = id;
-    document.getElementById("userPass").value = pass;
-    document.getElementById("loginForm").dispatchEvent(new Event("submit"));
-  }
-};
