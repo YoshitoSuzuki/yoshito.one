@@ -1,4 +1,15 @@
 @charset "UTF-8";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: #f9f9f9;
@@ -79,12 +90,15 @@ th {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%; /* vwではなく%に */
   height: 100vh;
-  z-index: 9999; /* 最前面 */
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px; /* 端ギリギリにくっつかないように少し余白 */
+  box-sizing: border-box;
+  overflow: hidden; /* 余計なスクロールを防ぐ */
 }
 
 .overlay-background {
@@ -97,7 +111,9 @@ th {
 }
 
 .overlay-content {
-  z-index: 10000;
+  position: relative; /* 重要：絶対や固定じゃなく相対で */
+  max-width: 320px; /* 最大幅を指定 */
+  width: 100%; /* 幅いっぱいに広げる */
   background: white;
   padding: 30px 40px;
   border-radius: 10px;
@@ -105,9 +121,9 @@ th {
   font-weight: bold;
   text-align: center;
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  margin: 0 auto;
+  box-sizing: border-box;
 }
-
-
 
 .page-footer {
   width: 100%;
