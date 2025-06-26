@@ -3,6 +3,8 @@ let currentName = "", currentEmail = "", currentInfo = "", currentRole = "";
 
 document.getElementById("loginForm").addEventListener("submit", e => {
   e.preventDefault();
+  showLoading("ログイン中…");
+
   const id = document.getElementById("userID").value;
   const password = document.getElementById("userPass").value;
 
@@ -12,10 +14,12 @@ document.getElementById("loginForm").addEventListener("submit", e => {
   formData.append("password", password);
 
   fetch(scriptURL, { method: 'POST', body: formData })
-    .then(res => res.json())
-    .then(data => {
+    .then(res => res.text())
+    .then(text => {
+      hideLoading();
+      const data = JSON.parse(text);
+
       if (data.status === "success") {
-        // 保存 & 表示
         localStorage.setItem("savedID", id);
         localStorage.setItem("savedPass", password);
         currentName = data.name;
@@ -30,7 +34,6 @@ document.getElementById("loginForm").addEventListener("submit", e => {
           <p><strong>権限:</strong> ${currentRole}</p>
         `;
 
-        // 情報編集フォームを表示
         document.getElementById("editForm").style.display = "block";
 
         if (currentRole === "root") {
@@ -38,19 +41,19 @@ document.getElementById("loginForm").addEventListener("submit", e => {
           loadUserList();
         }
       } else {
-        // status !== "success" のとき（例：ログイン失敗）
         alert(data.message || "ログインに失敗しました");
       }
     })
     .catch(error => {
+      hideLoading();
       console.error("通信エラー:", error);
       alert("通信エラーが発生しました");
     });
 });
 
-
 document.getElementById("updateForm").addEventListener("submit", e => {
   e.preventDefault();
+  showLoading("情報を更新中…");
   const id = localStorage.getItem("savedID");
   const pass = localStorage.getItem("savedPass");
 
@@ -65,18 +68,25 @@ document.getElementById("updateForm").addEventListener("submit", e => {
   formData.append("newPass", document.getElementById("editNewPass").value || pass);
 
   fetch(scriptURL, { method: 'POST', body: formData })
-    .then(res => res.json())
-    .then(data => {
+    .then(res => res.text())
+    .then(text => {
+      hideLoading();
+      const data = JSON.parse(text);
       if (data.status === "success") {
         alert("情報を更新しました");
       } else {
         alert(data.message);
       }
+    })
+    .catch(error => {
+      hideLoading();
+      alert("通信エラーが発生しました");
     });
 });
 
 document.getElementById("addUserForm").addEventListener("submit", e => {
   e.preventDefault();
+  showLoading("ユーザーを追加中…");
   const formData = new FormData();
   formData.append("mode", "add");
   formData.append("id", localStorage.getItem("savedID"));
@@ -89,19 +99,26 @@ document.getElementById("addUserForm").addEventListener("submit", e => {
   formData.append("role", document.getElementById("addRole").value);
 
   fetch(scriptURL, { method: 'POST', body: formData })
-    .then(res => res.json())
-    .then(data => {
+    .then(res => res.text())
+    .then(text => {
+      hideLoading();
+      const data = JSON.parse(text);
       if (data.status === "success") {
         alert("ユーザーを追加しました");
-        loadUserList(); // ユーザー一覧を再読み込み
+        loadUserList();
       } else {
         alert(data.message);
       }
+    })
+    .catch(error => {
+      hideLoading();
+      alert("通信エラーが発生しました");
     });
 });
 
 document.getElementById("deleteUserForm").addEventListener("submit", e => {
   e.preventDefault();
+  showLoading("ユーザーを削除中…");
   const formData = new FormData();
   formData.append("mode", "delete");
   formData.append("id", localStorage.getItem("savedID"));
@@ -110,18 +127,23 @@ document.getElementById("deleteUserForm").addEventListener("submit", e => {
   formData.append("targetPass", document.getElementById("deletePass").value);
 
   fetch(scriptURL, { method: 'POST', body: formData })
-    .then(res => res.json())
-    .then(data => {
+    .then(res => res.text())
+    .then(text => {
+      hideLoading();
+      const data = JSON.parse(text);
       if (data.status === "success") {
         alert("ユーザーを削除しました");
-        loadUserList(); // ユーザー一覧を再読み込み
+        loadUserList();
       } else {
         alert(data.message);
       }
+    })
+    .catch(error => {
+      hideLoading();
+      alert("通信エラーが発生しました");
     });
 });
 
-// 自動ログイン
 window.onload = function () {
   const id = localStorage.getItem("savedID");
   const pass = localStorage.getItem("savedPass");
@@ -133,6 +155,7 @@ window.onload = function () {
 };
 
 function loadUserList() {
+  showLoading("ユーザー一覧を取得中…");
   const id = localStorage.getItem("savedID");
   const pass = localStorage.getItem("savedPass");
 
@@ -142,8 +165,10 @@ function loadUserList() {
   formData.append("password", pass);
 
   fetch(scriptURL, { method: 'POST', body: formData })
-    .then(res => res.json())
-    .then(data => {
+    .then(res => res.text())
+    .then(text => {
+      hideLoading();
+      const data = JSON.parse(text);
       if (data.status === "success") {
         const container = document.getElementById("userTableContainer");
         const users = data.users;
@@ -168,5 +193,20 @@ function loadUserList() {
       } else {
         alert("ユーザー一覧の取得に失敗しました");
       }
+    })
+    .catch(error => {
+      hideLoading();
+      alert("通信エラーが発生しました");
     });
+}
+
+function showLoading(message = "処理中です。しばらくお待ちください...") {
+  const overlay = document.getElementById("loadingOverlay");
+  overlay.querySelector("p").textContent = message;
+  overlay.style.display = "flex";
+}
+
+function hideLoading() {
+  const overlay = document.getElementById("loadingOverlay");
+  overlay.style.display = "none";
 }
