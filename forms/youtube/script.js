@@ -1,9 +1,18 @@
 const scriptURL = 'https://script.google.com/macros/s/AKfycbyQVwqzUZS6YCaeFbrgU6H8jARdmCtsB1_ieZpAUmYFFlcxfGGzxW9Zh1KaN3Mvl-RScg/exec';
 let currentName = "", currentEmail = "", currentInfo = "", currentRole = "";
 
+let reloging = false;
+
 document.getElementById("loginForm").addEventListener("submit", e => {
   e.preventDefault();
-  showLoading("ログイン中…");
+
+  if (reloging){
+    showLoading("再ログイン中…");
+    reloging = false;
+  }else {
+    showLoading("ログイン中…");
+  }
+
 
   const id = document.getElementById("userID").value;
   const password = document.getElementById("userPass").value;
@@ -81,6 +90,7 @@ document.getElementById("updateForm").addEventListener("submit", e => {
       hideLoading();
       if (data.status === "success") {
         alert("情報を更新しました");
+        reloging = true;
 
         if (changed) {
           // 新しいID/Passで再ログイン
@@ -92,6 +102,7 @@ document.getElementById("updateForm").addEventListener("submit", e => {
         }
       } else {
         alert(data.message || "更新に失敗しました");
+        reloging = false;
       }
     });
 });
