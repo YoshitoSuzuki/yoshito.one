@@ -1,7 +1,6 @@
 const scriptURL = 'https://script.google.com/macros/s/AKfycbyQVwqzUZS6YCaeFbrgU6H8jARdmCtsB1_ieZpAUmYFFlcxfGGzxW9Zh1KaN3Mvl-RScg/exec';
 let currentName = "", currentEmail = "", currentInfo = "", currentRole = "";
 
-// ログイン処理
 document.getElementById("loginForm").addEventListener("submit", e => {
   e.preventDefault();
   showLoading("ログイン中…");
@@ -20,7 +19,6 @@ document.getElementById("loginForm").addEventListener("submit", e => {
       hideLoading();
 
       if (data.status === "success") {
-        // 保存 & 表示
         localStorage.setItem("savedID", id);
         localStorage.setItem("savedPass", password);
         currentName = data.name;
@@ -35,7 +33,11 @@ document.getElementById("loginForm").addEventListener("submit", e => {
           <p><strong>権限:</strong> ${currentRole}</p>
         `;
 
-        document.getElementById("editForm").style.display = "block";
+        if (currentRole === "read") {
+          document.getElementById("editForm").style.display = "none";
+        } else {
+          document.getElementById("editForm").style.display = "block";
+        }
 
         if (currentRole === "root") {
           document.getElementById("adminPanel").style.display = "block";
@@ -52,9 +54,12 @@ document.getElementById("loginForm").addEventListener("submit", e => {
     });
 });
 
-// 情報更新処理
 document.getElementById("updateForm").addEventListener("submit", e => {
   e.preventDefault();
+  if (currentRole === "read") {
+    alert("このユーザーには編集権限がありません。");
+    return;
+  }
   showLoading("情報を更新中…");
 
   const id = localStorage.getItem("savedID");
@@ -78,14 +83,12 @@ document.getElementById("updateForm").addEventListener("submit", e => {
     .then(data => {
       hideLoading();
       if (data.status === "success") {
-        alert("情報を更新しました");
-
-        // IDやパスワードが変更されたら再ログイン
         if (newID !== id || newPass !== pass) {
           localStorage.setItem("savedID", newID);
           localStorage.setItem("savedPass", newPass);
-          sessionStorage.removeItem("alreadyAutoLoggedIn");
           location.reload();
+        } else {
+          alert("情報を更新しました");
         }
       } else {
         alert(data.message);
@@ -93,7 +96,6 @@ document.getElementById("updateForm").addEventListener("submit", e => {
     });
 });
 
-// ユーザー追加処理
 document.getElementById("addUserForm").addEventListener("submit", e => {
   e.preventDefault();
   showLoading("ユーザーを追加中…");
@@ -122,7 +124,6 @@ document.getElementById("addUserForm").addEventListener("submit", e => {
     });
 });
 
-// ユーザー削除処理
 document.getElementById("deleteUserForm").addEventListener("submit", e => {
   e.preventDefault();
   showLoading("ユーザーを削除中…");
@@ -147,20 +148,16 @@ document.getElementById("deleteUserForm").addEventListener("submit", e => {
     });
 });
 
-// 自動ログイン（1回だけ）
 window.onload = function () {
   const id = localStorage.getItem("savedID");
   const pass = localStorage.getItem("savedPass");
-
-  if (id && pass && !sessionStorage.getItem("alreadyAutoLoggedIn")) {
-    sessionStorage.setItem("alreadyAutoLoggedIn", "true");
+  if (id && pass) {
     document.getElementById("userID").value = id;
     document.getElementById("userPass").value = pass;
     document.getElementById("loginForm").dispatchEvent(new Event("submit"));
   }
 };
 
-// ユーザー一覧の取得
 function loadUserList() {
   showLoading("ユーザー一覧を取得中…");
 
@@ -203,20 +200,15 @@ function loadUserList() {
     });
 }
 
-// ローディング表示
 function showLoading(message = "処理中です。しばらくお待ちください...") {
   const overlay = document.getElementById("loadingOverlay");
   if (!overlay) return;
-  const messageElement = overlay.querySelector("p");
-  if (messageElement) {
-    messageElement.textContent = message;
-  }
+  const msg = overlay.querySelector("p");
+  if (msg) msg.textContent = message;
   overlay.style.display = "flex";
 }
 
-// ローディング非表示
 function hideLoading() {
   const overlay = document.getElementById("loadingOverlay");
-  if (!overlay) return;
-  overlay.style.display = "none";
+  if (overlay) overlay.style.display = "none";
 }
