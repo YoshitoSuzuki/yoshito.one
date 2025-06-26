@@ -6,13 +6,12 @@ let reloging = false;
 document.getElementById("loginForm").addEventListener("submit", e => {
   e.preventDefault();
 
-  if (reloging){
+  if (reloging) {
     showLoading("再ログイン中…");
     reloging = false;
-  }else {
+  } else {
     showLoading("ログイン中…");
   }
-
 
   const id = document.getElementById("userID").value;
   const password = document.getElementById("userPass").value;
@@ -42,10 +41,10 @@ document.getElementById("loginForm").addEventListener("submit", e => {
           <p><strong>権限:</strong> ${currentRole}</p>
         `;
 
-        document.getElementById("editForm").style.display = "block";
+        document.getElementById("editForm").style.display = currentRole === "readonly" ? "none" : "block";
+        document.getElementById("adminPanel").style.display = currentRole === "root" ? "block" : "none";
 
         if (currentRole === "root") {
-          document.getElementById("adminPanel").style.display = "block";
           loadUserList();
         }
       } else {
@@ -90,10 +89,9 @@ document.getElementById("updateForm").addEventListener("submit", e => {
       hideLoading();
       if (data.status === "success") {
         alert("情報を更新しました");
-        reloging = true;
 
         if (changed) {
-          // 新しいID/Passで再ログイン
+          reloging = true;
           localStorage.setItem("savedID", newID);
           localStorage.setItem("savedPass", newPass);
           document.getElementById("userID").value = newID;
@@ -110,6 +108,7 @@ document.getElementById("updateForm").addEventListener("submit", e => {
 document.getElementById("addUserForm").addEventListener("submit", e => {
   e.preventDefault();
   showLoading("ユーザーを追加中…");
+
   const formData = new FormData();
   formData.append("mode", "add");
   formData.append("id", localStorage.getItem("savedID"));
@@ -211,7 +210,6 @@ function hideLoading() {
   if (overlay) overlay.style.display = "none";
 }
 
-// 自動ログイン
 window.onload = function () {
   const id = localStorage.getItem("savedID");
   const pass = localStorage.getItem("savedPass");
