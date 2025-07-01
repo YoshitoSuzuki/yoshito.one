@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>投稿ページ</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-area, .info-area, .list-area {
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      margin: 5px 0;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 6px 12px;
+      margin: 5px 0;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #eee;
+    }
+
+    .url-copy {
+      font-family: monospace;
+    }
+
+    #nav {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+#nav a {
+  text-decoration: none;
+  margin-right: 15px;
+  color: #007bff;
+}
+#nav a:hover {
+  text-decoration: underline;
+}
+
+
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        display: none;
+      }
+
+      td {
+        border: none;
+        border-bottom: 1px solid #ccc;
+      }
+
+      td::before {
+        font-weight: bold;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div id="nav"></div>
+
+  <div class="header">
+    <h2>投稿一覧</h2>
+    <button onclick="logout()">ログアウト</button>
+  </div>
+
+  <div class="info-area">
+    <div><strong>ログイン中:</strong> <span id="userName"></span>（<span id="userRole"></span>）</div>
+  </div>
+
+  <div class="form-area">
+    <textarea id="comment" rows="3" placeholder="コメント"></textarea>
+    <input type="text" id="url" placeholder="URL（https:// がない場合は自動で補完されます）">
+    <button id="post" onclick="post()">投稿</button>
+
+  </div>
+<div style="margin: 10px 0;">
+  <button onclick="loadPosts()">🔄 一覧を更新</button>
+</div>
+
+  <div class="list-area">
+    <table id="postTable">
+      <thead>
+        <tr>
+          <th>コメント</th>
+          <th>URL（リンク＋コピー用）</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+<script src="script.js"></script>
+<script src="nav.js"></script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbymlvxTf7qpxTTo4Q0B9QAKhwUG8tCQzYn8KZX_rvJj3VbGtFWikCRwIpGFIgNV4VTfQw/exec';
+    let user;
+
+    window.onload = () => {
+      const saved = localStorage.getItem('user');
+  if (!saved) return location.href = 'index.html';
+  user = JSON.parse(saved);
+  createNavBar(user);
+
+      document.getElementById('userName').textContent = user.name;
+      document.getElementById('userRole').textContent = user.role;
+
+      loadPosts();
+    };
+
+    function logout() {
+      localStorage.removeItem('user');
+      location.href = 'index.html';
+    }
+
+    async function post() {
+      const comment = document.getElementById('comment').value.trim();
+      let url = document.getElementById('url').value.trim();
+
+      if (!comment && !url) {
+        alert('コメントとURLのどちらかは入力してください');
+        return;
+      }
+
+      if (url && !url.startsWith('http')) {
+        url = 'https://' + url;
+      }
+
+      const res = await fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify({
+          mode: 'post',
+          id: user.id,
+          comment,
+          url
+        })
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        document.getElementById('comment').value = '';
+        document.getElementById('url').value = '';
+        loadPosts();
+      } else {
+        alert('投稿失敗');
+      }
+    }
+
+    async function loadPosts() {
+      const res = await fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify({
+          mode: 'getPosts',
+          id: user.id,
+          role: user.role
+        })
+      });
+
+      const result = await res.json();
+      const tbody = document.querySelector('#postTable tbody');
+      tbody.innerHTML = '';
+
+      if (result.success) {
+        result.posts.forEach(post => {
+          const tr = document.createElement('tr');
+
+          const tdComment = document.createElement('td');
+          tdComment.textContent = post.comment;
+
+          const tdUrl = document.createElement('td');
+          tdUrl.innerHTML = `<a href="${post.url}" target="_blank">${post.url}</a><br><span class="url-copy">${post.url}</span>`;
+
+          const tdAction = document.createElement('td');
+            if (post.id === user.id || user.role === 'root') {
+            const delBtn = document.createElement('button');
+            delBtn.textContent = '削除';
+            delBtn.onclick = () => deletePost(post.row);
+            tdAction.appendChild(delBtn);
+
+            const editBtn = document.createElement('button');
+            editBtn.textContent = '編集';
+            editBtn.style.marginLeft = '5px';
+            editBtn.onclick = () => enterEditMode(post);
+            tdAction.appendChild(editBtn);
+            } else {
+            tdAction.textContent = '---';
+            }
+
+
+          tr.appendChild(tdComment);
+          tr.appendChild(tdUrl);
+          tr.appendChild(tdAction);
+          tbody.appendChild(tr);
+        });
+      }
+    }
+
+    async function deletePost(row) {
+      if (!confirm('本当に削除しますか？')) return;
+      const res = await fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify({ mode: 'delete', row })
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        loadPosts();
+      }
+    }
+
+        function enterEditMode(post) {
+      document.getElementById('comment').value = post.comment;
+      document.getElementById('url').value = post.url;
+      document.getElementById('post').textContent = '更新';
+      document.getElementById('post').onclick = () => updatePost(post.row);
+    }
+
+    async function updatePost(row) {
+      const comment = document.getElementById('comment').value.trim();
+      let url = document.getElementById('url').value.trim();
+      if (!comment && !url) {
+        alert('コメントとURLのどちらかは入力してください');
+        return;
+      }
+      if (url && !url.startsWith('http')) {
+        url = 'https://' + url;
+      }
+
+      const res = await fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify({
+          mode: 'editPost',
+          row,
+          comment,
+          url
+        })
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        document.getElementById('comment').value = '';
+        document.getElementById('url').value = '';
+        document.getElementById('post').textContent = '投稿';
+        document.getElementById('post').onclick = post;
+        loadPosts();
+      }
+    }
+
+  </script>
+</body>
+</html>

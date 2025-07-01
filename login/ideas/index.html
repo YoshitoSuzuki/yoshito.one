@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 16px;
+      width: 100%;
+      padding: 8px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      margin-top: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div id="overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(255,255,255,0.7); z-index:1000; text-align:center; padding-top:20%;">
+  <span style="font-size: 1.5em; font-weight:bold;">読み込み中...</span>
+</div>
+
+  <div class="login-container">
+    <h2>ログイン</h2>
+    <input type="text" id="loginId" placeholder="ID">
+    <input type="password" id="loginPass" placeholder="Password">
+    <button onclick="login()">ログイン</button>
+    <div class="error" id="errorMessage"></div>
+  </div>
+<script src="script.js"></script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbymlvxTf7qpxTTo4Q0B9QAKhwUG8tCQzYn8KZX_rvJj3VbGtFWikCRwIpGFIgNV4VTfQw/exec';
+
+    // 自動ログイン試行
+    window.onload = () => {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        location.href = 'main.html';
+      }
+    };
+
+    async function login() {
+        showOverlay ();
+      const id = document.getElementById('loginId').value.trim();
+      const password = document.getElementById('loginPass').value.trim();
+      const errorDiv = document.getElementById('errorMessage');
+
+      if (!id || !password) {
+        hideOverlay ();
+        errorDiv.textContent = "IDとパスワードを入力してください。";
+        return;
+      }
+
+      const res = await fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify({
+          mode: 'login',
+          id,
+          password
+        })
+      });
+      
+      const result = await res.json();
+      hideOverlay ();
+      if (result.success) {
+        localStorage.setItem('user', JSON.stringify(result));
+        location.href = 'main.html';  // 次のページに進む
+      } else {
+        errorDiv.textContent = "IDまたはパスワードが間違っています。";
+      }
+    }
+  </script>
+</body>
+</html>
