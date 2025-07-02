@@ -2,7 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
   <title>ログイン</title>
   <style>
     body {
@@ -45,11 +46,15 @@
       text-align: center;
     }
   </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div id="overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(255,255,255,0.7); z-index:1000; text-align:center; padding-top:20%;">
-  <span style="font-size: 1.5em; font-weight:bold;">読み込み中...</span>
-</div>
+
+
+
+  <div id="overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(255,255,255,0.7); z-index:1000; text-align:center; padding-top:20%;">
+    <span style="font-size: 1.5em; font-weight:bold;">読み込み中...</span>
+  </div>
 
   <div class="login-container">
     <h2>ログイン</h2>
@@ -58,7 +63,18 @@
     <button onclick="login()">ログイン</button>
     <div class="error" id="errorMessage"></div>
   </div>
-<script src="script.js"></script>
+
+  <!-- ローディングモーダル（最前面に覆い被さる） -->
+  <div id="loadingOverlay" style="display: none;">
+    <div class="overlay-background"></div>
+    <div class="overlay-content">
+      <p>処理中です。しばらくお待ちください...</p>
+    </div>
+  </div>
+
+
+
+  <script src="script.js" defer></script>
   <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbymlvxTf7qpxTTo4Q0B9QAKhwUG8tCQzYn8KZX_rvJj3VbGtFWikCRwIpGFIgNV4VTfQw/exec';
 
@@ -71,13 +87,13 @@
     };
 
     async function login() {
-        showOverlay ();
+      showLoading ("ログイン中...");
       const id = document.getElementById('loginId').value.trim();
       const password = document.getElementById('loginPass').value.trim();
       const errorDiv = document.getElementById('errorMessage');
 
       if (!id || !password) {
-        hideOverlay ();
+        hideLoading();
         errorDiv.textContent = "IDとパスワードを入力してください。";
         return;
       }
@@ -92,7 +108,7 @@
       });
       
       const result = await res.json();
-      hideOverlay ();
+      hideLoading();
       if (result.success) {
         localStorage.setItem('user', JSON.stringify(result));
         location.href = 'main.html';  // 次のページに進む
@@ -101,5 +117,8 @@
       }
     }
   </script>
+
+
+
 </body>
 </html>

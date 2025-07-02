@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+/* style.css - Mac Safari風 共通スタイル */
+:root {
+    --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --color-bg: #f9f9f9;
+    --color-fg: #1c1c1e;
+    --color-accent: #007aff;
+    --color-border: #d1d1d6;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+    --transition: 0.2s ease-in-out;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: var(--font-base);
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+input, select, textarea, button {
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px 12px;
+    margin: 6px 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-sizing: border-box;
+    transition: all var(--transition);
+    background-color: white;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 4px var(--color-accent);
+}
+
+button {
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button.danger {
+    background-color: #ff3b30;
+}
+
+button.danger:hover {
+    opacity: 0.9;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+th {
+    background-color: #f2f2f7;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+#nav {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+#nav a {
+    text-decoration: none;
+    margin-right: 15px;
+    color: #007bff;
+}
+
+#nav a:hover {
+    text-decoration: underline;
+}
+
+/* ログアウトボタンのスタイル */
+.logout-button {
+    margin-left: 15px;
+    padding: 4px 10px;
+    border: none;
+    background-color: #ff3b30;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    vertical-align: middle;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #e6362b;
+}
+
+
+.edit-section {
+    margin-top: 30px;
+    padding: 16px;
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 4px var(--color-shadow);
+}
+
+#loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* vwではなく%に */
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* 端ギリギリにくっつかないように少し余白 */
+    box-sizing: border-box;
+    overflow: hidden; /* 余計なスクロールを防ぐ */
+}
+
+.overlay-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* 黒の半透明 */
+    top: 0;
+    left: 0;
+}
+
+.overlay-content {
+    position: relative; /* 重要：絶対や固定じゃなく相対で */
+    max-width: 320px; /* 最大幅を指定 */
+    width: 100%; /* 幅いっぱいに広げる */
+    background: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    margin: 0 auto;
+    box-sizing: border-box;
+}
