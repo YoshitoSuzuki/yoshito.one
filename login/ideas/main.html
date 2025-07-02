@@ -108,9 +108,9 @@
   </div>
 
   <div class="form-area">
-    <textarea id="comment" rows="3" placeholder="コメント"></textarea>
-    <input type="text" id="url" placeholder="URL（https:// がない場合は自動で補完されます）">
-    <button id="post" onclick="post()">投稿</button>
+    <input type="text" id="comment" rows="3" placeholder="コメント" data-submit="btnPost"></input>
+    <input type="text" id="url" placeholder="URL（https:// がない場合は自動で補完されます）" data-submit="btnPost">
+    <button id="post btnPost" onclick="post()">投稿</button>
 
   </div>
 <div style="margin: 10px 0;">
@@ -129,42 +129,41 @@
       <tbody></tbody>
     </table>
   </div>
-<script src="script.js"></script>
-<script src="nav.js"></script>
+  <script src="nav.js"></script>
   <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbymlvxTf7qpxTTo4Q0B9QAKhwUG8tCQzYn8KZX_rvJj3VbGtFWikCRwIpGFIgNV4VTfQw/exec';
     let user;
-
+    
     window.onload = () => {
       const saved = localStorage.getItem('user');
-  if (!saved) return location.href = 'index.html';
-  user = JSON.parse(saved);
-  createNavBar(user);
-
+      if (!saved) return location.href = 'index.html';
+      user = JSON.parse(saved);
+      createNavBar(user);
+      
       document.getElementById('userName').textContent = user.name;
       document.getElementById('userRole').textContent = user.role;
-
+      
       loadPosts();
     };
-
+    
     function logout() {
       localStorage.removeItem('user');
       location.href = 'index.html';
     }
-
+    
     async function post() {
       const comment = document.getElementById('comment').value.trim();
       let url = document.getElementById('url').value.trim();
-
+      
       if (!comment && !url) {
         alert('コメントとURLのどちらかは入力してください');
         return;
       }
-
+      
       if (url && !url.startsWith('http')) {
         url = 'https://' + url;
       }
-
+      
       const res = await fetch(scriptURL, {
         method: 'POST',
         body: JSON.stringify({
@@ -174,7 +173,7 @@
           url
         })
       });
-
+      
       const result = await res.json();
       if (result.success) {
         document.getElementById('comment').value = '';
@@ -184,7 +183,7 @@
         alert('投稿失敗');
       }
     }
-
+    
     async function loadPosts() {
       const res = await fetch(scriptURL, {
         method: 'POST',
@@ -194,38 +193,38 @@
           role: user.role
         })
       });
-
+      
       const result = await res.json();
       const tbody = document.querySelector('#postTable tbody');
       tbody.innerHTML = '';
-
+      
       if (result.success) {
         result.posts.forEach(post => {
           const tr = document.createElement('tr');
-
+          
           const tdComment = document.createElement('td');
           tdComment.textContent = post.comment;
-
+          
           const tdUrl = document.createElement('td');
           tdUrl.innerHTML = `<a href="${post.url}" target="_blank">${post.url}</a><br><span class="url-copy">${post.url}</span>`;
-
+          
           const tdAction = document.createElement('td');
-            if (post.id === user.id || user.role === 'root') {
+          if (post.id === user.id || user.role === 'root') {
             const delBtn = document.createElement('button');
             delBtn.textContent = '削除';
             delBtn.onclick = () => deletePost(post.row);
             tdAction.appendChild(delBtn);
-
+            
             const editBtn = document.createElement('button');
             editBtn.textContent = '編集';
             editBtn.style.marginLeft = '5px';
             editBtn.onclick = () => enterEditMode(post);
             tdAction.appendChild(editBtn);
-            } else {
+          } else {
             tdAction.textContent = '---';
-            }
-
-
+          }
+          
+          
           tr.appendChild(tdComment);
           tr.appendChild(tdUrl);
           tr.appendChild(tdAction);
@@ -233,27 +232,27 @@
         });
       }
     }
-
+    
     async function deletePost(row) {
       if (!confirm('本当に削除しますか？')) return;
       const res = await fetch(scriptURL, {
         method: 'POST',
         body: JSON.stringify({ mode: 'delete', row })
       });
-
+      
       const result = await res.json();
       if (result.success) {
         loadPosts();
       }
     }
-
-        function enterEditMode(post) {
+    
+    function enterEditMode(post) {
       document.getElementById('comment').value = post.comment;
       document.getElementById('url').value = post.url;
       document.getElementById('post').textContent = '更新';
       document.getElementById('post').onclick = () => updatePost(post.row);
     }
-
+    
     async function updatePost(row) {
       const comment = document.getElementById('comment').value.trim();
       let url = document.getElementById('url').value.trim();
@@ -264,7 +263,7 @@
       if (url && !url.startsWith('http')) {
         url = 'https://' + url;
       }
-
+      
       const res = await fetch(scriptURL, {
         method: 'POST',
         body: JSON.stringify({
@@ -274,7 +273,7 @@
           url
         })
       });
-
+      
       const result = await res.json();
       if (result.success) {
         document.getElementById('comment').value = '';
@@ -284,7 +283,8 @@
         loadPosts();
       }
     }
-
-  </script>
+    
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
