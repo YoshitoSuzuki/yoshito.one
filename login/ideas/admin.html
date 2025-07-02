@@ -2,21 +2,22 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ユーザー管理</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
   <style>
     body {
       font-family: sans-serif;
       padding: 20px;
     }
-
-    input {
+    
+    input, select, textarea {
       width: 100%;
       padding: 6px;
       margin: 4px 0;
       box-sizing: border-box;
     }
-
+    
     button {
       margin-top: 6px;
       padding: 6px 12px;
@@ -26,64 +27,55 @@
       border-radius: 5px;
       cursor: pointer;
     }
-
+    
     table {
       width: 100%;
       margin-top: 20px;
       border-collapse: collapse;
     }
-
+    
     th, td {
       border: 1px solid #ccc;
       padding: 8px;
     }
-
+    
     th {
       background-color: #eee;
     }
-
+    
     .danger {
       background-color: red;
       color: white;
     }
     
-    #nav {
-    background: #f8f9fa;
-    padding: 10px;
-    border-radius: 6px;
-    font-weight: bold;
+    .edit-section {
+      margin-top: 30px;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 6px;
     }
-    #nav a {
-    text-decoration: none;
-    margin-right: 15px;
-    color: #007bff;
-    }
-    #nav a:hover {
-    text-decoration: underline;
-    }
-
-  </style>
+    </style>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="nav"></div>
-
+  <div id="nav"></div>
   <h2>ユーザー新規登録</h2>
   <div><strong>ログイン中:</strong> <span id="loginInfo"></span></div>
-
+  
   <div id="formArea">
-  <input type="text" id="id" placeholder="ID" required>
-  <input type="password" id="password" placeholder="パスワード" required>
-  <input type="text" id="name" placeholder="名前">
-  <input type="email" id="email" placeholder="メール">
-  <input type="text" id="info" placeholder="補足情報">
-  <select id="role">
-    <option value="user">user</option>
-    <option value="read">read</option>
-    <option value="root">root</option>
-  </select>
-  <button onclick="addUser()">追加</button>
-</div>
-
+    <input type="text" id="id" placeholder="ID" required>
+    <input type="password" id="password" placeholder="パスワード" required>
+    <input type="text" id="name" placeholder="名前">
+    <input type="email" id="email" placeholder="メール">
+    <input type="text" id="info" placeholder="補足情報">
+    <select id="role">
+      <option value="user">user</option>
+      <option value="read">read</option>
+      <option value="root">root</option>
+    </select>
+    <button onclick="addUser()">追加</button>
+  </div>
 
   <h3>既存ユーザー一覧</h3>
   <table id="userTable">
@@ -92,17 +84,35 @@
     </thead>
     <tbody></tbody>
   </table>
-<script src="script.js"></script>
-<script src="nav.js"></script>
+<div id="editingLabel" style="margin-top:20px; font-weight:bold;"></div>
+
+  <div id="editForm" style="display:none">
+  <input type="text" id="editNewId" placeholder="ID">
+  <input type="password" id="editPassword" placeholder="パスワード">
+  <input type="text" id="editName" placeholder="名前">
+  <input type="email" id="editEmail" placeholder="メール">
+  <input type="text" id="editInfo" placeholder="補足情報">
+  <select id="editRole">
+    <option value="user">user</option>
+    <option value="read">read</option>
+    <option value="root">root</option>
+  </select>
+  <button onclick="saveTargetUser()">保存</button>
+</div>
+
+
+
+  <script src="script.js"></script>
+  <script src="nav.js"></script>
   <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbymlvxTf7qpxTTo4Q0B9QAKhwUG8tCQzYn8KZX_rvJj3VbGtFWikCRwIpGFIgNV4VTfQw/exec';
     let user;
 
     window.onload = () => {
       const saved = localStorage.getItem('user');
-  if (!saved) return location.href = 'index.html';
-  const user = JSON.parse(saved);
-  createNavBar(user);
+      if (!saved) return location.href = 'index.html';
+      user = JSON.parse(saved);
+      createNavBar(user);
 
       if (user.role !== 'root') {
         alert('このページはroot専用です');
@@ -123,17 +133,13 @@
       const role = document.getElementById('role').value.trim();
 
       if (!id || !password) {
-  alert('IDとパスワードは必須です');
-  return;
-}
-
+        alert('IDとパスワードは必須です');
+        return;
+      }
 
       const res = await fetch(scriptURL, {
         method: 'POST',
-        body: JSON.stringify({
-          mode: 'addUser',
-          id, password, name, email, info, role
-        })
+        body: JSON.stringify({ mode: 'addUser', id, password, name, email, info, role })
       });
 
       const result = await res.json();
@@ -166,6 +172,7 @@
             <td>${u.role}</td>
             <td>
               <button class="danger" onclick="deleteUser('${u.id}')">削除</button>
+              <button onclick="editUser('${u.id}')">編集</button>
             </td>
           `;
           tbody.appendChild(tr);
@@ -189,6 +196,214 @@
         alert('削除に失敗しました');
       }
     }
+
+    let editingUserOriginalId = null;
+async function editUser(id) {
+  const res = await fetch(scriptURL, {
+    method: 'POST',
+    body: JSON.stringify({ mode: 'getUserData', id })
+  });
+  const result = await res.json();
+  if (!result.success) {
+    alert('ユーザーが見つかりません');
+    return;
+  }
+
+  editingUserOriginalId = id;
+
+  // 🔽 ここを追加：originalUserを設定
+  originalUser = {
+    id: result.id,
+    password: '', // パスワードは取得できないので空にしておく
+    name: result.name || '',
+    email: result.email || '',
+    info: result.info || '',
+    role: result.role || 'user'
+  };
+
+  document.getElementById('editNewId').value = '';
+  document.getElementById('editPassword').value = '';
+  document.getElementById('editName').value = '';
+  document.getElementById('editEmail').value = '';
+  document.getElementById('editInfo').value = '';
+  document.getElementById('editRole').value = result.role || 'user';
+  document.getElementById('editingLabel').textContent = `編集中 ID：${result.id}`;
+  document.getElementById('editForm').style.display = 'block';
+}
+
+// async function editUser(id) {
+//   const res = await fetch(scriptURL, {
+//     method: 'POST',
+//     body: JSON.stringify({ mode: 'getUserData', id })
+//   });
+//   const result = await res.json();
+//   if (!result.success) {
+//     alert('ユーザーが見つかりません');
+//     return;
+//   }
+
+//   editingUserOriginalId = id;
+
+//   document.getElementById('editNewId').value = '';
+//   document.getElementById('editPassword').value = '';
+//   document.getElementById('editName').value = '';
+//   document.getElementById('editEmail').value = '';
+//   document.getElementById('editInfo').value = '';
+//   document.getElementById('editRole').value = result.role || 'user';
+//   document.getElementById('editingLabel').textContent = `編集中 ID：${result.id}`;
+//   document.getElementById('editForm').style.display = 'block';
+// }
+
+
+
+
+async function saveEdit() {
+  if (!editingUserOriginalId) {
+    alert('編集対象のユーザーが不明です');
+    return;
+  }
+
+  const newId = document.getElementById('editNewId')?.value.trim() || originalUser.id;
+  const password = document.getElementById('editPassword').value.trim();
+  const name = document.getElementById('editName').value.trim();
+  const email = document.getElementById('editEmail').value.trim();
+  const info = document.getElementById('editInfo').value.trim();
+  const role = document.getElementById('editRole').value;
+
+  const updated = {
+    mode: 'updateUser',
+    id: editingUserOriginalId,
+  };
+
+  // 変更がある項目だけ追加
+  if (newId) updated.newId = newId;
+  if (password) updated.password = password;
+  if (name) updated.name = name;
+  if (email) updated.email = email;
+  if (info) updated.info = info;
+  if (role) updated.role = role;
+
+  const res = await fetch(scriptURL, {
+    method: 'POST',
+    body: JSON.stringify(updated)
+  });
+
+  const result = await res.json();
+  if (result.success) {
+    alert('ユーザー情報を更新しました');
+    document.getElementById('editForm').style.display = 'none';
+    editingUserOriginalId = null;
+    loadUsers();
+  } else {
+    alert('更新に失敗しました');
+  }
+}
+
+
+
+
+
+    let originalUser = null; // 編集前の情報を保存しておく変数
+
+async function loadTargetUser() {
+  const id = document.getElementById('editNewId').value.trim();
+  const password = document.getElementById('editPassword').value.trim();
+
+  if (!id || !password) {
+    alert('IDとパスワードを入力してください');
+    return;
+  }
+
+  const res = await fetch(scriptURL, {
+    method: 'POST',
+    body: JSON.stringify({ mode: 'login', id, password })
+  });
+
+  const result = await res.json();
+  if (!result.success) {
+    alert('ユーザーが見つからないか、パスワードが違います');
+    return;
+  }
+
+  originalUser = {
+    id: result.user.id,
+    password: password, // パスワードはフォームで入力済みのもの
+    name: result.user.name || '',
+    email: result.user.email || '',
+    info: result.user.info || '',
+    role: result.user.role || 'user',
+  };
+
+  // 修正ここも editNewId に変更
+  document.getElementById('editNewId').value = originalUser.id;
+  document.getElementById('editPassword').value = originalUser.password;
+  document.getElementById('editName').value = originalUser.name;
+  document.getElementById('editEmail').value = originalUser.email;
+  document.getElementById('editInfo').value = originalUser.info;
+  document.getElementById('editRole').value = originalUser.role;
+  document.getElementById('editForm').style.display = 'block';
+}
+
+
+async function saveTargetUser() {
+  if (!originalUser) {
+    alert('ユーザー情報が読み込まれていません');
+    return;
+  }
+
+  const newId = document.getElementById('editNewId')?.value.trim() || originalUser.id;
+  const newPassword = document.getElementById('editPassword')?.value.trim() || originalUser.password;
+  const newName = document.getElementById('editName')?.value.trim();
+  const newEmail = document.getElementById('editEmail')?.value.trim();
+  const newInfo = document.getElementById('editInfo')?.value.trim();
+  const newRole = document.getElementById('editRole')?.value.trim();
+
+  if (
+  (newId === '' || newId === originalUser.id) &&
+  (newPassword === '' || newPassword === originalUser.password) &&
+  (newName === '' || newName === originalUser.name) &&
+  (newEmail === '' || newEmail === originalUser.email) &&
+  (newInfo === '' || newInfo === originalUser.info) &&
+  (newRole === '' || newRole === originalUser.role)
+) {
+  alert('変更はありません');
+  return;
+}
+
+
+  const updateData = {
+    mode: 'updateUser',
+    id: originalUser.id
+  };
+
+  if (newId !== originalUser.id) updateData.newId = newId;
+  if (newPassword !== originalUser.password) updateData.password = newPassword;
+  if (newName !== originalUser.name && newName !== '') updateData.name = newName;
+  if (newEmail !== originalUser.email && newEmail !== '') updateData.email = newEmail;
+  if (newInfo !== originalUser.info && newInfo !== '') updateData.info = newInfo;
+  if (newRole !== originalUser.role && newRole !== '') updateData.role = newRole;
+
+  const res = await fetch(scriptURL, {
+    method: 'POST',
+    body: JSON.stringify(updateData)
+  });
+
+  const result = await res.json();
+  if (result.success) {
+    alert('ユーザー情報を更新しました');
+    loadUsers();
+    document.getElementById('editForm').style.display = 'none';
+    document.getElementById('editingLabel').textContent = '';
+    originalUser = null; // リセット
+  } else {
+    alert('更新に失敗しました');
+  }
+}
+
+
+
+
+
   </script>
 </body>
 </html>
