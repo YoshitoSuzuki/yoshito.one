@@ -34,26 +34,23 @@
     </style>
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+
+
   <div id="nav"></div>
   
   <h2>アカウント情報</h2>
   <div><strong>ログイン中:</strong> <span id="loggedInUser"></span>（<span id="role"></span>）</div>
-  
-  <!-- <div class="admin" id="adminPanel" style="display: none;">
-    <label>編集対象のID（他人）:</label>
-    <input type="text" id="targetId">
-    <button onclick="loadAccount(true)">読み込み</button>
-  </div> -->
 
   <h3>現在のアカウント情報</h3>
-<div id="currentInfo" style="margin-bottom: 20px; padding: 10px; background: #eee; border-radius: 5px;">
-  <div><strong>ID:</strong> <span id="current_id"></span></div>
-  <div><strong>パスワード:</strong> <span style="color: gray;">*****</span></div>
-  <div><strong>名前:</strong> <span id="current_name"></span></div>
-  <div><strong>メール:</strong> <span id="current_email"></span></div>
-  <div><strong>補足情報:</strong> <span id="current_info"></span></div>
-</div>
+  <div id="currentInfo" style="margin-bottom: 20px; padding: 10px; background: #eee; border-radius: 5px;">
+    <div><strong>ID:</strong> <span id="current_id"></span></div>
+    <div><strong>パスワード:</strong> <span style="color: gray;">*****</span></div>
+    <div><strong>名前:</strong> <span id="current_name"></span></div>
+    <div><strong>メール:</strong> <span id="current_email"></span></div>
+    <div><strong>補足情報:</strong> <span id="current_info"></span></div>
+  </div>
 
   <h3>アカウント編集</h3>
   <form id="accountForm">
@@ -74,113 +71,131 @@
 
     <button type="button" onclick="save()">保存</button>
   </form>
-<script src="script.js"></script>
-<script src="nav.js"></script>
+
+   <!-- ローディングモーダル（最前面に覆い被さる） -->
+  <div id="loadingOverlay" style="display: none;">
+    <div class="overlay-background"></div>
+    <div class="overlay-content">
+      <p>処理中です。しばらくお待ちください...</p>
+    </div>
+  </div>
+
+  
+  <script src="nav.js"></script>
+
+  <script src="script.js" defer></script>
+  
   <script>
-const scriptURL = 'https://script.google.com/macros/s/AKfycbymlvxTf7qpxTTo4Q0B9QAKhwUG8tCQzYn8KZX_rvJj3VbGtFWikCRwIpGFIgNV4VTfQw/exec';
-let user;
-let editingUserId;  // グローバル変数で現在編集対象のIDを保持
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbymlvxTf7qpxTTo4Q0B9QAKhwUG8tCQzYn8KZX_rvJj3VbGtFWikCRwIpGFIgNV4VTfQw/exec';
+    let user;
+    let editingUserId;  // グローバル変数で現在編集対象のIDを保持
 
-window.onload = () => {
-  const saved = localStorage.getItem('user');
-  if (!saved) return location.href = 'index.html';
-  user = JSON.parse(saved);
-  createNavBar(user);
+    window.onload = () => {
+      const saved = localStorage.getItem('user');
+      if (!saved) return location.href = 'index.html';
+      user = JSON.parse(saved);
+      createNavBar(user);
 
-  document.getElementById('loggedInUser').textContent = user.name;
-  document.getElementById('role').textContent = user.role;
+      document.getElementById('loggedInUser').textContent = user.name;
+      document.getElementById('role').textContent = user.role;
 
-  editingUserId = user.id; // 最初は自分のIDを編集対象に
-  loadAccount();          // 引数なしで呼ぶ
-};
-
-
-async function loadAccount() {
-  const id = user.id;  // 常に自分のIDを使う
-
-  editingUserId = id; // 編集対象IDを更新
-
-  const res = await fetch(scriptURL, {
-    method: 'POST',
-    body: JSON.stringify({ mode: 'getUserData', id })
-  });
-
-  const result = await res.json();
-  if (!result.success) {
-    alert('ユーザーが見つかりません');
-    return;
-  }
-
-  // 表示欄に現在の情報をセット（パスワードは表示しない）
-  document.getElementById('current_id').textContent = result.id;
-  document.getElementById('current_name').textContent = result.name || '(なし)';
-  document.getElementById('current_email').textContent = result.email || '(なし)';
-  document.getElementById('current_info').textContent = result.info || '(なし)';
-}
+      editingUserId = user.id; // 最初は自分のIDを編集対象に
+      loadAccount();          // 引数なしで呼ぶ
+    };
 
 
-async function save() {
-  const newId = document.getElementById('id').value.trim();
-  const password = document.getElementById('password').value.trim();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const info = document.getElementById('info').value.trim();
+    async function loadAccount() {
+      showLoading("情報を読み込み中...");
+      const id = user.id;  // 常に自分のIDを使う
 
-  const originalId = editingUserId;
+      editingUserId = id; // 編集対象IDを更新
 
-  // 現在の情報表示欄から値を取得
-  const currentId = document.getElementById('current_id').textContent.trim();
-  const currentName = document.getElementById('current_name').textContent.trim();
-  const currentEmail = document.getElementById('current_email').textContent.trim();
-  const currentInfo = document.getElementById('current_info').textContent.trim();
+      const res = await fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify({ mode: 'getUserData', id })
+      });
 
-  // 変更点があるか判定（パスワードは常に変更があったかチェック）
-  const isChanged = (
-    (newId && newId !== currentId) ||
-    password || // パスワードは空欄じゃなければ変更ありとする
-    (name && name !== currentName) ||
-    (email && email !== currentEmail) ||
-    (info && info !== currentInfo)
-  );
+      const result = await res.json();
+      if (!result.success) {
+        hideLoading();
+        alert('ユーザーが見つかりません');
+        return;
+      }
 
-  if (!isChanged) {
-    alert('変更された項目がありません');
-    return;
-  }
-
-  const updated = {
-    mode: 'updateUser',
-    id: originalId,
-  };
-  if (newId && newId !== originalId) updated.newId = newId;
-  if (password) updated.password = password;
-  if (name && name !== currentName) updated.name = name;
-  if (email && email !== currentEmail) updated.email = email;
-  if (info && info !== currentInfo) updated.info = info;
-
-  const res = await fetch(scriptURL, {
-    method: 'POST',
-    body: JSON.stringify(updated)
-  });
-
-  const result = await res.json();
-  if (!result.success) {
-    alert('保存に失敗しました');
-    return;
-  }
-
-  alert('保存しました');
+      // 表示欄に現在の情報をセット（パスワードは表示しない）
+      document.getElementById('current_id').textContent = result.id;
+      document.getElementById('current_name').textContent = result.name || '(なし)';
+      document.getElementById('current_email').textContent = result.email || '(なし)';
+      document.getElementById('current_info').textContent = result.info || '(なし)';
+      hideLoading();
+    }
 
 
-  alert('アカウント情報を更新しました。再度ログインが必要です。');
-  localStorage.removeItem('user');
-  location.href = 'index.html';
-}
+    async function save() {
+      showLoading("保存中...");
+      const newId = document.getElementById('id').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const info = document.getElementById('info').value.trim();
+
+      const originalId = editingUserId;
+
+      // 現在の情報表示欄から値を取得
+      const currentId = document.getElementById('current_id').textContent.trim();
+      const currentName = document.getElementById('current_name').textContent.trim();
+      const currentEmail = document.getElementById('current_email').textContent.trim();
+      const currentInfo = document.getElementById('current_info').textContent.trim();
+
+      // 変更点があるか判定（パスワードは常に変更があったかチェック）
+      const isChanged = (
+        (newId && newId !== currentId) ||
+        password || // パスワードは空欄じゃなければ変更ありとする
+        (name && name !== currentName) ||
+        (email && email !== currentEmail) ||
+        (info && info !== currentInfo)
+      );
+
+      if (!isChanged) {
+        hideLoading();
+        alert('変更された項目がありません');
+        return;
+      }
+
+      const updated = {
+        mode: 'updateUser',
+        id: originalId,
+      };
+      if (newId && newId !== originalId) updated.newId = newId;
+      if (password) updated.password = password;
+      if (name && name !== currentName) updated.name = name;
+      if (email && email !== currentEmail) updated.email = email;
+      if (info && info !== currentInfo) updated.info = info;
+
+      const res = await fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(updated)
+      });
+
+      const result = await res.json();
+      if (!result.success) {
+        hideLoading();
+        alert('保存に失敗しました');
+        return;
+      }
+      hideLoading();
+      alert('保存しました');
+
+
+      alert('アカウント情報を更新しました。再度ログインが必要です。');
+      localStorage.removeItem('user');
+      location.href = 'index.html';
+    }
 
 
 
 
-</script>
+  </script>
 
 </body>
 </html>

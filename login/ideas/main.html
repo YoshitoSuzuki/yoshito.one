@@ -82,12 +82,16 @@
     </style>
     <link rel="stylesheet" href="style.css" />
 </head>
+
+
+
 <body>
-    <div id="nav"></div>
+
+   
+  <div id="nav"></div>
 
   <div class="header">
     <h2>投稿一覧</h2>
-    <button onclick="logout()">ログアウト</button>
   </div>
 
   <div class="info-area">
@@ -97,12 +101,12 @@
   <div class="form-area">
     <input type="text" id="comment" rows="3" placeholder="コメント" data-submit="btnPost"></input>
     <input type="text" id="url" placeholder="URL（https:// がない場合は自動で補完されます）" data-submit="btnPost">
-    <button id="post btnPost" onclick="post()">投稿</button>
-
+    <button id="post" id="btnPost" onclick="post()">投稿</button>
   </div>
-<div style="margin: 10px 0;">
-  <button onclick="loadPosts()">🔄 一覧を更新</button>
-</div>
+  
+  <div style="margin: 10px 0;">
+    <button onclick="loadPosts()">🔄 一覧を更新</button>
+  </div>
 
   <div class="list-area">
     <table id="postTable">
@@ -116,7 +120,20 @@
       <tbody></tbody>
     </table>
   </div>
+
+    <!-- ローディングモーダル（最前面に覆い被さる） -->
+  <div id="loadingOverlay" style="display: none;">
+    <div class="overlay-background"></div>
+    <div class="overlay-content">
+      <p>処理中です。しばらくお待ちください...</p>
+    </div>
+  </div>
+  
+  
+  
   <script src="nav.js"></script>
+  <script src="script.js" defer></script>
+  
   <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbymlvxTf7qpxTTo4Q0B9QAKhwUG8tCQzYn8KZX_rvJj3VbGtFWikCRwIpGFIgNV4VTfQw/exec';
     let user;
@@ -139,10 +156,12 @@
     }
     
     async function post() {
+      showLoading("投稿中...");
       const comment = document.getElementById('comment').value.trim();
       let url = document.getElementById('url').value.trim();
       
       if (!comment && !url) {
+        hideLoading();
         alert('コメントとURLのどちらかは入力してください');
         return;
       }
@@ -165,13 +184,16 @@
       if (result.success) {
         document.getElementById('comment').value = '';
         document.getElementById('url').value = '';
+        hideLoading();
         loadPosts();
       } else {
+        hideLoading();
         alert('投稿失敗');
       }
     }
     
     async function loadPosts() {
+      showLoading("投稿一覧を読み込み中...");
       const res = await fetch(scriptURL, {
         method: 'POST',
         body: JSON.stringify({
@@ -193,16 +215,16 @@
           tdComment.textContent = post.comment;
           
           const tdUrl = document.createElement('td');
-const url = post.url ? post.url.trim() : '';
+          const url = post.url ? post.url.trim() : '';
 
-if (url !== '' && url !== 'https://') {
-  tdUrl.innerHTML = `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a><br><span class="url-copy">${url}</span>`;
-} else {
-  tdUrl.textContent = '';
-}
+          if (url !== '' && url !== 'https://') {
+            tdUrl.innerHTML = `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a><br><span class="url-copy">${url}</span>`;
+          } else {
+            tdUrl.textContent = '';
+          }
 
 
-          
+              
           const tdAction = document.createElement('td');
           if (post.id === user.id || user.role === 'root') {
             const delBtn = document.createElement('button');
@@ -218,7 +240,7 @@ if (url !== '' && url !== 'https://') {
           } else {
             tdAction.textContent = '---';
           }
-          
+              
           
           tr.appendChild(tdComment);
           tr.appendChild(tdUrl);
@@ -226,18 +248,23 @@ if (url !== '' && url !== 'https://') {
           tbody.appendChild(tr);
         });
       }
+      hideLoading();
     }
     
     async function deletePost(row) {
       if (!confirm('本当に削除しますか？')) return;
+      showLoading("削除中...");
       const res = await fetch(scriptURL, {
         method: 'POST',
         body: JSON.stringify({ mode: 'delete', row })
       });
       
       const result = await res.json();
+      hideLoading();
       if (result.success) {
         loadPosts();
+      } else {
+        alert('削除に失敗しました');
       }
     }
     
@@ -249,9 +276,11 @@ if (url !== '' && url !== 'https://') {
     }
     
     async function updatePost(row) {
+      showLoading("更新中...");
       const comment = document.getElementById('comment').value.trim();
       let url = document.getElementById('url').value.trim();
       if (!comment && !url) {
+        hideLoading();
         alert('コメントとURLのどちらかは入力してください');
         return;
       }
@@ -270,16 +299,18 @@ if (url !== '' && url !== 'https://') {
       });
       
       const result = await res.json();
+      hideLoading();
       if (result.success) {
         document.getElementById('comment').value = '';
         document.getElementById('url').value = '';
         document.getElementById('post').textContent = '投稿';
         document.getElementById('post').onclick = post;
         loadPosts();
+      } else {
+        alert('更新に失敗しました');
       }
     }
     
     </script>
-    <script src="script.js"></script>
 </body>
 </html>
