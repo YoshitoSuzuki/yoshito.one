@@ -1,2 +1,9 @@
-# me
-repository for site of yoshito.one
+# yoshito.one
+
+
+## YoshitoSUZUKIのサイト
+
+
+趣味で作成しているサイトです。
+過去に作った作品や、現在進行中のプロジェクトなどを公開しています。
+コンテンツ置き場としても利用しています。
