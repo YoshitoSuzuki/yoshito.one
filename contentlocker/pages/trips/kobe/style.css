@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #005abf;
+    --secondary-color: #f0f8ff;
+    --text-color: #333;
+    --border-color: #ddd;
+    --header-bg: #333;
+    --header-text: white;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 700;
+}
+
+.day-plan {
+    background: #fff;
+    margin-bottom: 2rem;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.day-header h2 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.day-icon {
+    font-size: 1.8rem;
+    margin-right: 0.7rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    transition: all 0.4s ease-in-out;
+}
+
+table.hidden {
+    display: none;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--secondary-color);
+    font-weight: 700;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+td:first-child, th:first-child {
+    width: 15%;
+    font-weight: 700;
+}
+
+strong {
+    color: var(--primary-color);
+}
+
+.toggle-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: #fff;
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+@media (max-width: 768px) {
+    .day-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .toggle-btn {
+        margin-top: 1rem;
+    }
+
+    th, td {
+        padding: 8px 5px;
+        font-size: 0.9rem;
+    }
+}
