@@ -1,7 +1,7 @@
 # yoshito.one
 
 
-## YoshitoSUZUKIのサイト
+## yoshito.one
 
 
 趣味で作成しているサイトです。
