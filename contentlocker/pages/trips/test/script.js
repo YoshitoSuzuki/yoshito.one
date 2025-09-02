@@ -1,173 +1,240 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- ▼ 設定エリア ▼ ---
-    // ここを false にすると、その絞り込み機能が表示されなくなります
+    // --- ▼▼ 設定エリア ▼▼ ---
+    const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby-0vvEThBxttffb5Ccmc0P2GNYrJtoM3h9liVdmwm5WJynARj8fs4Ty6yrJZhixIv9/exec';
+    const CONTENT_ID = 'origin';
+    // --- ▲▲ 設定エリア ▲▲ ---
+
+    // --- ▼▼ 機能の有効/無効 設定 ▼▼ ---
     const CONFIG = {
-        enableLocationFilter: true, // 場所での絞り込み機能
-        enablePersonFilter: true,   // 登場人物での絞り込み機能
+        enableLocationFilter: true,
+        enablePersonFilter: true,
+        enableCategoryFilter: true,
     };
-    // --- ▲ 設定エリア ▲ ---
+    // --- ▲▲ 設定エリア ▲▲ ---
 
-
-    const mainPlayer = document.getElementById('main-player');
-    const videoListContainer = document.getElementById('video-list');
-    const filtersContainer = document.getElementById('filters-container');
-
-    let allVideos = []; // 全ての動画データを保持する配列
-
-    // JSONファイルを読み込む
-    fetch('videos.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(videos => {
-            allVideos = videos;
-            if (videos.length > 0) {
-                // 最初の動画をメインプレーヤーにセット
-                setMainVideo(videos[0].id);
-                // フィルターを初期化
-                initializeFilters();
-                // 動画リストを初回表示
-                renderVideoList(videos);
-            } else {
-                videoListContainer.innerHTML = '<p>表示する動画がありません。</p>';
-            }
-        })
-        .catch(error => {
-            console.error('動画リストの読み込みに失敗しました:', error);
-            videoListContainer.innerHTML = '<p>動画リストの読み込みに失敗しました。jsonファイルが正しく配置されているか確認してください。</p>';
-        });
+    // HTML要素の取得
+    const passwordContainer = document.getElementById('password-container');
+    const mainContent = document.getElementById('main-content');
+    const passwordInput = document.getElementById('password-input');
+    const submitButton = document.getElementById('submit-button');
+    const errorMessage = document.getElementById('error-message');
 
     /**
-     * メインプレーヤーの動画を切り替える
-     * @param {string} videoId YouTubeの動画ID
+     * --- ▼▼▼ ここからが新しいロジック ▼▼▼ ---
      */
-    function setMainVideo(videoId) {
-        mainPlayer.src = `https://www.youtube.com/embed/${videoId}`;
-    }
 
-    /**
-     * 動画リストをHTMLに描画する
-     * @param {Array} videos 描画する動画の配列
-     */
-    function renderVideoList(videos) {
-        videoListContainer.innerHTML = ''; // 一旦リストを空にする
-        videos.forEach(video => {
-            const videoItem = document.createElement('div');
-            videoItem.className = 'video-item';
-            
-            const thumbnailUrl = `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`;
+    // ページ読み込み時に、保存されたトークンで自動ログインを試みる
+    function autoLoginWithToken() {
+        const savedToken = localStorage.getItem('sessionToken');
+        if (!savedToken) {
+            // トークンがなければ何もせず、パスワード入力を待つ
+            return;
+        }
 
-            videoItem.innerHTML = `
-                <img src="${thumbnailUrl}" alt="${video.title}">
-                <div class="video-item-info">
-                    <h3>${video.title}</h3>
-                    <p>${video.location || ''}</p>
-                </div>
-            `;
-            
-            // クリックでメインプレーヤーの動画を切り替え
-            videoItem.addEventListener('click', () => {
-                setMainVideo(video.id);
-                // ページ上部にスムーズにスクロール
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+        // 認証メッセージを表示
+        passwordContainer.querySelector('h2').textContent = "自動ログイン中...";
+        passwordContainer.querySelector('p').textContent = "認証情報を確認しています。";
+        passwordInput.classList.add('hidden');
+        submitButton.classList.add('hidden');
+
+        // トークンを使ってGASに認証リクエスト
+        const url = `${GAS_WEB_APP_URL}?id=${CONTENT_ID}&token=${savedToken}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // 自動ログイン成功
+                    showMainContent(data.payload);
+                } else {
+                    // トークンが無効だった場合
+                    localStorage.removeItem('sessionToken'); // 古いトークンを削除
+                    // 通常のパスワード入力画面に戻す
+                    passwordContainer.querySelector('h2').textContent = "Password Required";
+                    passwordContainer.querySelector('p').textContent = "このコンテンツを閲覧するにはパスワードが必要です。";
+                    errorMessage.textContent = "セッションが切れました。再度パスワードを入力してください。";
+                    passwordInput.classList.remove('hidden');
+                    submitButton.classList.remove('hidden');
+                }
+            })
+            .catch(err => {
+                console.error("Token login failed:", err);
+                errorMessage.textContent = "自動ログインに失敗しました。";
             });
-            videoListContainer.appendChild(videoItem);
-        });
     }
 
-    /**
-     * 絞り込みフィルターを初期化して表示する
-     */
-    function initializeFilters() {
-        filtersContainer.innerHTML = ''; // フィルターを初期化
-
-        // 場所フィルター
-        if (CONFIG.enableLocationFilter) {
-            const locations = ['すべて', ...new Set(allVideos.map(v => v.location).filter(Boolean))];
-            createFilterGroup('場所', locations, 'location');
-        }
-
-        // 登場人物フィルター
-        if (CONFIG.enablePersonFilter) {
-            const people = ['すべて', ...new Set(allVideos.flatMap(v => v.people).filter(Boolean))];
-            createFilterGroup('登場人物', people, 'person');
-        }
+    // メインコンテンツを表示する共通関数
+    function showMainContent(dataPayload) {
+        passwordContainer.classList.add('hidden');
+        mainContent.classList.remove('hidden');
+        initializeApp(dataPayload);
     }
 
+    // --- ▲▲▲ ここまでが新しいロジック ▲▲▲ ---
+
+
+    // 送信ボタンがクリックされたときの処理
+    submitButton.addEventListener('click', checkPassword);
+    passwordInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') checkPassword();
+    });
+
     /**
-     * フィルターのボタン群を作成する
-     * @param {string} title グループのタイトル（例: '場所'）
-     * @param {Array} items ボタンにする項目の配列
-     * @param {string} type フィルターの種類（'location' or 'person'）
+     * パスワードをGASに送信して認証する関数
      */
-    function createFilterGroup(title, items, type) {
-        const groupDiv = document.createElement('div');
-        groupDiv.className = 'filter-group';
-        
-        const titleEl = document.createElement('div');
-        titleEl.className = 'filter-group-title';
-        titleEl.textContent = title;
-        groupDiv.appendChild(titleEl);
+    function checkPassword() {
+        const password = passwordInput.value;
+        if (!password) {
+            errorMessage.textContent = 'パスワードを入力してください。';
+            return;
+        }
 
-        const buttonsDiv = document.createElement('div');
-        buttonsDiv.className = 'filter-buttons';
-        buttonsDiv.dataset.filterType = type;
+        errorMessage.textContent = '認証中...';
+        submitButton.disabled = true;
 
-        items.forEach((item, index) => {
-            const button = document.createElement('button');
-            button.textContent = item;
-            button.dataset.filter = item;
-            if (index === 0) {
-                button.classList.add('active'); // 最初（すべて）をアクティブに
-            }
-            buttonsDiv.appendChild(button);
-        });
-        
-        groupDiv.appendChild(buttonsDiv);
-        filtersContainer.appendChild(groupDiv);
+        const url = `${GAS_WEB_APP_URL}?id=${CONTENT_ID}&password=${encodeURIComponent(password)}`;
 
-        // ボタンがクリックされたときのイベントを設定
-        buttonsDiv.addEventListener('click', (e) => {
-            if (e.target.tagName === 'BUTTON') {
-                handleFilterClick(e.target);
-            }
-        });
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success' && data.token) {
+                    // 認証成功！返ってきたトークンをlocalStorageに保存
+                    localStorage.setItem('sessionToken', data.token);
+                    // 取得した動画データを使ってページを初期化
+                    showMainContent(data.payload);
+                } else {
+                    errorMessage.textContent = 'パスワードが違います。';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorMessage.textContent = 'エラーが発生しました。';
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+            });
     }
     
-    /**
-     * フィルターボタンがクリックされたときの処理
-     * @param {HTMLElement} clickedButton クリックされたボタン要素
-     */
-    function handleFilterClick(clickedButton) {
-        const filterType = clickedButton.parentElement.dataset.filterType;
-        const filterValue = clickedButton.dataset.filter;
-        
-        // 同じグループの他のボタンのアクティブ状態を解除
-        clickedButton.parentElement.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
-        // クリックされたボタンをアクティブに
-        clickedButton.classList.add('active');
-        
-        // 他のフィルターグループは「すべて」に戻す
-        document.querySelectorAll('.filter-buttons').forEach(container => {
-            if (container.dataset.filterType !== filterType) {
-                container.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
-                container.querySelector('button[data-filter="すべて"]').classList.add('active');
-            }
-        });
+    // 最初に自動ログインを試す
+    autoLoginWithToken();
 
-        // 動画リストをフィルタリングして再描画
-        let filteredVideos = allVideos;
-        if (filterValue !== 'すべて') {
-            if (filterType === 'location') {
-                filteredVideos = allVideos.filter(v => v.location === filterValue);
-            } else if (filterType === 'person') {
-                filteredVideos = allVideos.filter(v => v.people && v.people.includes(filterValue));
+
+    // --- ▼▼ 以下は、これまでの動画ページ表示用ロジック（変更なし） ▼▼ ---
+
+    function initializeApp(dayData) {
+        const mainPlayer = document.getElementById('main-player');
+        const videoListWrapper = document.getElementById('video-list');
+        const filtersContainer = document.getElementById('filters-container');
+        
+        const allVideos = dayData.flatMap(day => day.videos);
+
+        if (allVideos.length > 0) {
+            setMainVideo(allVideos[0].id);
+            initializeFilters(allVideos);
+            renderVideoList(dayData, allVideos);
+        } else {
+            videoListWrapper.innerHTML = '<p>表示する動画がありません。</p>';
+        }
+
+        function setMainVideo(videoId) {
+            mainPlayer.src = `https://www.youtube.com/embed/${videoId}`;
+        }
+        
+        function renderVideoList(originalDayData, videosToDisplay) {
+            videoListWrapper.innerHTML = '';
+            const displayVideoIds = new Set(videosToDisplay.map(v => v.id));
+
+            originalDayData.forEach(day => {
+                const videosForThisDay = day.videos.filter(video => displayVideoIds.has(video.id));
+                if (videosForThisDay.length > 0) {
+                    const dayHeader = document.createElement('h2');
+                    dayHeader.className = 'day-header';
+                    dayHeader.textContent = day.dayTitle;
+                    videoListWrapper.appendChild(dayHeader);
+
+                    videosForThisDay.forEach(video => {
+                        const videoItem = document.createElement('div');
+                        videoItem.className = 'video-item';
+                        videoItem.innerHTML = `
+                            <img src="https://i.ytimg.com/vi/${video.id}/mqdefault.jpg" alt="${video.title}">
+                            <div class="video-item-info">
+                                <h3>${video.title}</h3>
+                                <p>${video.location || ''}</p>
+                            </div>
+                        `;
+                        videoItem.addEventListener('click', () => {
+                            setMainVideo(video.id);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        });
+                        videoListWrapper.appendChild(videoItem);
+                    });
+                }
+            });
+        }
+
+        function initializeFilters(videos) {
+            filtersContainer.innerHTML = '';
+            if (CONFIG.enableLocationFilter) {
+                const locations = ['すべて', ...new Set(videos.map(v => v.location).filter(Boolean))];
+                createFilterGroup('場所', locations, 'location', videos);
+            }
+            if (CONFIG.enablePersonFilter) {
+                const people = ['すべて', ...new Set(videos.flatMap(v => v.people).filter(Boolean))];
+                createFilterGroup('登場人物', people, 'person', videos);
+            }
+            if (CONFIG.enableCategoryFilter) {
+                const categories = ['すべて', ...new Set(videos.map(v => v.category).filter(Boolean))];
+                createFilterGroup('カテゴリ', categories, 'category', videos);
             }
         }
-        renderVideoList(filteredVideos);
+
+        function createFilterGroup(title, items, type, videos) {
+            const groupDiv = document.createElement('div');
+            groupDiv.className = 'filter-group';
+            groupDiv.innerHTML = `<div class="filter-group-title">${title}</div>`;
+            
+            const buttonsDiv = document.createElement('div');
+            buttonsDiv.className = 'filter-buttons';
+            buttonsDiv.dataset.filterType = type;
+
+            items.forEach((item, index) => {
+                const button = document.createElement('button');
+                button.textContent = item;
+                button.dataset.filter = item;
+                if (index === 0) button.classList.add('active');
+                buttonsDiv.appendChild(button);
+            });
+            
+            groupDiv.appendChild(buttonsDiv);
+            filtersContainer.appendChild(groupDiv);
+
+            buttonsDiv.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') handleFilterClick(e.target, videos);
+            });
+        }
+        
+        function handleFilterClick(clickedButton, videos) {
+            const filterType = clickedButton.parentElement.dataset.filterType;
+            const filterValue = clickedButton.dataset.filter;
+            
+            document.querySelectorAll('.filter-buttons').forEach(container => {
+                container.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+                if (container.dataset.filterType === filterType) {
+                    clickedButton.classList.add('active');
+                } else {
+                    container.querySelector('button[data-filter="すべて"]').classList.add('active');
+                }
+            });
+
+            let filteredVideos = videos;
+            if (filterValue !== 'すべて') {
+                switch(filterType) {
+                    case 'location': filteredVideos = videos.filter(v => v.location === filterValue); break;
+                    case 'person': filteredVideos = videos.filter(v => v.people && v.people.includes(filterValue)); break;
+                    case 'category': filteredVideos = videos.filter(v => v.category === filterValue); break;
+                }
+            }
+            renderVideoList(dayData, filteredVideos);
+        }
     }
 });

@@ -7,20 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>旅行の思い出</h1>
-    </header>
-
-    <main>
-        <div class="main-player-container">
-            <iframe id="main-player" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div id="password-container" class="password-container">
+        <div class="password-box">
+            <h2>Password Required</h2>
+            <p>このコンテンツを閲覧するにはパスワードが必要です。</p>
+            <input type="password" id="password-input" placeholder="パスワードを入力">
+            <button id="submit-button">送信</button>
+            <p id="error-message" class="error-message"></p>
         </div>
+    </div>
 
-        <div id="filters-container"></div>
+    <div id="main-content" class="hidden">
+        <header>
+            <h1>旅行の思い出</h1>
+        </header>
 
-        <div id="video-list" class="video-list-container">
+        <main>
+            <div class="main-player-container">
+                <iframe id="main-player" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-    </main>
+
+            <div id="filters-container"></div>
+
+            <div id="video-list"></div>
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
