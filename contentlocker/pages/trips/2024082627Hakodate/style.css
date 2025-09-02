@@ -199,3 +199,18 @@ main {
     margin-top: 10px;
     font-weight: bold;
 }
+
+
+
+
+
+footer{
+  background: #f4f7f6;
+  text-align: center;
+  padding: 26px 0;
+  border-top: 1px solid #000;
+}
+footer p{
+  color: #777;
+  font-size: 0.875rem;
+}
