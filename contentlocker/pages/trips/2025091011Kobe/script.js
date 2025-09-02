@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- ▼▼ 設定エリア ▼▼ ---
     const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby-0vvEThBxttffb5Ccmc0P2GNYrJtoM3h9liVdmwm5WJynARj8fs4Ty6yrJZhixIv9/exec';
-    const CONTENT_ID = 'Hakodate2024082627';
+    const CONTENT_ID = 'Kobe2025091011';
     // --- ▲▲ 設定エリア ▲▲ ---
 
     // --- ▼▼ 機能の有効/無効 設定 ▼▼ ---
     const CONFIG = {
-        enableLocationFilter: true,
+        enableLocationFilter: false,
         enablePersonFilter: false,
         enableCategoryFilter: false,
     };
