@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函館 2024</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="password-container" class="password-container">
+        <div class="password-box">
+            <h2>Password Required</h2>
+            <p>このコンテンツを閲覧するにはパスワードが必要です。</p>
+            <input type="password" id="password-input" placeholder="パスワードを入力">
+            <button id="submit-button">送信</button>
+            <p id="error-message" class="error-message"></p>
+        </div>
+    </div>
+
+    <div id="main-content" class="hidden">
+        <header>
+            <h1>函館 2024</h1>
+        </header>
+
+        <main>
+            <div class="main-player-container">
+                <iframe id="main-player" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div id="filters-container"></div>
+
+            <div id="video-list"></div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
