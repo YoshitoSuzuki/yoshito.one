@@ -1,0 +1,117 @@
+/* 基本スタイル */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+header {
+    background-color: #fff;
+    color: #343a40;
+    text-align: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 300;
+}
+
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* メイン動画プレーヤー */
+.main-player-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9のアスペクト比 */
+    margin-bottom: 30px;
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#main-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 絞り込みフィルター */
+.filter-group {
+    margin-bottom: 25px;
+}
+.filter-group-title {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #495057;
+}
+.filter-buttons button {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.filter-buttons button:hover {
+    background-color: #e9ecef;
+}
+.filter-buttons button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+
+/* 動画リスト */
+.video-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.video-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+    overflow: hidden;
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+}
+
+.video-item img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.video-item-info {
+    padding: 15px;
+}
+
+.video-item-info h3 {
+    font-size: 1.1rem;
+    margin: 0 0 5px 0;
+}
+
+.video-item-info p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #6c757d;
+}
