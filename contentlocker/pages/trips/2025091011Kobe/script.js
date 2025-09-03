@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- ▼▼ 機能の有効/無効 設定 ▼▼ ---
     const CONFIG = {
-        enableLocationFilter: false,
-        enablePersonFilter: false,
-        enableCategoryFilter: false,
+        enableLocationFilter: true,
+        enablePersonFilter: true,
+        enableCategoryFilter: true,
     };
     // --- ▲▲ 設定エリア ▲▲ ---
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ページ読み込み時に、保存されたトークンで自動ログインを試みる
     function autoLoginWithToken() {
-        const savedToken = localStorage.getItem('sessionToken');
+        const savedToken = localStorage.getItem(`sessionToken_${CONTENT_ID}`);
         if (!savedToken) {
             // トークンがなければ何もせず、パスワード入力を待つ
             return;
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     showMainContent(data.payload);
                 } else {
                     // トークンが無効だった場合
-                    localStorage.removeItem('sessionToken'); // 古いトークンを削除
+                    localStorage.removeItem(`sessionToken_${CONTENT_ID}`); // 古いトークンを削除
                     // 通常のパスワード入力画面に戻す
                     passwordContainer.querySelector('h2').textContent = "Password Required";
                     passwordContainer.querySelector('p').textContent = "このコンテンツを閲覧するにはパスワードが必要です。";
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 if (data.status === 'success' && data.token) {
                     // 認証成功！返ってきたトークンをlocalStorageに保存
-                    localStorage.setItem('sessionToken', data.token);
+                    localStorage.setItem(`sessionToken_${CONTENT_ID}`, data.token);
                     // 取得した動画データを使ってページを初期化
                     showMainContent(data.payload);
                 } else {
