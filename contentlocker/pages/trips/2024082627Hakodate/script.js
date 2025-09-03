@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- ▼▼ 機能の有効/無効 設定 ▼▼ ---
     const CONFIG = {
         enableLocationFilter: true,
-        enablePersonFilter: true,
+        enablePersonFilter: false,
         enableCategoryFilter: true,
     };
     // --- ▲▲ 設定エリア ▲▲ ---
