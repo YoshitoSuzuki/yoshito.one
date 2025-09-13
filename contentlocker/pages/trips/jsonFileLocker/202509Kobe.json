@@ -3,23 +3,31 @@
     "dayTitle": "1日目",
     "videos": [
       {
-        "id": "",
+        "id": "WEWm2AWGidc",
         "title": "東京駅で新幹線を待つ",
         "description": "",
         "location": "東京駅",
-        "people": ["新幹線"],
+        "people": [],
         "category": "1日目"
       },
       {
         "id": "",
+        "title": "新神戸駅",
+        "description": "7887Vz7AmsE",
+        "location": "新神戸駅",
+        "people": [],
+        "category": "1日目"
+      },
+      {
+        "id": "-ElYuMpZ5pM",
         "title": "水上アスレチック",
         "description": "",
         "location": "GREENIA",
-        "people": ["アスレチック"],
+        "people": [],
         "category": "1日目"
       },
       {
-        "id": "",
+        "id": "cDQbw78_sC0",
         "title": "壁の間",
         "description": "",
         "location": "GREENIA",
@@ -27,7 +35,7 @@
         "category": "1日目"
       },
       {
-        "id": "",
+        "id": "JMmMN53BLMU",
         "title": "イライラ棒",
         "description": "",
         "location": "GREENIA",
@@ -35,7 +43,7 @@
         "category": "1日目"
       },
       {
-        "id": "",
+        "id": "4iGvXFu3sKA",
         "title": "陸上アスレチック",
         "description": "",
         "location": "GREENIA",
@@ -43,7 +51,7 @@
         "category": "1日目"
       },
       {
-        "id": "",
+        "id": "2RO97LQUeM8",
         "title": "六甲山からの絶景",
         "description": "",
         "location": "六甲山",
@@ -51,66 +59,10 @@
         "category": "1日目"
       },
       {
-        "id": "",
+        "id": "j-UTPS4c9vY",
         "title": "六甲ケーブルのすれ違い",
         "description": "",
         "location": "六甲山",
-        "people": [],
-        "category": "1日目"
-      },
-      {
-        "id": "",
-        "title": "",
-        "description": "",
-        "location": "",
-        "people": [],
-        "category": "1日目"
-      },
-      {
-        "id": "",
-        "title": "",
-        "description": "",
-        "location": "",
-        "people": [],
-        "category": "1日目"
-      },
-      {
-        "id": "",
-        "title": "",
-        "description": "",
-        "location": "",
-        "people": [],
-        "category": "1日目"
-      },
-      {
-        "id": "",
-        "title": "",
-        "description": "",
-        "location": "",
-        "people": [],
-        "category": "1日目"
-      },
-      {
-        "id": "",
-        "title": "",
-        "description": "",
-        "location": "",
-        "people": [],
-        "category": "1日目"
-      },
-      {
-        "id": "",
-        "title": "",
-        "description": "",
-        "location": "",
-        "people": [],
-        "category": "1日目"
-      },
-      {
-        "id": "",
-        "title": "",
-        "description": "",
-        "location": "",
         "people": [],
         "category": "1日目"
       }
@@ -120,7 +72,7 @@
     "dayTitle": "2日目",
     "videos": [
       {
-        "id": "",
+        "id": "idAk6ykF2mI",
         "title": "シティーループのバスガイド",
         "description": "",
         "location": "神戸市内",
@@ -128,7 +80,7 @@
         "category": "2日目"
       },
       {
-        "id": "",
+        "id": "YNemzkhcuxg",
         "title": "神戸港",
         "description": "",
         "location": "神戸港",
@@ -136,7 +88,7 @@
         "category": "2日目"
       },
       {
-        "id": "",
+        "id": "nf4oD_uLYTs",
         "title": "神戸牛を求めて",
         "description": "",
         "location": "神戸市内",
@@ -144,7 +96,7 @@
         "category": "2日目"
       },
       {
-        "id": "",
+        "id": "98T3jmhFijs",
         "title": "有馬温泉街到着",
         "description": "",
         "location": "有馬温泉街",
@@ -152,7 +104,7 @@
         "category": "2日目"
       },
       {
-        "id": "",
+        "id": "0TMcCjNsg90",
         "title": "有馬温泉 お土産探し",
         "description": "",
         "location": "有馬温泉街",
@@ -160,7 +112,7 @@
         "category": "2日目"
       },
       {
-        "id": "",
+        "id": "No3cLgLSzqU",
         "title": "帰りの新幹線を待つ",
         "description": "",
         "location": "新神戸駅",
@@ -168,7 +120,7 @@
         "category": "2日目"
       },
       {
-        "id": "",
+        "id": "Z_BGk47jkYg",
         "title": "帰りの新幹線の中で",
         "description": "",
         "location": "新幹線",
