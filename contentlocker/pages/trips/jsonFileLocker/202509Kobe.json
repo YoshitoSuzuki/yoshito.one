@@ -1,0 +1,132 @@
+[
+  {
+    "dayTitle": "1日目",
+    "videos": [
+      {
+        "id": "WEWm2AWGidc",
+        "title": "東京駅で新幹線を待つ",
+        "description": "",
+        "location": "東京駅",
+        "people": [],
+        "category": "1日目"
+      },
+      {
+        "id": "",
+        "title": "新神戸駅",
+        "description": "7887Vz7AmsE",
+        "location": "新神戸駅",
+        "people": [],
+        "category": "1日目"
+      },
+      {
+        "id": "-ElYuMpZ5pM",
+        "title": "水上アスレチック",
+        "description": "",
+        "location": "GREENIA",
+        "people": [],
+        "category": "1日目"
+      },
+      {
+        "id": "cDQbw78_sC0",
+        "title": "壁の間",
+        "description": "",
+        "location": "GREENIA",
+        "people": [],
+        "category": "1日目"
+      },
+      {
+        "id": "JMmMN53BLMU",
+        "title": "イライラ棒",
+        "description": "",
+        "location": "GREENIA",
+        "people": [],
+        "category": "1日目"
+      },
+      {
+        "id": "4iGvXFu3sKA",
+        "title": "陸上アスレチック",
+        "description": "",
+        "location": "GREENIA",
+        "people": [],
+        "category": "1日目"
+      },
+      {
+        "id": "2RO97LQUeM8",
+        "title": "六甲山からの絶景",
+        "description": "",
+        "location": "六甲山",
+        "people": [],
+        "category": "1日目"
+      },
+      {
+        "id": "j-UTPS4c9vY",
+        "title": "六甲ケーブルのすれ違い",
+        "description": "",
+        "location": "六甲山",
+        "people": [],
+        "category": "1日目"
+      }
+    ]
+  },
+  {
+    "dayTitle": "2日目",
+    "videos": [
+      {
+        "id": "idAk6ykF2mI",
+        "title": "シティーループのバスガイド",
+        "description": "",
+        "location": "神戸市内",
+        "people": [],
+        "category": "2日目"
+      },
+      {
+        "id": "YNemzkhcuxg",
+        "title": "神戸港",
+        "description": "",
+        "location": "神戸港",
+        "people": [],
+        "category": "2日目"
+      },
+      {
+        "id": "nf4oD_uLYTs",
+        "title": "神戸牛を求めて",
+        "description": "",
+        "location": "神戸市内",
+        "people": [],
+        "category": "2日目"
+      },
+      {
+        "id": "98T3jmhFijs",
+        "title": "有馬温泉街到着",
+        "description": "",
+        "location": "有馬温泉街",
+        "people": [],
+        "category": "2日目"
+      },
+      {
+        "id": "0TMcCjNsg90",
+        "title": "有馬温泉 お土産探し",
+        "description": "",
+        "location": "有馬温泉街",
+        "people": [],
+        "category": "2日目"
+      },
+      {
+        "id": "No3cLgLSzqU",
+        "title": "帰りの新幹線を待つ",
+        "description": "",
+        "location": "新神戸駅",
+        "people": [],
+        "category": "2日目"
+      },
+      {
+        "id": "Z_BGk47jkYg",
+        "title": "帰りの新幹線の中で",
+        "description": "",
+        "location": "新幹線",
+        "people": [],
+        "category": "2日目"
+      }
+    ]
+  }
+]
