@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function initializeFilters(videos) {
             filtersContainer.innerHTML = '';
             if (CONFIG.enableLocationFilter) {
-                const locations = ['すべて', ...new Set(videos.map(v => v.location).filter(Boolean))];
+                const locations = ['すべて', ...new Set(videos.flatMap(v => v.location).filter(Boolean))];
                 createFilterGroup('場所', locations, 'location', videos);
             }
             if (CONFIG.enablePersonFilter) {
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 createFilterGroup('登場人物', people, 'person', videos);
             }
             if (CONFIG.enableCategoryFilter) {
-                const categories = ['すべて', ...new Set(videos.map(v => v.category).filter(Boolean))];
+                const categories = ['すべて', ...new Set(videos.flatMap(v => v.category).filter(Boolean))];
                 createFilterGroup('カテゴリ', categories, 'category', videos);
             }
         }
@@ -229,9 +229,9 @@ document.addEventListener('DOMContentLoaded', () => {
             let filteredVideos = videos;
             if (filterValue !== 'すべて') {
                 switch(filterType) {
-                    case 'location': filteredVideos = videos.filter(v => v.location === filterValue); break;
+                    case 'location': filteredVideos = videos.filter(v => v.location && v.location.includes(filterValue)); break;
                     case 'person': filteredVideos = videos.filter(v => v.people && v.people.includes(filterValue)); break;
-                    case 'category': filteredVideos = videos.filter(v => v.category === filterValue); break;
+                    case 'category': filteredVideos = videos.filter(v => v.category && v.category.includes(filterValue)); break;
                 }
             }
             renderVideoList(dayData, filteredVideos);
