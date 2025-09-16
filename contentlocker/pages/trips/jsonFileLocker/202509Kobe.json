@@ -128,5 +128,18 @@
         "category": "2日目"
       }
     ]
+  },
+  {
+    "dayTitle": "Edited",
+    "videos": [
+      {
+        "id": "uZTwNPvqX5o",
+        "title": "１日目",
+        "description": "",
+        "location": ["東京駅", "新神戸駅", "GREENIA", "六甲山"],
+        "people": [],
+        "category": ["Edited", "1日目"]
+      }
+    ]
   }
 ]
