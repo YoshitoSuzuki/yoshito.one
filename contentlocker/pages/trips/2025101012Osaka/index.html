@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大阪旅行しおり</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>大阪旅行しおり</h1>
+  </header>
+
+  <main>
+    <!-- チケット -->
+    <section class="tickets">
+      <h2>チケット</h2>
+      <div class="ticket-list">
+        <div class="ticket">
+          <img src="img/ticket1.jpg" alt="チケット1">
+          <button onclick="openPDF('pdfs/ticket1.pdf')">PDFを開く</button>
+        </div>
+        <div class="ticket">
+          <img src="img/ticket2.jpg" alt="チケット2">
+          <button onclick="openPDF('pdfs/ticket2.pdf')">PDFを開く</button>
+        </div>
+        <div class="ticket">
+          <img src="img/ticket3.jpg" alt="チケット3">
+          <button onclick="openPDF('pdfs/ticket3.pdf')">PDFを開く</button>
+        </div>
+        <div class="ticket">
+          <img src="img/ticket4.jpg" alt="チケット4">
+          <button onclick="openPDF('pdfs/ticket4.pdf')">PDFを開く</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 経路 -->
+    <section class="routes">
+      <h2>経路一覧</h2>
+      <ul>
+        <li><strong>東京駅 → 新大阪駅：</strong> <a href="https://goo.gl/maps/example1" target="_blank">経路を見る</a></li>
+        <li><strong>ホテル → 通天閣：</strong> <a href="https://goo.gl/maps/example2" target="_blank">経路を見る</a></li>
+        <li><strong>通天閣 → なんばグランド花月：</strong> <a href="https://goo.gl/maps/example3" target="_blank">経路を見る</a></li>
+        <li><strong>なんば → 大阪城：</strong> <a href="https://goo.gl/maps/example4" target="_blank">経路を見る</a></li>
+        <!-- ここに20件ほど追加可能 -->
+      </ul>
+    </section>
+
+    <!-- PDF -->
+    <section class="pdf-section">
+      <h2>旅の資料</h2>
+      <button onclick="openPDF('pdfs/timeline.pdf')">タイムラインPDFを開く</button>
+      <button onclick="openPDF('pdfs/shiori.pdf')">しおりPDFを開く</button>
+    </section>
+
+    <!-- 関連URL -->
+    <section class="links">
+      <h2>関連リンク</h2>
+      <ul>
+        <li><a href="https://www.japan.travel/ja/" target="_blank">日本政府観光局</a></li>
+        <li><a href="https://www.osaka-info.jp/" target="_blank">大阪観光局</a></li>
+        <li><a href="https://www.jr-odekake.net/" target="_blank">JRおでかけネット</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Osaka Trip</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
