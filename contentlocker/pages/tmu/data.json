@@ -19,6 +19,11 @@
           "label_en": "kibaco timetable",
           "url": "https://kibaco-d.tmu.ac.jp/lms/timetable"
         },
+	{
+          "label_ja": "kibaco マイページ",
+          "label_en": "kibaco my-page",
+          "url": "https://kibaco.tmu.ac.jp/portal/site/%7E25140127"
+        },
         {
           "label_ja": "kibaco 授業一覧",
           "label_en": "kibaco class list",
