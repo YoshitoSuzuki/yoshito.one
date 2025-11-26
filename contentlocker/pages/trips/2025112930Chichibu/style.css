@@ -1,0 +1,263 @@
+/* Google Fonts - Noto Sans JP を読み込み（日本語対応のモダンなフォント） */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
+
+/* --- 全体的な設定 --- */
+body {
+    font-family: 'Noto Sans JP', sans-serif; /* モダンな日本語フォント */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* 落ち着いたライトグレーの背景 */
+    color: #34495e; /* ダークグレーのテキストカラー */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* フォントを滑らかに */
+    -moz-osx-font-smoothing: grayscale; /* フォントを滑らかに */
+}
+
+a {
+    text-decoration: none;
+    color: #2c3e50; /* リンクの基本色 */
+}
+
+/* --- ヘッダー --- */
+header {
+    background-color: #ffffff; /* 白いヘッダー */
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 控えめなシャドウ */
+    margin-bottom: 40px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #2980b9; /* 青系のメインカラー */
+    font-weight: 700; /* 太めのフォント */
+    letter-spacing: 1px;
+}
+
+/* --- フィルターコンテナ --- */
+.filter-container {
+    max-width: 1280px;
+    margin: 0 auto 30px; /* カードリストの上に余白 */
+    padding: 0 25px;
+    text-align: center;
+}
+
+.filter-button {
+    background-color: #ecf0f1; /* 控えめなグレーの背景 */
+    color: #34495e;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px; /* 丸いボタン */
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.filter-button:hover {
+    background-color: #dce0e4;
+}
+
+.filter-button.active {
+    background-color: #2980b9; /* アクティブなボタンのメインカラー */
+    color: white;
+    box-shadow: 0 4px 10px rgba(41, 128, 185, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --- コンテナ --- */
+.container {
+    max-width: 1280px; /* 少し広めに */
+    margin: 0 auto 60px; /* 上下の余白を調整 */
+    padding: 0 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* カード間のスペースを広めに */
+    justify-content: center;
+}
+
+/* --- 旅行先カード --- */
+.destination-card {
+    background-color: #ffffff; /* 白いカード背景 */
+    border-radius: 12px; /* 強めの角丸 */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* 奥行きを感じるシャドウ */
+    overflow: hidden;
+    width: calc(33.333% - 30px); /* 1行に3つ表示 */
+    min-width: 320px; /* 最小幅 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 滑らかなアニメーション */
+    display: flex; /* Flexboxで内容を縦方向に配置 */
+    flex-direction: column;
+}
+
+.destination-card:hover {
+    transform: translateY(-8px); /* 浮き上がる効果を強めに */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* ホバー時のシャドウを強調 */
+}
+
+.card-image {
+    width: 100%;
+    height: 220px; /* 画像の高さを少し高く */
+    object-fit: cover;
+    border-top-left-radius: 12px; /* 画像の角丸 */
+    border-top-right-radius: 12px;
+}
+
+.card-content {
+    padding: 25px; /* コンテンツのパディングを増やす */
+    flex-grow: 1; /* メモなどがある場合でもカードの高さを均等にする */
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- カード内のカテゴリータグ --- */
+.category-tag {
+    display: inline-block;
+    background-color: #f1c40f; /* 目を引くイエロー系の色 */
+    color: #34495e;
+    font-size: 0.8em;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 15px; /* 見出しとの間にスペース */
+}
+
+.destination-card h2 {
+    margin: 0 0 10px;
+    font-size: 1.8em; /* 見出しのフォントサイズを大きく */
+    color: #2c3e50; /* 濃いめのテキスト色 */
+    font-weight: 700;
+}
+
+.description {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+    flex-grow: 1; /* メモとの間にスペースを確保 */
+}
+
+/* --- リンクエリア --- */
+.links {
+    margin: 15px 0 10px;
+    display: flex;
+    flex-wrap: wrap; /* リンクが多い場合に折り返す */
+    gap: 12px; /* リンク間のスペース */
+    align-items: center;
+}
+
+.links a {
+    display: inline-flex; /* アイコンとテキストを縦方向中央に */
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: 25px; /* 丸いボタン */
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.links a:hover {
+    transform: translateY(-2px); /* ホバーで少し浮き上がる */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Google Maps リンクのスタイル */
+.links a[href*="google.com/maps"] {
+    background-color: #e74c3c; /* 地図らしい赤 */
+    color: white;
+}
+
+.links a[href*="google.com/maps"]:hover {
+    background-color: #c0392b;
+}
+
+/* 公式サイト リンクのスタイル */
+.links a:not([href*="google.com/maps"]) {
+    background-color: #2ecc71; /* 緑系のアクセントカラー */
+    color: white;
+}
+
+.links a:not([href*="google.com/maps"]):hover {
+    background-color: #27ae60;
+}
+
+
+/* --- メモ（notes） --- */
+.notes {
+    margin-top: 15px;
+    padding: 12px 15px;
+    background-color: #ecf0f1; /* 落ち着いた背景色 */
+    border-left: 4px solid #f1c40f; /* アクセントカラーのボーダー */
+    color: #34495e;
+    font-size: 0.85em;
+    border-radius: 4px; /* 角丸 */
+    margin-top: auto; /* メモをカードの下部に固定 */
+}
+
+/* --- フッター --- */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #34495e; /* ダークグレーのフッター */
+    color: #ecf0f1; /* 明るいテキスト色 */
+    font-size: 0.9em;
+    margin-top: 50px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05); /* 上部に控えめなシャドウ */
+}
+
+/* --- エラーメッセージ --- */
+.error-message {
+    color: #e74c3c;
+    font-size: 1.2em;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* --- レスポンシブデザイン --- */
+@media (max-width: 992px) {
+    .destination-card {
+        width: calc(50% - 30px); /* 2カラム表示 */
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    .container {
+        padding: 0 15px;
+        gap: 20px;
+    }
+    .destination-card {
+        width: 100%; /* 1カラム表示 */
+        min-width: unset;
+    }
+    .card-content {
+        padding: 20px;
+    }
+    .destination-card h2 {
+        font-size: 1.6em;
+    }
+    /* 小画面でのフィルターボタン調整 */
+    .filter-container {
+        padding: 0 15px;
+    }
+    .filter-button {
+        display: block; /* ボタンを縦に並べる */
+        width: calc(100% - 10px);
+        margin: 5px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    .links a {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+}
