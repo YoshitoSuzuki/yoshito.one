@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "武甲温泉",
+    "description": "秩父の雄大な自然に囲まれた天然温泉施設。露天風呂やサウナも楽しめます。",
+    "category": "温泉",
+    "image_url": "images/buko_onsen.png",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=武甲温泉",
+    "homepage_url": "https://buko-onsen.co.jp",
+    "notes": "施設内に食事処あり。"
+  },
+  {
+    "id": 2,
+    "name": "祭の湯",
+    "description": "秩父駅直結の複合型温泉施設。フードコートやお土産屋も併設されており、アクセス抜群。",
+    "category": "温泉",
+    "image_url": "images/matsuri_no_yu.png",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=祭の湯",
+    "homepage_url": "https://www.seibu-leisure.co.jp/matsuri/",
+    "notes": "秩父観光の帰りや、電車の待ち時間に利用しやすい。"
+  },
+  {
+    "id": 3,
+    "name": "じんじんばあ",
+    "description": "秩父名物の味噌ポテトや、自家製餡のたい焼きなどが人気の軽食・おやつ処。",
+    "category": "おやつ",
+    "image_url": "images/jinjin_baa.png",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=じんじんばあ",
+    "homepage_url": "https://www.w-dada.com/jinjinba/",
+    "notes": "週末は混雑しがち。"
+  },
+  {
+    "id": 4,
+    "name": "ははそたいやき",
+    "description": "皮がパリパリで具材たっぷりのたい焼きが有名。季節限定の味もある。",
+    "category": "おやつ",
+    "image_url": "images/hahaso_taiyaki.png",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=ははそたいやき",
+    "homepage_url": "",
+    "notes": ""
+  },
+  {
+    "id": 5,
+    "name": "松ばや",
+    "description": "秩父神社近くにある老舗の和菓子店。餡の甘さが絶妙なたい焼きが有名。",
+    "category": "おやつ",
+    "image_url": "images/matsubaya.png",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=松ばや+長瀞",
+    "homepage_url": "https://www.nagatoro.or.jp/syoukoukai_web/kan/matubaya.html",
+    "notes": "秩父神社観光のついでに立ち寄れる。"
+  },
+  {
+    "id": 6,
+    "name": "長瀞雷神堂",
+    "description": "長瀞ライン下り近くにある、手焼きせんべいの店。醤油の香りが食欲をそそる。",
+    "category": "おやつ",
+    "image_url": "images/nagatoro_raijindo.png",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=長瀞雷神堂",
+    "homepage_url": "http://marubutsu.jp/",
+    "notes": ""
+  },
+  {
+    "id": 7,
+    "name": "長瀞渓谷（岩畳）",
+    "description": "国指定の天然記念物。荒川沿いに広がる雄大な岩畳の景色は圧巻。",
+    "category": "景色",
+    "image_url": "images/nagatoro_keikoku_iwadatami.png",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=長瀞岩畳",
+    "homepage_url": "https://www.nagatoro.gr.jp/",
+    "notes": ""
+  },
+  {
+    "id": 8,
+    "name": "羊山公園",
+    "description": "秩父市街を一望できる高台の公園。春の芝桜の丘が特に有名。",
+    "category": "景色",
+    "image_url": "images/hitsujiyama_park.png",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=羊山公園",
+    "homepage_url": "https://www.city.chichibu.lg.jp/1853.html#itemid1638",
+    "notes": ""
+  },
+  {
+    "id": 9,
+    "name": "フォレストアドベンチャー秩父",
+    "description": "森の木々を活かした自然共生型のアウトドアパーク。スリル満点のジップスライドが人気。",
+    "category": "景色",
+    "image_url": "images/forest_adventure_chichibu.png",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=フォレストアドベンチャー秩父",
+    "homepage_url": "https://fa-chichibu.foret-aventure.jp/",
+    "notes": "動きやすい服装と予約が必須。"
+  },
+  {
+    "id": 10,
+    "name": "宝登山小動物公園",
+    "description": "宝登山の山頂にある小さな動物園。ニホンザルやシカなどに餌をあげられる。",
+    "category": "景色",
+    "image_url": "images/hodosan_zoo.png",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=宝登山小動物公園",
+    "homepage_url": "https://hodosan-ropeway.co.jp/zoo/",
+    "notes": "ロープウェイで登るのが楽。"
+  },
+  {
+    "id": 11,
+    "name": "宝登山神社",
+    "description": "1900年以上の歴史を持つパワースポット。火災盗賊よけの神様として信仰されている。",
+    "category": "景色",
+    "image_url": "images/hodosan_jinja.png",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=宝登山神社",
+    "homepage_url": "https://www.hodosan-jinja.or.jp/",
+    "notes": ""
+  }
+]
