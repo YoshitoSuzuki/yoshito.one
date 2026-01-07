@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    // リダイレクト先のURLを変数にまとめる
+    const redirectUrl = "https://jmjtmu-my.sharepoint.com/:p:/g/personal/25140127_ed_tmu_ac_jp/IQBa3mOLmscoRZdXJNg9xVcpAb7mTcBmQg6v7oHYTIUphl8?e=MaNXwX"; // ← ここだけ書き換えればOK
+
+    window.onload = function() {
+      window.location.href = redirectUrl;
+    };
+  </script>
+</head>
+<body>
+  <p>リダイレクト中です。もし自動的に移動しない場合は <a id="manualLink" href="#">こちら</a> をクリックしてください。</p>
+
+  <script>
+    // 手動リンクのhrefにも同じURLを設定
+    document.getElementById("manualLink").href = redirectUrl;
+  </script>
+</body>
+</html>
