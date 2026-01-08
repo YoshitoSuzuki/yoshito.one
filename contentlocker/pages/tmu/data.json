@@ -142,9 +142,24 @@
       "name_en": "Tools",
       "links": [
         {
+          "label_ja": "Colab",
+          "label_en": "Colab",
+          "url": "https://colab.research.google.com/drive/"
+        },
+        {
           "label_ja": "notion",
           "label_en": "notion",
           "url": "https://www.notion.so/"
+        },
+        {
+          "label_ja": "github",
+          "label_en": "github",
+          "url": "https://github.com"
+        },
+        {
+          "label_ja": "github",
+          "label_en": "github",
+          "url": "https://github.com"
         },
         {
           "label_ja": "github",
