@@ -1,0 +1,392 @@
+[
+    {
+        "id": "item004",
+        "name": "白のプルオーバーパーカー",
+        "category": "tops",
+        "size": "M",
+        "color": "white",
+        "price": 0,
+        "description": "シンプルな白のパーカーです。中が少しもふもふ。",
+        "images": [
+            "images/item004/main.jpg",
+            "images/item004/sub.jpg"
+        ]
+    },
+    {
+        "id": "item005",
+        "name": "adidas グレーパーカー",
+        "category": "tops",
+        "size": "?",
+        "color": "grey",
+        "price": 0,
+        "description": "アディダスのロゴ入りスウェットパーカーです。",
+        "images": [
+            "images/item005/main.jpg",
+            "images/item005/sub.jpg"
+        ]
+    },
+    {
+        "id": "item006",
+        "name": "タイダイ柄フーディー",
+        "category": "tops",
+        "size": "L",
+        "color": "black",
+        "price": 0,
+        "description": "モノトーンのタイダイ染めがおしゃれなパーカーです。",
+        "images": [
+            "images/item006/main.jpg",
+            "images/item006/sub.jpg"
+        ]
+    },
+    {
+        "id": "item007",
+        "name": "ネイビー プリントロンT",
+        "category": "tops",
+        "size": "XXL",
+        "color": "navy",
+        "price": 0,
+        "description": "胸元にグラフィックが入った長袖Tシャツです。さらさら。",
+        "images": [
+            "images/item007/main.jpg",
+            "images/item007/sub.jpg"
+        ]
+    },
+    {
+        "id": "item008",
+        "name": "カーキ クルーネックスウェット",
+        "category": "tops",
+        "size": "XL",
+        "color": "green",
+        "price": 0,
+        "description": "カレッジロゴ風のプリントが入ったスウェットです。",
+        "images": [
+            "images/item008/main.jpg",
+            "images/item008/sub.jpg"
+        ]
+    },
+    {
+        "id": "item009",
+        "name": "ブラック パンツ",
+        "category": "pants",
+        "size": "F",
+        "color": "black",
+        "price": 0,
+        "description": "ゆったりとしたシルエットのパンツ。ちょっと擦れる音がうるさい。",
+        "images": [
+            "images/item009/main.jpg",
+            "images/item009/sub.jpg"
+        ]
+    },
+    {
+        "id": "item010",
+        "name": "ベージュ チノパンツ",
+        "category": "pants",
+        "size": "L",
+        "color": "beige",
+        "price": 0,
+        "description": "定番のベージュカラーのチノパンです。",
+        "images": [
+            "images/item010/main.jpg",
+            "images/item010/sub.jpg"
+        ]
+    },
+    {
+        "id": "item011",
+        "name": "カーキ カーゴパンツ",
+        "category": "pants",
+        "size": "32",
+        "color": "beige",
+        "price": 0,
+        "description": "サイドポケット付きのカジュアルなパンツです。",
+        "images": [
+            "images/item011/main.jpg",
+            "images/item011/sub.jpg"
+        ]
+    },
+    {
+        "id": "item012",
+        "name": "ダークネイビー フーディー",
+        "category": "tops",
+        "size": "L",
+        "color": "navy",
+        "price": 0,
+        "description": "厚手の生地のシンプルなパーカーです。",
+        "images": [
+            "images/item012/main.jpg",
+            "images/item012/sub.jpg"
+        ]
+    },
+    {
+        "id": "item013",
+        "name": "マルチボーダー Tシャツ",
+        "category": "tops",
+        "size": "XL",
+        "color": "multi",
+        "price": 0,
+        "description": "赤と青のボーダー柄が特徴のTシャツです。",
+        "images": [
+            "images/item013/main.jpg",
+            "images/item013/sub.jpg"
+        ]
+    },
+    {
+        "id": "item014",
+        "name": "ホワイト グラフィックロンT",
+        "category": "tops",
+        "size": "L",
+        "color": "white",
+        "price": 0,
+        "description": "中央に大きなプリントがある長袖シャツです。",
+        "images": [
+            "images/item014/main.jpg",
+            "images/item014/sub.jpg"
+        ]
+    },
+    {
+        "id": "item015",
+        "name": "GAP ワンポイントTシャツ",
+        "category": "tops",
+        "size": "L",
+        "color": "white",
+        "price": 0,
+        "description": "左胸に小さなGAPデザインが入った半袖Tシャツです。",
+        "images": [
+            "images/item015/main.jpg",
+            "images/item015/sub.jpg"
+        ]
+    },
+    {
+        "id": "item016",
+        "name": "グレー ジョガーパンツ",
+        "category": "pants",
+        "size": "?",
+        "color": "grey",
+        "price": 0,
+        "description": "軽くて動きやすいパンツです。",
+        "images": [
+            "images/item016/main.jpg",
+            "images/item016/sub.jpg"
+        ]
+    },
+    {
+        "id": "item017",
+        "name": "チャコール ビッグTシャツ",
+        "category": "tops",
+        "size": "XL",
+        "color": "grey",
+        "price": 0,
+        "description": "オーバーサイズでゆったり着れるTシャツです。薄め。",
+        "images": [
+            "images/item017/main.jpg",
+            "images/item017/sub.jpg"
+        ]
+    },
+    {
+        "id": "item018",
+        "name": "ブラック スウェットパンツ",
+        "category": "pants",
+        "size": "XL",
+        "color": "grey",
+        "price": 0,
+        "description": "リラックス感のある黒よりのグレーパンツです。",
+        "images": [
+            "images/item018/main.jpg",
+            "images/item018/sub.jpg"
+        ]
+    },
+    {
+        "id": "item019",
+        "name": "パープル Tシャツ",
+        "category": "tops",
+        "size": "L",
+        "color": "purple",
+        "price": 0,
+        "description": "くすみカラーの紫が綺麗な半袖Tシャツ。",
+        "images": [
+            "images/item019/main.jpg",
+            "images/item019/sub.jpg"
+        ]
+    },
+    {
+        "id": "item020",
+        "name": "オリーブ Tシャツ",
+        "category": "tops",
+        "size": "?",
+        "color": "green",
+        "price": 0,
+        "description": "かなり薄くて涼しいTシャツです。",
+        "images": [
+            "images/item020/main.jpg",
+            "images/item020/sub.jpg"
+        ]
+    },
+    {
+        "id": "item021",
+        "name": "ブルー デニムパンツ",
+        "category": "pants",
+        "size": "?",
+        "color": "blue",
+        "price": 0,
+        "description": "色落ち加工が施されたジーンズです。サイズ: W:28 L:32",
+        "images": [
+            "images/item021/main.jpg",
+            "images/item021/sub.jpg"
+        ]
+    },
+    {
+        "id": "item022",
+        "name": "ダークグレー スウェットパンツ",
+        "category": "pants",
+        "size": "XL",
+        "color": "grey",
+        "price": 0,
+        "description": "部屋着にも外出にも使える便利な一本。ちょっとゴワゴワしてます。",
+        "images": [
+            "images/item022/main.jpg",
+            "images/item022/sub.jpg"
+        ]
+    },
+    {
+        "id": "item023",
+        "name": "グレー クルーネックスウェット",
+        "category": "tops",
+        "size": "XL",
+        "color": "grey",
+        "price": 0,
+        "description": "無地のシンプルなスウェットシャツです。ちょっとゴワゴワしてます。",
+        "images": [
+            "images/item023/main.jpg",
+            "images/item023/sub.jpg"
+        ]
+    },
+    {
+        "id": "item024",
+        "name": "ダークグレー ハーフパンツ",
+        "category": "pants",
+        "size": "XL",
+        "color": "grey",
+        "price": 0,
+        "description": "夏場に最適な膝丈のショートパンツ。",
+        "images": [
+            "images/item024/main.jpg",
+            "images/item024/sub.jpg"
+        ]
+    },
+    {
+        "id": "item025",
+        "name": "スポーツ ジップアップウェア",
+        "category": "outer",
+        "size": "L",
+        "color": "grey",
+        "price": 0,
+        "description": "蛍光色の差し色が入ったスポーツ用ウェア。",
+        "images": [
+            "images/item025/main.jpg",
+            "images/item025/sub.jpg"
+        ]
+    },
+    {
+        "id": "item026",
+        "name": "ネイビー ジップアップパーカー",
+        "category": "tops",
+        "size": "?",
+        "color": "navy",
+        "price": 0,
+        "description": "羽織りとして便利なフルジップパーカーです。",
+        "images": [
+            "images/item026/main.jpg",
+            "images/item026/sub.jpg"
+        ]
+    },
+    {
+        "id": "item027",
+        "name": "ブラック ショートパンツ",
+        "category": "pants",
+        "size": "XL",
+        "color": "black",
+        "price": 0,
+        "description": "軽量な素材の黒のハーフパンツ。",
+        "images": [
+            "images/item027/main.jpg",
+            "images/item027/sub.jpg"
+        ]
+    },
+    {
+        "id": "item028",
+        "name": "メッシュ ハーフパンツ",
+        "category": "pants",
+        "size": "L",
+        "color": "grey",
+        "price": 0,
+        "description": "通気性の良いトレーニング用パンツです。",
+        "images": [
+            "images/item028/main.jpg",
+            "images/item028/sub.jpg"
+        ]
+    },
+    {
+        "id": "item029",
+        "name": "ブラック ジャケット",
+        "category": "outer",
+        "size": "M",
+        "color": "black",
+        "price": 0,
+        "description": "薄手のポリエステル製のアウターです。",
+        "images": [
+            "images/item029/main.jpg",
+            "images/item029/sub.jpg"
+        ]
+    },
+    {
+        "id": "item030",
+        "name": "ブルー トラックジャケット",
+        "category": "outer",
+        "size": "M",
+        "color": "blue",
+        "price": 0,
+        "description": "鮮やかな青色のスポーツジャケット。",
+        "images": [
+            "images/item030/main.jpg",
+            "images/item030/sub.jpg"
+        ]
+    },
+    {
+        "id": "item031",
+        "name": "ブルー ハーフパンツ",
+        "category": "pants",
+        "size": "XL",
+        "color": "blue",
+        "price": 0,
+        "description": "膝上丈の鮮やかなブルーのパンツ。",
+        "images": [
+            "images/item031/main.jpg",
+            "images/item031/sub.jpg"
+        ]
+    },
+    {
+        "id": "item032",
+        "name": "ブラック ロゴTシャツ",
+        "category": "tops",
+        "size": "XL",
+        "color": "black",
+        "price": 0,
+        "description": "前面にプリントがある黒の半袖Tシャツ。",
+        "images": [
+            "images/item032/main.jpg",
+            "images/item032/sub.jpg"
+        ]
+    },
+    {
+        "id": "item033",
+        "name": "ネイビー ロンT",
+        "category": "tops",
+        "size": "XL",
+        "color": "navy",
+        "price": 0,
+        "description": "シンプルな長袖カットソーです。",
+        "images": [
+            "images/item033/main.jpg",
+            "images/item033/sub.jpg"
+        ]
+    }
+]

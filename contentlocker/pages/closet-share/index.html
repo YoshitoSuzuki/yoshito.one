@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Closet Share</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Closet Share</h1>
+        <button id="cart-btn">キープリスト (<span id="cart-count">0</span>)</button>
+    </header>
+
+    <main>
+        <section id="filters">
+            <select id="filter-category">
+                <option value="all">カテゴリ全て</option>
+                <option value="tops">トップス</option>
+                <option value="pants">パンツ</option>
+                <option value="outer">アウター</option>
+            </select>
+            
+            <select id="filter-size">
+                <option value="all">サイズ全て</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+                <option value="F">F (フリー)</option>
+                <option value="32">32 (インチ)</option>
+                <option value="?">不明</option>
+            </select>
+            
+            <select id="filter-color">
+                <option value="all">カラー全て</option>
+                <option value="white">ホワイト</option>
+                <option value="black">ブラック</option>
+                <option value="grey">グレー</option>
+                <option value="navy">ネイビー</option>
+                <option value="blue">ブルー</option>
+                <option value="green">グリーン/カーキ</option>
+                <option value="beige">ベージュ</option>
+                <option value="purple">パープル</option>
+                <option value="multi">柄物・その他</option>
+            </select>
+        </section>
+
+        <div id="product-grid"></div>
+    </main>
+
+    <div id="product-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-handle-bar">
+                <div class="modal-handle"></div>
+            </div>
+            
+            <span class="close-modal">&times;</span>
+            
+            <div class="modal-scroll-area">
+                <div class="modal-body">
+                    <div class="modal-images">
+                        <img id="modal-main-image" src="" alt="">
+                        <div id="modal-sub-images"></div>
+                    </div>
+                    <div class="modal-info">
+                        <h2 id="modal-title"></h2>
+                        <p class="badges">
+                            <span id="modal-category"></span> / 
+                            <span id="modal-size"></span> / 
+                            <span id="modal-color"></span>
+                        </p>
+                        <p id="modal-desc"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button id="modal-add-cart-btn">このアイテムをキープする</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content cart-content-style">
+            <span class="close-cart">&times;</span>
+            <div style="padding: 10px;">
+                <h2>Your List</h2>
+                <p style="font-size:0.8rem; color:#888;">欲しいものリストに追加されたアイテム</p>
+                <ul id="cart-items"></ul>
+                <div class="cart-actions">
+                    <button id="copy-list-btn">リストをコピーして連絡する</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
