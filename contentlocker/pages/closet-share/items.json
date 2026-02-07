@@ -10,7 +10,8 @@
         "images": [
             "images/item004/main.jpg",
             "images/item004/sub.jpg"
-        ]
+        ],
+        "isSoldOut": false
     },
     {
         "id": "item005",
@@ -75,7 +76,8 @@
         "images": [
             "images/item009/main.jpg",
             "images/item009/sub.jpg"
-        ]
+        ],
+        "isSoldOut": true
     },
     {
         "id": "item010",
@@ -114,7 +116,8 @@
         "images": [
             "images/item012/main.jpg",
             "images/item012/sub.jpg"
-        ]
+        ],
+        "isSoldOut": true
     },
     {
         "id": "item013",
@@ -153,7 +156,8 @@
         "images": [
             "images/item015/main.jpg",
             "images/item015/sub.jpg"
-        ]
+        ],
+        "isSoldOut": true
     },
     {
         "id": "item016",

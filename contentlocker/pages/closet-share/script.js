@@ -51,13 +51,16 @@ function renderProducts(products) {
     });
 }
 
-// フィルタリング機能（一覧の再描画にも使用）
+// フィルタリング機能（在庫切れを除外）
 function filterProducts() {
     const categoryVal = filters.category.value;
     const sizeVal = filters.size.value;
     const colorVal = filters.color.value;
 
     const filtered = allProducts.filter(item => {
+        // 在庫切れフラグがあるものは表示しない
+        if (item.isSoldOut) return false;
+
         return (categoryVal === 'all' || item.category === categoryVal) &&
                (sizeVal === 'all' || item.size === sizeVal) &&
                (colorVal === 'all' || item.color === colorVal);

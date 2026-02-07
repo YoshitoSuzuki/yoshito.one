@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在庫管理・注文確認</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+
+    <header class="admin-header">
+        <h1>管理ページ</h1>
+        <div class="header-actions">
+            <a href="index.html" target="_blank" class="nav-link">← お店に戻る</a>
+            <button id="save-json-btn" class="save-btn">変更を保存 (JSONダウンロード)</button>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="order-check">📋 リスト確認 (注文処理)</button>
+            <button class="tab-btn" data-tab="stock-manage">📦 在庫・商品管理</button>
+            <button class="tab-btn" data-tab="add-item">➕ 商品追加</button>
+        </div>
+
+        <section id="order-check" class="tab-content active">
+            <div class="input-area">
+                <p>送られてきた「欲しいものリスト」をここに貼り付けてください。</p>
+                <textarea id="paste-area" placeholder="例: ・[ID:item004] 白のプルオーバーパーカー (M)..."></textarea>
+                <button id="check-list-btn">商品を表示する</button>
+            </div>
+            
+            <div id="check-result" class="result-grid"></div>
+            
+            <div id="bulk-action-area" class="hidden">
+                <button id="bulk-soldout-btn">表示された商品を「在庫切れ」にする</button>
+            </div>
+        </section>
+
+        <section id="stock-manage" class="tab-content">
+            <div class="stock-list-header">
+                <input type="text" id="admin-search" placeholder="名前やIDで検索...">
+                <p class="help-text">チェックを入れると「在庫切れ（非表示）」になります。</p>
+            </div>
+            <ul id="stock-list"></ul>
+        </section>
+
+        <section id="add-item" class="tab-content">
+            <div class="form-container">
+                <h2>新規商品の追加</h2>
+                <p class="warning-text">※画像ファイルは手動で <code>images/</code> フォルダに入れる必要があります。</p>
+                
+                <div class="form-group">
+                    <label>商品名</label>
+                    <input type="text" id="new-name" placeholder="例: 黒のTシャツ">
+                </div>
+                <div class="form-group row">
+                    <div>
+                        <label>カテゴリ</label>
+                        <select id="new-category">
+                            <option value="tops">トップス</option>
+                            <option value="pants">パンツ</option>
+                            <option value="outer">アウター</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>サイズ</label>
+                        <select id="new-size">
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="F">F</option>
+                            <option value="?">?</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>色</label>
+                        <select id="new-color">
+                            <option value="black">ブラック</option>
+                            <option value="white">ホワイト</option>
+                            <option value="grey">グレー</option>
+                            <option value="navy">ネイビー</option>
+                            <option value="blue">ブルー</option>
+                            <option value="green">グリーン</option>
+                            <option value="beige">ベージュ</option>
+                            <option value="purple">パープル</option>
+                            <option value="multi">その他</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>説明文</label>
+                    <textarea id="new-desc" placeholder="商品の詳細..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>画像ファイル名 (imagesフォルダ内のパス)</label>
+                    <input type="text" id="new-img-main" placeholder="例: images/new01/main.jpg">
+                    <input type="text" id="new-img-sub" placeholder="例: images/new01/sub.jpg (任意)">
+                </div>
+
+                <button id="add-item-btn">リストに追加する</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>
