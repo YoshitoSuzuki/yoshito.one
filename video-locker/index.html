@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoLocker サポート</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo-area">
+                <div class="app-icon-placeholder">▶︎</div>
+                <h1>VideoLocker</h1>
+            </div>
+            <nav>
+                <a href="#faq">よくある質問</a>
+                <a href="#contact" class="btn-primary">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>ユーザーサポート</h2>
+                <p>VideoLockerのご利用ありがとうございます。<br>操作方法やトラブルに関する情報はこちらをご覧ください。</p>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h3>よくある質問 (FAQ)</h3>
+
+                <div class="accordion">
+                    <details>
+                        <summary>グループやカテゴリの名前を変更するには？</summary>
+                        <div class="answer">
+                            <p>グループ管理画面またはカテゴリ管理画面で、対象の項目を<strong>長押し</strong>（または左にスワイプ）してください。「名前を変更」メニューが表示されます。</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>動画を他の端末に移したい（エクスポート）</summary>
+                        <div class="answer">
+                            <p>左上のメニューから「グループをエクスポート」を選択し、対象のグループを選んでください。処理完了後、AirDropやファイルアプリ経由で共有できます。<br>※動画数が多い場合、処理に時間がかかることがあります。</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>インポートがうまくできません</summary>
+                        <div class="answer">
+                            <p>AirDropなどで受け取ったデータはZip形式になっている場合があります。「ファイル」アプリでZipをタップして<strong>解凍（フォルダ化）</strong>してから、アプリ内のインポート機能でそのフォルダを選択してください。</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>データはどこに保存されていますか？</summary>
+                        <div class="answer">
+                            <p>すべてのデータはお客様の端末内（ローカルストレージ）にのみ保存されています。外部サーバーへの送信は行っていませんので、プライバシーは完全に守られます。</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>サムネイルを変更したい</summary>
+                        <div class="answer">
+                            <p>動画の詳細画面にある「サムネイルを変更」ボタンをタップしてください。動画を見ながら好きなシーンを選んで設定できます。</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h3>お問い合わせ</h3>
+                <p>上記で解決しない場合は、下記よりお問い合わせください。</p>
+                
+                <div class="email-box">
+                    <span id="email-address">video-locker@yoshito.one</span>
+                    <button id="copy-btn" onclick="copyEmail()">コピー</button>
+                </div>
+                
+                <a href="mailto:video-locker@yoshito.one" class="btn-large">メールを送信する</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 VideoLocker. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">プライバシーポリシー</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
