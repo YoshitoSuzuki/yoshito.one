@@ -1,36 +1,33 @@
 /* --- 共通変数 --- */
 :root {
-    --primary-color: #007AFF; /* iOS Blue */
-    --accent-color: #FF9500;  /* iOS Orange */
+    --primary-color: #007AFF;
+    --accent-color: #FF9500;
     --bg-color: #f8f9fa;
     --text-color: #333;
     --white: #ffffff;
-    --container-width: 1000px;
 }
 
-/* --- 基本スタイル --- */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
     margin: 0;
-    -webkit-font-smoothing: antialiased;
 }
 
 .container {
-    max-width: var(--container-width);
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .text-center { text-align: center; }
 
-/* --- ヘッダー・ナビゲーション --- */
+/* ヘッダー */
 header {
     background: var(--white);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -42,217 +39,99 @@ nav {
     align-items: center;
 }
 
-.logo {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    text-decoration: none;
-}
+.logo { font-size: 1.4rem; font-weight: bold; color: var(--primary-color); text-decoration: none; }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
+nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
 nav ul li { margin-left: 15px; }
+nav ul li a { text-decoration: none; color: var(--text-color); font-weight: 500; }
 
-nav ul li a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-/* --- ヒーローセクション --- */
-.hero {
-    display: flex;
-    align-items: center;
-    padding: 60px 20px;
-    gap: 40px;
-}
-
+/* ヒーロー */
+.hero { display: flex; align-items: center; padding: 60px 0; gap: 40px; }
 .hero-content { flex: 1; }
-
-.hero-content h1 {
-    font-size: 2.8rem;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
+.hero-content h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; }
 .hero-image { flex: 1; text-align: center; }
+.phone-mockup img { max-width: 300px; width: 100%; border-radius: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 
-.phone-mockup img {
-    max-width: 280px;
-    width: 100%;
-    border-radius: 35px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-/* --- ボタン --- */
-.cta-buttons {
-    display: flex;
-    gap: 12px;
-    margin-top: 30px;
-}
-
+/* ボタン */
 .btn {
     display: inline-block;
-    padding: 14px 24px;
+    padding: 12px 24px;
     border-radius: 12px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
+    transition: 0.2s;
     text-align: center;
-    transition: transform 0.2s, opacity 0.2s;
-    font-size: 1rem;
 }
-
-.btn:active { transform: scale(0.96); }
-
 .btn-primary { background: var(--primary-color); color: var(--white); }
-.btn-secondary { background: var(--accent-color); color: var(--white); }
+.btn-secondary { background: var(--accent-color); color: var(--white); width: 100%; box-sizing: border-box; }
 
-/* --- 機能紹介 --- */
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 40px 0;
-}
+/* 機能紹介 */
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 40px 0; }
+.feature-card { background: var(--white); padding: 30px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
 
-.feature-card {
-    background: var(--white);
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
+/* --- 体験セクション（ここが重要） --- */
+.trial-section { background: var(--white); padding: 80px 0; border-top: 1px solid #eee; }
+.trial-desc { color: #666; margin-bottom: 50px; }
 
-/* --- コンテンツページ (Support/Privacy) --- */
-.page-content { padding: 40px 20px; max-width: 800px; }
-.faq-item { background: var(--white); margin-bottom: 15px; padding: 20px; border-radius: 12px; }
-.email-box { margin-top: 30px; padding: 25px; background: var(--white); border-radius: 12px; text-align: center; }
-.contact-email { font-size: 1.2rem; color: var(--primary-color); text-decoration: none; font-weight: bold; word-break: break-all; }
-
-footer { padding: 40px 0; color: #888; font-size: 0.85rem; }
-
-/* --- ■ モバイル対応 (レスポンシブ設定) --- */
-
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column; /* 縦並びに変更 */
-        text-align: center;
-        padding: 40px 20px;
-    }
-
-    .hero-content h1 { font-size: 2rem; }
-    
-    .cta-buttons {
-        flex-direction: column; /* ボタンも縦並びに */
-        align-items: stretch;
-    }
-
-    .btn-secondary { margin-left: 0; } /* 横マージン解除 */
-
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    nav ul li { margin: 0 10px; }
-}
-
-@media (max-width: 480px) {
-    header { padding: 10px 0; }
-    .logo { font-size: 1.2rem; }
-    nav ul li a { font-size: 0.85rem; }
-}
-
-/* --- 試用セクション (Trial Section) --- */
-.trial-section {
-    background-color: var(--white);
-    padding: 80px 0;
-    margin-top: 40px;
-    border-top: 1px solid #eee;
-}
-
-.trial-section h2 { margin-bottom: 10px; }
-.trial-section p { color: #666; margin-bottom: 40px; }
-
-/* ステップ全体のコンテナ */
 .trial-steps {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* 上端で揃える */
-    gap: 15px;
+    align-items: flex-start;
+    gap: 10px;
 }
 
-/* 各ステップ（番号＋テキスト/ボタン） */
 .step-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* 番号と下の要素の間隔 */
-    width: 160px; /* 幅を固定して安定させる */
+    width: 180px;
+    gap: 15px;
 }
 
-/* ステップ番号の丸 */
 .step-num {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    height: 45px;
+    width: 44px;
+    height: 44px;
     background: var(--primary-color);
     color: white;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
     font-size: 1.2rem;
-    flex-shrink: 0; /* 潰れないようにする */
 }
 
-/* ステップ内のテキスト */
-.step-item p {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    color: var(--text-color);
-}
+.step-text { margin: 0; font-weight: 500; font-size: 0.95rem; }
+.step-action { width: 100%; }
 
-/* ステップ内のボタン調整 */
-.trial-btn {
-    width: 100%; /* 親の幅いっぱいに */
-    padding: 12px;
-    font-size: 0.9rem;
-    box-sizing: border-box;
-}
-
-/* 矢印 */
 .step-separator {
-    font-size: 2rem;
+    padding-top: 10px;
+    font-size: 1.5rem;
     color: #ccc;
     font-weight: bold;
-    margin-top: 5px; /* 番号の高さと視覚的に合わせる微調整 */
-    flex-shrink: 0;
 }
+
+/* フッター */
+footer { padding: 40px 0; color: #888; border-top: 1px solid #eee; }
 
 /* --- モバイル対応 --- */
 @media (max-width: 768px) {
-    .trial-section { padding: 50px 20px; }
-
+    .hero { flex-direction: column; text-align: center; padding: 40px 20px; }
+    .hero-content h1 { font-size: 2.2rem; }
+    
     .trial-steps {
-        flex-direction: column; /* 縦並びにする */
+        flex-direction: column;
         align-items: center;
-        gap: 20px;
-    }
-
-    .step-separator {
-        transform: rotate(90deg); /* 矢印を下に向ける */
-        margin: 0;
+        gap: 30px;
     }
     
-    .step-item {
-        width: auto; /* 幅制限を解除 */
-        max-width: 240px; /* 広がりすぎないように */
+    .step-item { width: 100%; max-width: 260px; }
+    
+    .step-separator {
+        transform: rotate(90deg);
+        margin: -10px 0;
     }
+
+    nav { flex-direction: column; gap: 15px; }
+    nav ul li { margin: 0 10px; }
 }
