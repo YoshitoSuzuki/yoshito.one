@@ -12,7 +12,7 @@
         "category": "Travel",
         "description": "旅のしおりを、スマートに。<br>予定を組むだけで、移動時間や予算を自動計算。あなたの旅を、線でつなげるアプリです。",
         "icon": "icons/tabinote.jpg",
-        "link": "status.html?app=タビノート",
+        "link": "itms-beta://testflight.apple.com/join/2rgQkHE3",
         "promo_link": "../app/tabi-note"
     }
 ]
