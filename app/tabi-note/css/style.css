@@ -166,3 +166,30 @@ footer {
     text-decoration: underline;
     opacity: 0.8;
 }
+
+/* サンプルダウンロードボタン用のスタイル */
+.cta-buttons {
+    text-align: center;
+    padding: 30px;
+}
+.btn-secondary {
+    background: var(--accent-color); /* オレンジ */
+    color: var(--white);
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    opacity: 0.9;
+}
+
+/* モバイル対応：画面が狭い時にボタンを縦に並べる */
+@media (max-width: 600px) {
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .btn-secondary {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,33 @@
+{
+  "title": "京都・大阪 食べ歩きと歴史巡りの旅",
+  "startDate": "2026-03-20T00:00:00Z",
+  "endDate": "2026-03-22T00:00:00Z",
+  "items": [
+    {
+      "title": "活動開始（京都駅）",
+      "detail": "2階の南北自由通路で待ち合わせ",
+      "startTime": "2026-03-20T00:00:00Z",
+      "endTime": "2026-03-20T00:00:00Z",
+      "type": "start",
+      "transportModes": [],
+      "cost": 0
+    },
+    {
+      "title": "JR奈良線",
+      "detail": "稲荷駅まで約5分",
+      "startTime": "2026-03-20T00:15:00Z",
+      "endTime": "2026-03-20T00:20:00Z",
+      "type": "travel",
+      "transportModes": ["電車"],
+      "cost": 150
+    },
+    {
+      "title": "伏見稲荷大社",
+      "detail": "千本鳥居で写真を撮る！",
+      "startTime": "2026-03-20T00:30:00Z",
+      "endTime": "2026-03-20T02:30:00Z",
+      "type": "activity",
+      "cost": 0
+    }
+  ]
+}
