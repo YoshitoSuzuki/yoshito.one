@@ -1,0 +1,18 @@
+[
+    {
+        "name": "VideoLocker",
+        "category": "Photo & Video",
+        "description": "散らばった動画を、スッキリ整理。<br>2段階フォルダで、動画ライブラリをスマートに管理します。",
+        "icon": "icons/videolocker.png",
+        "link": "items-beta://testflight.apple.com/join/czSVwyA3",
+        "promo_link": "../app/video-locker"
+    },
+    {
+        "name": "タビノート",
+        "category": "Travel",
+        "description": "旅のしおりを、スマートに。<br>予定を組むだけで、移動時間や予算を自動計算。あなたの旅を、線でつなげるアプリです。",
+        "icon": "icons/tabinote.jpg",
+        "link": "status.html?app=タビノート",
+        "promo_link": "../app/tabi-note"
+    }
+]
