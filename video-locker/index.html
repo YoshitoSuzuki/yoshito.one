@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VideoLocker サポート</title>
-    <link rel="stylesheet" href="style.css">
+    <title>VideoLocker - シンプルな動画整理アプリ</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
         <div class="container">
-            <div class="logo-area">
-                <div class="app-icon-placeholder">▶︎</div>
+            <a href="index.html" class="logo-area">
+                <img src="images/app-icon.png" alt="Icon" class="app-icon-small" onerror="this.style.backgroundColor='#007AFF';this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'">
                 <h1>VideoLocker</h1>
-            </div>
+            </a>
             <nav>
-                <a href="#faq">よくある質問</a>
-                <a href="#contact" class="btn-primary">お問い合わせ</a>
+                <a href="support.html">サポート</a>
+                <a href="privacy.html">プライバシーポリシー</a>
             </nav>
         </div>
     </header>
@@ -27,78 +26,61 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h2>ユーザーサポート</h2>
-                <p>VideoLockerのご利用ありがとうございます。<br>操作方法やトラブルに関する情報はこちらをご覧ください。</p>
+                <img src="images/app-icon.png" alt="VideoLocker Icon" class="hero-icon" onerror="this.style.backgroundColor='#ccc';this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'">
+                <h2>散らばった動画を、<br>スッキリ整理。</h2>
+                <p>「グループ」と「カテゴリ」の2段階フォルダで、<br>あなたの動画ライブラリをスマートに管理します。</p>
+                
+                <a href="#" class="app-store-btn">Download on the App Store</a>
             </div>
         </section>
 
-        <section id="faq" class="faq-section">
+        <section class="screenshots">
             <div class="container">
-                <h3>よくある質問 (FAQ)</h3>
-
-                <div class="accordion">
-                    <details>
-                        <summary>グループやカテゴリの名前を変更するには？</summary>
-                        <div class="answer">
-                            <p>グループ管理画面またはカテゴリ管理画面で、対象の項目を<strong>長押し</strong>（または左にスワイプ）してください。「名前を変更」メニューが表示されます。</p>
-                        </div>
-                    </details>
-
-                    <details>
-                        <summary>動画を他の端末に移したい（エクスポート）</summary>
-                        <div class="answer">
-                            <p>左上のメニューから「グループをエクスポート」を選択し、対象のグループを選んでください。処理完了後、AirDropやファイルアプリ経由で共有できます。<br>※動画数が多い場合、処理に時間がかかることがあります。</p>
-                        </div>
-                    </details>
-
-                    <details>
-                        <summary>インポートがうまくできません</summary>
-                        <div class="answer">
-                            <p>AirDropなどで受け取ったデータはZip形式になっている場合があります。「ファイル」アプリでZipをタップして<strong>解凍（フォルダ化）</strong>してから、アプリ内のインポート機能でそのフォルダを選択してください。</p>
-                        </div>
-                    </details>
-
-                    <details>
-                        <summary>データはどこに保存されていますか？</summary>
-                        <div class="answer">
-                            <p>すべてのデータはお客様の端末内（ローカルストレージ）にのみ保存されています。外部サーバーへの送信は行っていませんので、プライバシーは完全に守られます。</p>
-                        </div>
-                    </details>
-
-                    <details>
-                        <summary>サムネイルを変更したい</summary>
-                        <div class="answer">
-                            <p>動画の詳細画面にある「サムネイルを変更」ボタンをタップしてください。動画を見ながら好きなシーンを選んで設定できます。</p>
-                        </div>
-                    </details>
+                <div class="scroll-container">
+                    <img src="images/screenshot1.png" class="screenshot-placeholder"></img>
+                    <img src="images/screenshot2.png" class="screenshot-placeholder"></img>
+                    <img src="images/screenshot3.png" class="screenshot-placeholder"></img>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact-section">
+        <section class="features">
             <div class="container">
-                <h3>お問い合わせ</h3>
-                <p>上記で解決しない場合は、下記よりお問い合わせください。</p>
-                
-                <div class="email-box">
-                    <span id="email-address">video-locker@yoshito.one</span>
-                    <button id="copy-btn" onclick="copyEmail()">コピー</button>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">📂</div>
+                        <h3>2段階整理</h3>
+                        <p>「仕事 > 現場」のように、グループとカテゴリを使って動画を体系的に整理できます。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✅</div>
+                        <h3>チェック機能</h3>
+                        <p>確認した動画にはチェックマークを。対応漏れや見忘れを一目で防げます。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🖼️</div>
+                        <h3>スマートサムネイル</h3>
+                        <p>動画の1秒目を自動でサムネイル化。もちろん、好きなシーンを手動で設定することも可能です。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>安心のローカル保存</h3>
+                        <p>データは全て端末内に保存。外部サーバーには送信しないため、プライバシーは万全です。</p>
+                    </div>
                 </div>
-                
-                <a href="mailto:video-locker@yoshito.one" class="btn-large">メールを送信する</a>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 VideoLocker. All rights reserved.</p>
+            <p>&copy; 2026 Yoshito Suzuki. All rights reserved.</p>
             <div class="footer-links">
+                <a href="support.html">サポート</a>
                 <a href="privacy.html">プライバシーポリシー</a>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
