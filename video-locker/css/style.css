@@ -1,0 +1,267 @@
+:root {
+    --primary-color: #007AFF;
+    --background-color: #FBFBFD; /* Apple系サイトの少し明るいグレー */
+    --text-color: #1D1D1F;
+    --secondary-text: #86868B;
+    --card-bg: #FFFFFF;
+    --border-radius: 18px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 980px; /* 少し広めに */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header --- */
+header {
+    background-color: rgba(251, 251, 253, 0.8);
+    backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 15px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.app-icon-small {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 600;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 13px;
+    margin-left: 20px;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Hero Section (プロモーション用) --- */
+.hero {
+    text-align: center;
+    padding: 100px 0 60px;
+}
+
+.hero-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 26px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    margin-bottom: 30px;
+}
+
+.hero h2 {
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -0.02em;
+}
+
+.hero p {
+    font-size: 21px;
+    color: var(--secondary-text);
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+/* App Store Badge Style */
+.app-store-btn {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.app-store-btn:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+/* --- Features Section --- */
+.features {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 15px;
+    background-color: #F5F5F7;
+    border-radius: 50%;
+    color: var(--primary-color);
+}
+
+.feature-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    color: var(--secondary-text);
+    font-size: 15px;
+}
+
+/* --- Screenshots Section --- */
+.screenshots {
+    padding: 80px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.scroll-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+    justify-content: center; /* 少ない時は中央寄せ */
+}
+
+.screenshot-placeholder {
+    width: 260px;
+    height: 560px; /* iPhone比率 */
+    background-color: #E5E5E5;
+    border-radius: 30px;
+    border: 8px solid #333;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* --- Support & Privacy Content Styles --- */
+.content-section {
+    padding: 60px 0;
+}
+
+.accordion details {
+    background-color: var(--card-bg);
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.accordion summary {
+    padding: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 40px;
+}
+
+.accordion summary::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    color: var(--primary-color);
+}
+
+.accordion details[open] summary::after {
+    content: '-';
+}
+
+.answer {
+    padding: 0 20px 20px;
+    color: #444;
+    font-size: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.email-box {
+    background-color: #fff;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #fff;
+    padding: 40px 0;
+    border-top: 1px solid #E5E5E5;
+    font-size: 12px;
+    color: var(--secondary-text);
+    text-align: center;
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    color: var(--secondary-text);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .hero h2 { font-size: 34px; }
+    .hero p { font-size: 17px; }
+    .scroll-container { justify-content: flex-start; }
+}
