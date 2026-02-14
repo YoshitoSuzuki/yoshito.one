@@ -14,5 +14,14 @@
         "icon": "icons/tabinote.jpg",
         "link": "itms-beta://testflight.apple.com/join/2rgQkHE3",
         "promo_link": "../app/tabi-note"
+    },
+    {
+        "name": "UniKoma",
+        "category": "Education",
+        "description": "",
+        "icon": "icons/unikoma.png",
+        "link": "status.html?app=UniKoma",
+        "//": "itms-beta://testflight.apple.com/join/8AV17V81",
+        "promo_link": "../app/unikoma"
     }
 ]
