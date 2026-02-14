@@ -4,7 +4,7 @@
         "category": "Photo & Video",
         "description": "散らばった動画を、スッキリ整理。<br>2段階フォルダで、動画ライブラリをスマートに管理します。",
         "icon": "icons/videolocker.png",
-        "link": "items-beta://testflight.apple.com/join/czSVwyA3",
+        "link": "itms-beta://testflight.apple.com/join/czSVwyA3",
         "promo_link": "../app/video-locker"
     },
     {
