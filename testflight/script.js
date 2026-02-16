@@ -22,6 +22,7 @@ async function loadApps() {
                     </div>
                 </div>
                 <p class="app-description">${app.description}</p>
+                <a href="${app.video}" class="btn-video"><p>説明動画はこちらから</p></a>
                 <div class="card-actions">
                     <a href="${app.link}" target="_blank" class="btn-get">入手</a>
                     ${promoHtml}
