@@ -18,10 +18,19 @@
     {
         "name": "UniKoma",
         "category": "Education",
-        "description": "",
+        "description": "シンプルで使いやすい時間割アプリ。出欠管理からシラバス確認まで、あなたのキャンパスライフを強力にサポートします。",
         "icon": "icons/unikoma.png",
         "link": "status.html?app=UniKoma",
         "//": "https://testflight.apple.com/join/qrHfND5E",
         "promo_link": "../apps/unikoma"
+    },
+    {
+        "name": "Todu",
+        "category": "Productivity",
+        "description": "シンプルで集中できるタスク管理アプリ",
+        "icon": "icons/todu.png",
+        "link": "status.html?app=Todu",
+        "//": "https://testflight.apple.com/join/F4thH9Fn",
+        "promo_link": "../apps/todu"
     }
 ]
