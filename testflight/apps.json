@@ -20,7 +20,7 @@
         "category": "Education",
         "description": "シンプルで使いやすい時間割アプリ。出欠管理からシラバス確認まで、あなたのキャンパスライフを強力にサポートします。",
         "icon": "icons/unikoma.png",
-        "link": "https://testflight.apple.com/join/qrHfND5E",
+        "link": "itms-beta://testflight.apple.com/join/qrHfND5E",
         "promo_link": "../apps/unikoma"
     },
     {
@@ -29,7 +29,7 @@
         "description": "シンプルで集中できるタスク管理アプリ",
         "icon": "icons/todu.png",
         "link": "status.html?app=Todu",
-        "//": "https://testflight.apple.com/join/F4thH9Fn",
+        "//": "itms-beta://testflight.apple.com/join/F4thH9Fn",
         "promo_link": "../apps/todu"
     }
 ]
