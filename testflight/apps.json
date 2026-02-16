@@ -20,8 +20,7 @@
         "category": "Education",
         "description": "シンプルで使いやすい時間割アプリ。出欠管理からシラバス確認まで、あなたのキャンパスライフを強力にサポートします。",
         "icon": "icons/unikoma.png",
-        "link": "status.html?app=UniKoma",
-        "//": "https://testflight.apple.com/join/qrHfND5E",
+        "link": "https://testflight.apple.com/join/qrHfND5E",
         "promo_link": "../apps/unikoma"
     },
     {
