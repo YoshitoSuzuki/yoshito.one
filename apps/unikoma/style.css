@@ -92,7 +92,12 @@ nav a:hover, nav a.active { color: var(--primary-color); }
 .page-content { padding: 60px 0; min-height: 60vh; }
 .page-content h2 { font-size: 2rem; margin-bottom: 20px; border-bottom: 2px solid var(--gray-bg); padding-bottom: 10px; }
 
+.intro-text {
+    padding-bottom: 30px;
+}
+
 /* FAQ */
+.faq h3 { padding-bottom: 7px; }
 .faq-item { margin-bottom: 15px; border-bottom: 1px solid #eee; }
 .faq-question { background: none; border: none; width: 100%; text-align: left; padding: 15px 0; font-size: 1.1rem; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }

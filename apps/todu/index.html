@@ -1,45 +1,108 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Todu</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todu - シンプルなTo-Do管理アプリ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Todu</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="support.html">サポート</a></li>
+                    <li><a href="privacy.html">プライバシー</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
-<header>
-    <div class="lang-switch">
-        <button onclick="setLang('ja')">日本語</button>
-        <button onclick="setLang('en')">English</button>
+    <div class="mobile-nav">
+        <a href="index.html">ホーム</a>
+        <a href="support.html">サポート</a>
+        <a href="privacy.html">プライバシー</a>
     </div>
 
-    <h1>Todu</h1>
-    <p data-ja="シンプルで集中できるタスク管理アプリ"
-       data-en="A simple, focused task manager."></p>
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h2>忘れることを、<br>恐れない。</h2>
+                    <p>Toduは、あなたの記憶を拡張するiOS専用メモアプリです。<br>直感的なリスト、タイムライン表示、そして安心のアーカイブ機能。</p>
+                    <a href="../../testflight/status.html?app=Todu" class="app-store-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Storeからダウンロード">
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <div class="app-icon-placeholder">
+                        <img src="../../testflight/icons/todu.png" alt="Todu App Icon">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <a href="../../testflight/status.html?app=Todu" class="button"
-       data-ja="App Storeでダウンロード"
-       data-en="Download on the App Store"></a>
-</header>
+        <section class="features">
+            <div class="container">
+                <h3>主な機能</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                        </div>
+                        <h4>すばやくタスク追加</h4>
+                        <p>アプリを開いてすぐに入力。思いついたその瞬間に、直感的な操作でタスクを追加できます。</p>
+                    </div>
 
-<section>
-    <h2 data-ja="特徴" data-en="Features"></h2>
-    <ul>
-        <li data-ja="すばやくタスク追加" data-en="Quick task input"></li>
-        <li data-ja="タイムライン表示" data-en="Timeline view"></li>
-        <li data-ja="スワイプで削除・復元" data-en="Swipe to delete or restore"></li>
-        <li data-ja="通知は任意で使用" data-en="Optional notifications"></li>
-        <li data-ja="ログイン不要" data-en="No login required"></li>
-    </ul>
-</section>
+                    <div class="feature-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        </div>
+                        <h4>タイムライン表示</h4>
+                        <p>「今日」「明日」といった時間軸でタスクを自動整理。未来の予定も一目瞭然です。</p>
+                    </div>
 
-<footer>
-    <a href="support.html">Support</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <p>© 2026 Yoshito Suzuki</p>
-</footer>
+                    <div class="feature-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                        </div>
+                        <h4>スワイプで削除・復元</h4>
+                        <p>完了も削除もスワイプ一つで。間違えて消しても、アーカイブからすぐに復元できるので安心です。</p>
+                    </div>
 
-<script src="script.js"></script>
+                    <div class="feature-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                        </div>
+                        <h4>通知は任意で使用</h4>
+                        <p>通知のオン・オフはタスクごとに設定可能。本当に必要な時だけ、あなたにお知らせします。</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h4>ログイン不要</h4>
+                        <p>面倒なアカウント登録は一切なし。データはあなたの端末内だけに保存されるので、プライバシーも万全です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Yoshito Suzuki. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
