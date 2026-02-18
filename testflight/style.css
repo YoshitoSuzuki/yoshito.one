@@ -160,3 +160,30 @@ header h1 {
 }
 
 footer { text-align: center; margin-top: 60px; color: var(--text-secondary); font-size: 13px; }
+
+
+/* 既存のCSSの下に追加してください */
+
+.app-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.guide-section h3 {
+    margin-top: 0;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.no-data {
+    color: var(--text-secondary);
+    font-size: 14px;
+}

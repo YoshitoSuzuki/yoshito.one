@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yoshito's Apps Beta</title>
+    <title>Yoshito's Apps</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="wrapper">
         <header>
             <p class="date-label">2026年</p>
-            <h1>Beta Apps</h1>
+            <h1>Apps</h1>
         </header>
 
         <main>
-            <div id="app-grid" class="app-grid"></div>
+            <section class="app-section">
+                <h2 class="section-title">Released</h2>
+                <div id="released-grid" class="app-grid"></div>
+            </section>
 
-            <section class="guide-section">
-                <h2>ダウンロード方法</h2>
-                <div class="step"><span class="step-num">1</span><p>App Storeで<strong>TestFlight</strong>を検索してインストール</p></div>
-                <div class="step"><span class="step-num">2</span><p>上のアプリから選んで<strong>「入手」</strong>をタップ</p></div>
-                <div class="step"><span class="step-num">3</span><p>TestFlight内でインストールを開始</p></div>
+            <section class="app-section">
+                <h2 class="section-title">Beta (TestFlight)</h2>
+                <div id="beta-grid" class="app-grid"></div>
+
+                <div class="guide-section">
+                    <h3>ベータ版のダウンロード方法</h3>
+                    <div class="step"><span class="step-num">1</span><p>App Storeで<strong>TestFlight</strong>を検索してインストール</p></div>
+                    <div class="step"><span class="step-num">2</span><p>上のアプリから選んで<strong>「入手」</strong>をタップ</p></div>
+                    <div class="step"><span class="step-num">3</span><p>TestFlight内でインストールを開始</p></div>
+                </div>
             </section>
         </main>
 
