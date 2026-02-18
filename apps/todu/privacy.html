@@ -1,41 +1,58 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Todu Privacy Policy</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プライバシーポリシー - Todu</title>
+    <link rel="stylesheet" href="privacy.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <div class="lang-switch">
-        <button onclick="setLang('ja')">日本語</button>
-        <button onclick="setLang('en')">English</button>
-    </div>
-    <h1>Privacy Policy</h1>
-</header>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Todu</a>
+        </div>
+    </header>
 
-<section>
-    <p data-ja="Toduは個人情報を収集・保存・共有しません。"
-       data-en="Todu does not collect, store, or share personal data."></p>
+    <main class="container page-content">
+        <h1>プライバシーポリシー</h1>
+        <p class="update-date">最終更新日: 2026年2月18日</p>
 
-    <p data-ja="すべてのデータは端末内に保存されます。"
-       data-en="All data remains on your device."></p>
+        <section>
+            <h2>1. はじめに</h2>
+            <p>Todu（以下、「本アプリ」）は、ユーザーのプライバシーを尊重し、個人情報の保護に努めています。本プライバシーポリシーでは、本アプリにおける情報の取り扱いについて説明します。</p>
+        </section>
 
-    <p data-ja="通知はユーザーが有効にした場合のみ使用されます。"
-       data-en="Notifications are used only if enabled by the user."></p>
+        <section>
+            <h2>2. 収集する情報</h2>
+            <p><strong>本アプリは、ユーザーの個人情報を収集・送信しません。</strong></p>
+            <p>本アプリで入力されたすべてのデータ（タスク内容、日時、メモなど）は、お客様のデバイス内（ローカルストレージ）にのみ保存されます。開発者がこれらのデータにアクセスしたり、外部サーバーへ送信したりすることはありません。</p>
+        </section>
 
-    <p data-ja="ログイン機能や外部連携はありません。"
-       data-en="No login or external integrations are required."></p>
-</section>
+        <section>
+            <h2>3. データの保存と利用</h2>
+            <p>本アプリは、iOSの標準機能であるSwiftDataおよびUserNotificationsを使用しています。これらのデータはアプリの機能提供（タスクの表示、通知の実行）のためにのみ使用されます。</p>
+        </section>
 
-<footer>
-    <a href="index.html">Home</a>
-    <a href="support.html">Support</a>
-    <p>© 2026 Yoshito Suzuki</p>
-</footer>
+        <section>
+            <h2>4. お問い合わせ</h2>
+            <p>本プライバシーポリシーに関するご質問は、以下の連絡先までお問い合わせください。</p>
+            <p>メールアドレス: <a href="mailto:todu@yoshito.one">todu@yoshito.one</a></p>
+        </section>
+    </main>
 
-<script src="script.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">ホーム</a>
+                <a href="support.html">サポート</a>
+                <a href="privacy.html" class="active">プライバシーポリシー</a>
+            </div>
+            <p class="copyright">&copy; <span id="year"></span> Yoshito Suzuki. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

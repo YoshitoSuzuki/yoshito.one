@@ -29,7 +29,7 @@
     {
         "name": "Todu",
         "category": "Productivity",
-        "description": "シンプルで集中できるタスク管理アプリ",
+        "description": "シンプルで集中できるタスク管理アプリ<br>直感的なリスト、タイムライン表示、そして安心のアーカイブ機能。",
         "icon": "icons/todu.png",
         "video": "https://www.youtube.com/playlist?list=PL38gtux419A9Fc6XhsO-vJ6VdZ9UkrLnl",
         "link": "itms-beta://testflight.apple.com/join/F4thH9Fn",
