@@ -32,8 +32,7 @@
         "description": "シンプルで集中できるタスク管理アプリ",
         "icon": "icons/todu.png",
         "video": "https://www.youtube.com/playlist?list=PL38gtux419A9Fc6XhsO-vJ6VdZ9UkrLnl",
-        "link": "status.html?app=Todu",
-        "//": "itms-beta://testflight.apple.com/join/F4thH9Fn",
+        "link": "itms-beta://testflight.apple.com/join/F4thH9Fn",
         "promo_link": "../apps/todu"
     }
 ]
