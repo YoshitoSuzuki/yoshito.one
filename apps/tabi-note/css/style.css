@@ -65,6 +65,10 @@ nav ul li a { text-decoration: none; color: var(--text-color); font-weight: 500;
 .btn-primary { background: var(--primary-color); color: var(--white); }
 .btn-secondary { background: var(--accent-color); color: var(--white); width: 100%; box-sizing: border-box; }
 
+.cta-buttons {
+    padding-top: 20px;
+}
+
 /* 機能紹介 */
 .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 40px 0; }
 .feature-card { background: var(--white); padding: 30px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }

@@ -8,6 +8,24 @@
             "video": "https://www.youtube.com/playlist?list=PL38gtux419A-g7C1ISZ60AiXEkoPxuw-_",
             "link": "https://apps.apple.com/jp/app/unikoma/id6759209504",
             "promo_link": "../apps/unikoma"
+        },
+        {
+            "name": "タビノート",
+            "category": "Travel",
+            "description": "旅のしおりを、スマートに。<br>予定を組むだけで、移動時間や予算を自動計算。あなたの旅を、線でつなげるアプリです。",
+            "icon": "icons/tabinote.jpg",
+            "video": "https://www.youtube.com/playlist?list=PL38gtux419A8ITJdXG7PfjwZvnnR0F2rm",
+            "link": "https://apps.apple.com/jp/app/%E3%82%BF%E3%83%93%E3%83%8E%E3%83%BC%E3%83%88/id6759187160",
+            "promo_link": "../apps/tabi-note"
+        },
+        {
+            "name": "Todu",
+            "category": "Productivity",
+            "description": "シンプルで集中できるタスク管理アプリ",
+            "icon": "icons/todu.png",
+            "video": "https://www.youtube.com/playlist?list=PL38gtux419A9Fc6XhsO-vJ6VdZ9UkrLnl",
+            "link": "https://apps.apple.com/jp/app/todu/id6759247955",
+            "promo_link": "../apps/todu"
         }
     ],
     "beta": [
