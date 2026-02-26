@@ -26,6 +26,15 @@
             "video": "https://www.youtube.com/playlist?list=PL38gtux419A9Fc6XhsO-vJ6VdZ9UkrLnl",
             "link": "https://apps.apple.com/jp/app/todu/id6759247955",
             "promo_link": "../apps/todu"
+        },
+        {
+            "name": "VideoLocker",
+            "category": "Photo & Video",
+            "description": "散らばった動画を、スッキリ整理。<br>2段階フォルダで、動画ライブラリをスマートに管理します。",
+            "icon": "icons/videolocker.png",
+            "video": "https://www.youtube.com/playlist?list=PL38gtux419A_MTV5vBwtfhJVZcKiaWban",
+            "link": "https://apps.apple.com/jp/app/video-locker/id6759075971",
+            "promo_link": "../apps/video-locker"
         }
     ],
     "beta": [
