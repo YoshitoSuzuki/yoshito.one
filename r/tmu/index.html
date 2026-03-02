@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-    // リダイレクト先のURLを変数にまとめる
-    const redirectUrl = "../../tmu"; // ← ここだけ書き換えればOK
+    const redirectUrl = "../../tmu";
 
     window.onload = function() {
       window.location.href = redirectUrl;
@@ -16,7 +15,6 @@
   <p>リダイレクト中です。もし自動的に移動しない場合は <a id="manualLink" href="#">こちら</a> をクリックしてください。</p>
 
   <script>
-    // 手動リンクのhrefにも同じURLを設定
     document.getElementById("manualLink").href = redirectUrl;
   </script>
 </body>

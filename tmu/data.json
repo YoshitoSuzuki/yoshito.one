@@ -178,11 +178,6 @@
             "name_en": "Archived",
             "links": [
                 {
-                    "label_ja": "test",
-                    "lavel_en": "test",
-                    "url": "test"
-                },
-                {
                     "label_ja": "MindMeister",
                     "label_en": "MindMeister",
                     "url": "https://www.mindmeister.com/"
