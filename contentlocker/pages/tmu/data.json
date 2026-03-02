@@ -55,6 +55,11 @@
           "url": "https://jmjtmu-my.sharepoint.com/my"
         },
         {
+          "label_ja": "Teams",
+          "label_en": "Teams",
+          "url": "https://teams.cloud.microsoft"
+        },
+        {
           "label_ja": "box",
           "label_en": "box",
           "url": "https://tmpuc.ent.box.com/folder/0"
