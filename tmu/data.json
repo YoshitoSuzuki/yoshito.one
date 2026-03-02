@@ -1,0 +1,203 @@
+{
+    "categories": [
+        {
+            "name_ja": "tmu",
+            "name_en": "tmu",
+            "links": [
+                {
+                    "label_ja": "kibaco",
+                    "label_en": "kibaco",
+                    "url": "https://kibaco-d.tmu.ac.jp/portal/home"
+                },
+                {
+                    "label_ja": "kibaco お知らせ",
+                    "label_en": "kibaco information",
+                    "url": "https://kibaco-d.tmu.ac.jp/portal/home/information/list"
+                },
+                {
+                    "label_ja": "kibaco 時間割",
+                    "label_en": "kibaco timetable",
+                    "url": "https://kibaco-d.tmu.ac.jp/lms/timetable"
+                },
+                {
+                    "label_ja": "kibaco マイページ",
+                    "label_en": "kibaco my-page",
+                    "url": "https://kibaco.tmu.ac.jp/portal/site/%7E25140127"
+                },
+                {
+                    "label_ja": "kibaco 授業一覧",
+                    "label_en": "kibaco class list",
+                    "url": "https://kibaco.tmu.ac.jp/portal/site/%7E25140127/tool-reset/a8950f8f-e1f0-46d4-a33e-61a2a50be777"
+                },
+                {
+                    "label_ja": "campussquare",
+                    "label_en": "campussquare",
+                    "url": "https://jjh.tmu.ac.jp/campusweb/ssologin.do"
+                },
+                {
+                    "label_ja": "campussquare スマホ版",
+                    "label_en": "campussquare smartphone version",
+                    "url": "https://jjh.tmu.ac.jp/campusweb/campussmart.do?page=main&tabId=home&locale=ja_JP"
+                },
+                {
+                    "label_ja": "ALC Academy Next",
+                    "label_en": "ALC Academy Next",
+                    "url": "https://nanext.alcnanext.jp/anetn/Student/stlogin/index/tmu-jissen-eigo/"
+                },
+                {
+                    "label_ja": "メール",
+                    "label_en": "outlook",
+                    "url": "https://outlook.office.com/mail/"
+                },
+                {
+                    "label_ja": "One drive",
+                    "label_en": "One drive",
+                    "url": "https://jmjtmu-my.sharepoint.com/my"
+                },
+                {
+                    "label_ja": "Teams",
+                    "label_en": "Teams",
+                    "url": "https://teams.cloud.microsoft"
+                },
+                {
+                    "label_ja": "box",
+                    "label_en": "box",
+                    "url": "https://tmpuc.ent.box.com/folder/0"
+                },
+                {
+                    "label_ja": "SharePoint",
+                    "label_en": "SharePoint",
+                    "url": "https://jmjtmu.sharepoint.com/sites/for_tmuner/DocLib2/"
+                }
+            ]
+        },
+        {
+            "name_ja": "大学関連",
+            "name_en": "university",
+            "links": [
+                {
+                    "label_ja": "大学公式サイト",
+                    "label_en": "university official site",
+                    "url": "https://www.tmu.ac.jp/"
+                },
+                {
+                    "label_ja": "教務課",
+                    "label_en": "Academic Affairs",
+                    "url": "https://kyomu.jim.tmu.ac.jp"
+                },
+                {
+                    "label_ja": "学生課",
+                    "label_en": "Student Affairs",
+                    "url": "https://gs.tmu.ac.jp"
+                },
+                {
+                    "label_ja": "キャリア支援課",
+                    "label_en": "Career Support Affairs",
+                    "url": "https://career.tmu.ac.jp"
+                },
+                {
+                    "label_ja": "図書館",
+                    "label_en": "Library",
+                    "url": "https://www.lib.tmu.ac.jp"
+                },
+                {
+                    "label_ja": "国際センター・国際課",
+                    "label_en": "International Center",
+                    "url": "https://www.ic.tmu.ac.jp/index.html"
+                },
+                {
+                    "label_ja": "TMUNER",
+                    "label_en": "TMUNER",
+                    "url": "https://tmuner.cpark.tmu.ac.jp/ja/index.html"
+                },
+                {
+                    "label_ja": "情報処理施設 開放スケジュール",
+                    "label_en": "Information Processing Facility Opening Schedule",
+                    "url": "https://tmuner.cpark.tmu.ac.jp/ja/study/pc/timetable.html"
+                },
+                {
+                    "label_ja": "南大沢キャンパスマップ",
+                    "label_en": "Minami-Osawa Campus Map",
+                    "url": "minamiosawa.pdf"
+                },
+                {
+                    "label_ja": "日野キャンパスマップ",
+                    "label_en": "Hino Campus Map",
+                    "url": "hino.pdf"
+                },
+                {
+                    "label_ja": "東京都立大学 生協HP",
+                    "label_en": "TMU Co-op HP",
+                    "url": "https://www.univcoop.jp/tmu/"
+                },
+                {
+                    "label_ja": "東京都立大学 生協2025",
+                    "label_en": "TMU Co-op 2025",
+                    "url": "https://text.univ.coop/puk/START/tmu/"
+                },
+                {
+                    "label_ja": "ZERO",
+                    "label_en": "ZERO",
+                    "url": "https://fuubo-nofoodloss.com/collections/tokyo-metropolitan-university"
+                }
+            ]
+        },
+        {
+            "name_ja": "ツール",
+            "name_en": "Tools",
+            "links": [
+                {
+                    "label_ja": "Colab",
+                    "label_en": "Colab",
+                    "url": "https://colab.research.google.com/drive/"
+                },
+                {
+                    "label_ja": "notion",
+                    "label_en": "notion",
+                    "url": "https://www.notion.so/"
+                },
+                {
+                    "label_ja": "github",
+                    "label_en": "github",
+                    "url": "https://github.com"
+                },
+                {
+                    "label_ja": "Google ドライブ",
+                    "label_en": "Google Drive",
+                    "url": "https://drive.google.com/"
+                },
+                {
+                    "label_ja": "YouTube",
+                    "label_en": "YouTube",
+                    "url": "https://www.youtube.com/"
+                }
+            ]
+        },
+        {
+            "name_ja": "アーカイブ",
+            "name_en": "Archived",
+            "links": [
+                {
+                    "label_ja": "test",
+                    "lavel_en": "test",
+                    "url": "test"
+                },
+                {
+                    "label_ja": "MindMeister",
+                    "label_en": "MindMeister",
+                    "url": "https://www.mindmeister.com/"
+                },
+                {
+                    "label_ja": "Google カレンダー",
+                    "label_en": "Google Calendar",
+                    "url": "https://calendar.google.com/"
+                },
+                {
+                    "label_ja": "Stanford Encyclopedia of Philosophy",
+                    "label_en": "Stanford Encyclopedia of Philosophy",
+                    "url": "https://plato.stanford.edu"
+                }
+            ]
+        }
+    ]
+}
