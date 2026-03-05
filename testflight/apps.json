@@ -1,42 +1,4 @@
 {
-    "released": [
-        {
-            "name": "UniKoma",
-            "category": "Education",
-            "description": "シンプルで使いやすい時間割アプリ。出欠管理からシラバス確認まで、あなたのキャンパスライフを強力にサポートします。",
-            "icon": "icons/unikoma.png",
-            "video": "https://www.youtube.com/playlist?list=PL38gtux419A-g7C1ISZ60AiXEkoPxuw-_",
-            "link": "https://apps.apple.com/jp/app/unikoma/id6759209504",
-            "promo_link": "../apps/unikoma"
-        },
-        {
-            "name": "タビノート",
-            "category": "Travel",
-            "description": "旅のしおりを、スマートに。<br>予定を組むだけで、移動時間や予算を自動計算。あなたの旅を、線でつなげるアプリです。",
-            "icon": "icons/tabinote.jpg",
-            "video": "https://www.youtube.com/playlist?list=PL38gtux419A8ITJdXG7PfjwZvnnR0F2rm",
-            "link": "https://apps.apple.com/jp/app/%E3%82%BF%E3%83%93%E3%83%8E%E3%83%BC%E3%83%88/id6759187160",
-            "promo_link": "../apps/tabi-note"
-        },
-        {
-            "name": "Todu",
-            "category": "Productivity",
-            "description": "シンプルで集中できるタスク管理アプリ",
-            "icon": "icons/todu.png",
-            "video": "https://www.youtube.com/playlist?list=PL38gtux419A9Fc6XhsO-vJ6VdZ9UkrLnl",
-            "link": "https://apps.apple.com/jp/app/todu/id6759247955",
-            "promo_link": "../apps/todu"
-        },
-        {
-            "name": "VideoLocker",
-            "category": "Photo & Video",
-            "description": "散らばった動画を、スッキリ整理。<br>2段階フォルダで、動画ライブラリをスマートに管理します。",
-            "icon": "icons/videolocker.png",
-            "video": "https://www.youtube.com/playlist?list=PL38gtux419A_MTV5vBwtfhJVZcKiaWban",
-            "link": "https://apps.apple.com/jp/app/video-locker/id6759075971",
-            "promo_link": "../apps/video-locker"
-        }
-    ],
     "beta": [
         {
             "name": "VideoLocker",
@@ -45,7 +7,9 @@
             "icon": "icons/videolocker.png",
             "video": "https://www.youtube.com/playlist?list=PL38gtux419A_MTV5vBwtfhJVZcKiaWban",
             "link": "itms-beta://testflight.apple.com/join/czSVwyA3",
-            "promo_link": "../apps/video-locker"
+            "promo_link": "../apps/video-locker",
+            "has_released": true,
+            "released_link": "https://apps.apple.com/jp/app/video-locker/id6759075971"
         },
         {
             "name": "タビノート",
@@ -54,7 +18,9 @@
             "icon": "icons/tabinote.jpg",
             "video": "https://www.youtube.com/playlist?list=PL38gtux419A8ITJdXG7PfjwZvnnR0F2rm",
             "link": "itms-beta://testflight.apple.com/join/2rgQkHE3",
-            "promo_link": "../apps/tabi-note"
+            "promo_link": "../apps/tabi-note",
+            "has_released": true,
+            "released_link": "https://apps.apple.com/jp/app/%E3%82%BF%E3%83%93%E3%83%8E%E3%83%BC%E3%83%88/id6759187160"
         },
         {
             "name": "UniKoma",
@@ -63,7 +29,9 @@
             "icon": "icons/unikoma.png",
             "video": "https://www.youtube.com/playlist?list=PL38gtux419A-g7C1ISZ60AiXEkoPxuw-_",
             "link": "itms-beta://testflight.apple.com/join/qrHfND5E",
-            "promo_link": "../apps/unikoma"
+            "promo_link": "https://unikoma.com",
+            "has_released": true,
+            "released_link": "https://apps.apple.com/jp/app/unikoma/id6759209504"
         },
         {
             "name": "Todu",
@@ -72,7 +40,9 @@
             "icon": "icons/todu.png",
             "video": "https://www.youtube.com/playlist?list=PL38gtux419A9Fc6XhsO-vJ6VdZ9UkrLnl",
             "link": "itms-beta://testflight.apple.com/join/F4thH9Fn",
-            "promo_link": "../apps/todu"
+            "promo_link": "../apps/todu",
+            "has_released": true,
+            "released_link": "https://apps.apple.com/jp/app/todu/id6759247955"
         }
     ]
 }
