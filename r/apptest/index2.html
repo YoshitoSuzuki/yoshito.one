@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リダイレクトしています...</title>
+
+  <meta http-equiv="refresh" content="0; url=https://unikoma.com">
+  <link rel="canonical" href="https://unikoma.com">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .redirect-container {
+      text-align: center;
+      padding: 30px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    .spinner {
+      margin: 0 auto 20px;
+      width: 30px;
+      height: 30px;
+      border: 3px solid rgba(0, 122, 255, 0.2);
+      border-top-color: #007aff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    
+    p { margin: 0 0 10px 0; font-size: 15px; }
+    .sub-text { font-size: 13px; color: #86868b; }
+    a { color: #007aff; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+  </style>
+
+  <script>
+    // ▼▼▼ 2. ここも転送先のURLに書き換える ▼▼▼
+    const redirectUrl = "https://unikoma.com"; 
+
+    window.onload = function() {
+      window.location.replace(redirectUrl);
+    };
+  </script>
+</head>
+<body>
+  <div class="redirect-container">
+    <div class="spinner"></div>
+    <p>目的のページへ移動しています</p>
+    <p class="sub-text">自動的に移動しない場合は <a id="manualLink" href="https://unikoma.com">こちら</a> をクリック</p>
+  </div>
+
+  <script>
+    document.getElementById("manualLink").href = redirectUrl;
+  </script>
+</body>
+</html>
