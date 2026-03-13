@@ -187,3 +187,42 @@ footer { text-align: center; margin-top: 60px; color: var(--text-secondary); fon
     color: var(--text-secondary);
     font-size: 14px;
 }
+
+/* --- 既存のCSSの末尾に追加 --- */
+
+/* リリース版リンク用スタイル */
+.released-link-container {
+    margin-bottom: 50px;
+    background: var(--secondary-bg);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.released-link-container:hover {
+    background: #e8e8ed;
+}
+
+.released-apps-link {
+    color: var(--apple-blue);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* リリース版ありバッジ */
+.release-badge {
+    display: inline-block;
+    background-color: #34c759; /* Appleのシステムグリーン */
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
