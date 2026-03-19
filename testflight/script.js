@@ -24,6 +24,10 @@ async function loadApps() {
 function createAppCard(app) {
     const card = document.createElement('div');
     card.className = 'app-card';
+
+    const videoLinkHtml = app.video
+        ? `<a href="${app.video}" class="btn-video"><p>説明動画はこちらから</p></a>`
+        : '<br><br>';
     
     // プロモーションリンク
     const promoHtml = app.promo_link 
@@ -50,7 +54,7 @@ function createAppCard(app) {
             </div>
         </div>
         <p class="app-description">${app.description}</p>
-        <a href="${app.video}" class="btn-video"><p>説明動画はこちらから</p></a>
+        ${videoLinkHtml}
         <div class="card-actions">
             <a href="${app.link}" target="_blank" class="btn-get">TestFlight</a>
             ${storeLinkHtml}

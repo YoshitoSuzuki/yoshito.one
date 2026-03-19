@@ -43,6 +43,17 @@
             "promo_link": "../apps/todu",
             "has_released": true,
             "released_link": "https://apps.apple.com/jp/app/todu/id6759247955"
+        },
+        {
+            "name": "Zaikuru",
+            "category": "Productivity",
+            "description": "お家の在庫管理をこれ一つで",
+            "icon": "icons/zaikuru.png",
+            "video": "",
+            "link": "status.html?app=Zaikuru",
+            "promo_link": "status.html?app=Zaikuru",
+            "has_released": false,
+            "released_link": ""
         }
     ]
 }
