@@ -54,6 +54,17 @@
             "promo_link": "status.html?app=Zaikuru",
             "has_released": false,
             "released_link": ""
+        },
+        {
+            "name": "出金伝票作成",
+            "category": "Productivity",
+            "description": "スマホでサクッと出金伝票を作成",
+            "icon": "icons/denpy.png",
+            "video": "",
+            "link": "status.html?app=出金伝票作成",
+            "promo_link": "../apps/denpy",
+            "has_released": false,
+            "released_link": ""
         }
     ]
 }
