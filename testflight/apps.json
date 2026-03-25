@@ -61,10 +61,10 @@
             "description": "スマホでサクッと出金伝票を作成",
             "icon": "icons/denpy.png",
             "video": "",
-            "link": "status.html?app=出金伝票作成",
+            "link": "itms-beta://testflight.apple.com/join/UBSHMw9U",
             "promo_link": "../apps/denpy",
-            "has_released": false,
-            "released_link": ""
+            "has_released": true,
+            "released_link": "https://apps.apple.com/jp/app/出金伝票作成/id6760968982"
         }
     ]
 }

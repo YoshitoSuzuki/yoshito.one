@@ -34,5 +34,14 @@
         "video": "https://www.youtube.com/playlist?list=PL38gtux419A_MTV5vBwtfhJVZcKiaWban",
         "link": "https://apps.apple.com/jp/app/video-locker/id6759075971",
         "promo_link": "video-locker"
+    },
+    {
+        "name": "出金伝票作成",
+        "category": "Productivity",
+        "description": "スマホでサクッと出金伝票を作成",
+        "icon": "icons/denpy.png",
+        "video": "",
+        "link": "https://apps.apple.com/jp/app/出金伝票作成/id6760968982",
+        "promo_link": "../apps/denpy"
     }
 ]

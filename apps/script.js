@@ -8,6 +8,10 @@ async function loadApps() {
         apps.forEach((app) => {
             const card = document.createElement('div');
             card.className = 'app-card';
+
+            const videoHtml = app.video
+                ?`<a href="${app.video}" class="btn-video"><p>説明動画はこちらから</p></a>`
+                : '<br><br>';
             
             const promoHtml = app.promo_link 
                 ? `<a href="${app.promo_link}" target="_blank" class="btn-secondary">詳細</a>` 
@@ -22,7 +26,7 @@ async function loadApps() {
                     </div>
                 </div>
                 <p class="app-description">${app.description}</p>
-                <a href="${app.video}" class="btn-video"><p>説明動画はこちらから</p></a>
+                ${videoHtml}
                 <div class="card-actions">
                     <a href="${app.link}" target="_blank" class="btn-get">入手</a>
                     ${promoHtml}
