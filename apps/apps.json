@@ -42,6 +42,15 @@
         "icon": "icons/denpy.png",
         "video": "",
         "link": "https://apps.apple.com/jp/app/出金伝票作成/id6760968982",
-        "promo_link": "../apps/denpy"
+        "promo_link": "denpy"
+    },
+    {
+        "name": "フェスタレジ",
+        "category": "Business",
+        "description": "スマホがレジに！文化祭の会計をスマートに。",
+        "icon": "icons/festapos.png",
+        "video": "",
+        "link": "https://apps.apple.com/jp/app/%E3%83%95%E3%82%A7%E3%82%B9%E3%82%BF%E3%83%AC%E3%82%B8/id6761608220",
+        "promo_link": "festapos"
     }
 ]
